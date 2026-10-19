@@ -1,0 +1,5 @@
+NAME                         IMAGE                     COMMAND                  SERVICE      CREATED      STATUS                   PORTS
+agenticqa-aut-medusa-1       agenticqa/aut-dev:local   "/bin/sh /server/doc…"   medusa       3 days ago   Up 6 minutes (healthy)   0.0.0.0:5173->5173/tcp, [::]:5173->5173/tcp, 0.0.0.0:9000->9000/tcp, [::]:9000->9000/tcp
+agenticqa-aut-postgres-1     postgres:15.14-alpine     "docker-entrypoint.s…"   postgres     3 days ago   Up 3 days (healthy)      127.0.0.1:5432->5432/tcp
+agenticqa-aut-redis-1        redis:7.4-alpine          "docker-entrypoint.s…"   redis        3 days ago   Up 3 days (healthy)      127.0.0.1:6379->6379/tcp
+agenticqa-aut-storefront-1   agenticqa/aut-dev:local   "/bin/sh /server/doc…"   storefront   3 days ago   Up 15 minutes            0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp

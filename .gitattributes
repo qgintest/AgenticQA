@@ -3,6 +3,7 @@
 *.sh text eol=lf
 Dockerfile text eol=lf
 *.png binary
+*.zip binary
 *.jpg binary
 *.ico binary
 *.woff binary

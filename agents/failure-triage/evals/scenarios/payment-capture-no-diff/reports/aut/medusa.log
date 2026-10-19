@@ -1,0 +1,121 @@
+medusa-1  | 2026-10-19T22:19:46.530499272Z [32mhttp[39m:    GET /store/customers/me?fields=%2Aorders ← - (401) - 8.985 ms
+medusa-1  | 2026-10-19T22:19:47.216841507Z [32mhttp[39m:    GET /store/locales ← - (404) - 16.136 ms
+medusa-1  | 2026-10-19T22:19:47.790693077Z [32mhttp[39m:    POST /auth/user/emailpass ← - (200) - 100.339 ms
+medusa-1  | 2026-10-19T22:19:47.819485974Z [32mhttp[39m:    GET /admin/shipping-profiles ← - (200) - 14.648 ms
+medusa-1  | 2026-10-19T22:19:47.826528060Z [32mhttp[39m:    GET /admin/sales-channels ← - (200) - 16.435 ms
+medusa-1  | 2026-10-19T22:19:47.834615134Z [32mhttp[39m:    GET /admin/stock-locations?fields=id,*sales_channels ← - (200) - 13.337 ms
+medusa-1  | 2026-10-19T22:19:47.848981030Z [32mhttp[39m:    GET /admin/api-keys?type=publishable ← - (200) - 9.657 ms
+medusa-1  | 2026-10-19T22:19:48.221281422Z [32mhttp[39m:    GET /store/customers/me?fields=%2Aorders ← - (401) - 6.734 ms
+medusa-1  | 2026-10-19T22:19:48.288126286Z [32mhttp[39m:    GET /store/locales ← - (404) - 6.177 ms
+medusa-1  | 2026-10-19T22:19:48.904294179Z [32mhttp[39m:    GET /store/customers/me?fields=%2Aorders ← - (401) - 8.146 ms
+medusa-1  | 2026-10-19T22:19:49.049725586Z [32mhttp[39m:    GET /store/locales ← - (404) - 10.033 ms
+medusa-1  | 2026-10-19T22:19:49.655722732Z [32mhttp[39m:    GET /store/customers/me?fields=%2Aorders ← - (401) - 6.502 ms
+medusa-1  | 2026-10-19T22:19:49.775277785Z [32mhttp[39m:    GET /store/locales ← - (404) - 8.350 ms
+medusa-1  | 2026-10-19T22:19:51.604520101Z [32mhttp[39m:    POST /auth/user/emailpass ← - (200) - 139.975 ms
+medusa-1  | 2026-10-19T22:19:51.713900109Z [32mhttp[39m:    GET /admin/api-keys?type=publishable ← - (200) - 32.395 ms
+medusa-1  | 2026-10-19T22:19:51.763212316Z [32mhttp[39m:    GET /admin/shipping-profiles ← - (200) - 26.614 ms
+medusa-1  | 2026-10-19T22:19:51.771097772Z [32mhttp[39m:    GET /admin/sales-channels ← - (200) - 23.602 ms
+medusa-1  | 2026-10-19T22:19:51.787801563Z [32mhttp[39m:    GET /admin/stock-locations?fields=id,*sales_channels ← - (200) - 23.213 ms
+medusa-1  | 2026-10-19T22:19:52.106055264Z [32minfo[39m:    Processing product-variant.created which has 1 subscribers
+medusa-1  | 2026-10-19T22:19:52.106810826Z [32minfo[39m:    Processing product-variant.created which has 1 subscribers
+medusa-1  | 2026-10-19T22:19:52.106867631Z [32minfo[39m:    Processing product.created which has 1 subscribers
+medusa-1  | 2026-10-19T22:19:52.141938551Z [32mhttp[39m:    POST /auth/user/emailpass ← - (200) - 216.987 ms
+medusa-1  | 2026-10-19T22:19:52.238837420Z [32mhttp[39m:    GET /admin/shipping-profiles ← - (200) - 23.365 ms
+medusa-1  | 2026-10-19T22:19:52.257164646Z [32mhttp[39m:    GET /admin/sales-channels ← - (200) - 29.810 ms
+medusa-1  | 2026-10-19T22:19:52.285283488Z [32mhttp[39m:    GET /admin/stock-locations?fields=id,*sales_channels ← - (200) - 44.400 ms
+medusa-1  | 2026-10-19T22:19:52.311833798Z [32mhttp[39m:    POST /admin/products ← - (200) - 516.478 ms
+medusa-1  | 2026-10-19T22:19:52.351588709Z [32mhttp[39m:    GET /admin/inventory-items?sku[]=AQA-BCEDC5-85949FDB-S&sku[]=AQA-BCEDC5-85949FDB-M ← - (200) - 25.267 ms
+medusa-1  | 2026-10-19T22:19:52.386266596Z [32mhttp[39m:    POST /admin/inventory-items/location-levels/batch ← - (200) - 24.628 ms
+medusa-1  | 2026-10-19T22:19:52.409645843Z [32mhttp[39m:    GET /store/regions?fields=id,name,currency_code,*countries ← - (200) - 13.532 ms
+medusa-1  | 2026-10-19T22:19:52.516755262Z [32minfo[39m:    Processing product-variant.created which has 1 subscribers
+medusa-1  | 2026-10-19T22:19:52.517291807Z [32minfo[39m:    Processing product-variant.created which has 1 subscribers
+medusa-1  | 2026-10-19T22:19:52.517470521Z [32minfo[39m:    Processing product.created which has 1 subscribers
+medusa-1  | 2026-10-19T22:19:52.700323747Z [32mhttp[39m:    POST /store/carts ← - (200) - 284.662 ms
+medusa-1  | 2026-10-19T22:19:52.714785052Z [32mhttp[39m:    POST /admin/products ← - (200) - 415.014 ms
+medusa-1  | 2026-10-19T22:19:52.741183150Z [32mhttp[39m:    GET /admin/inventory-items?sku[]=AQA-BCEDC5-238A2F9F-S&sku[]=AQA-BCEDC5-238A2F9F-M ← - (200) - 16.791 ms
+medusa-1  | 2026-10-19T22:19:52.767733160Z [32mhttp[39m:    POST /admin/inventory-items/location-levels/batch ← - (200) - 21.208 ms
+medusa-1  | 2026-10-19T22:19:52.986348064Z [32minfo[39m:    Processing product-option.deleted which has 1 subscribers
+medusa-1  | 2026-10-19T22:19:52.986386367Z [32minfo[39m:    Processing product.deleted which has 1 subscribers
+medusa-1  | 2026-10-19T22:19:52.989243705Z [32mhttp[39m:    DELETE /admin/products/prod_01M5B3ZV3YCB3JGMM6ZSP4CTAN ← - (200) - 208.795 ms
+medusa-1  | 2026-10-19T22:19:52.990165082Z [31merror[39m:   An error occurred while processing product-option.deleted:
+medusa-1  | 2026-10-19T22:19:52.991835621Z [31merror[39m:   Cannot read properties of undefined (reading 'product_id')
+medusa-1  | 2026-10-19T22:19:52.992193151Z TypeError: Cannot read properties of undefined (reading 'product_id')
+medusa-1  | 2026-10-19T22:19:52.992208552Z     at flatMap (/server/apps/backend/src/search/helpers/resolve-product-ids.ts:106:23)
+medusa-1  | 2026-10-19T22:19:52.992212253Z     at Array.flatMap (<anonymous>)
+medusa-1  | 2026-10-19T22:19:52.992215453Z     at relatedProductIds (/server/apps/backend/src/search/helpers/resolve-product-ids.ts:36:6)
+medusa-1  | 2026-10-19T22:19:52.992218453Z     at processTicksAndRejections (node:internal/process/task_queues:103:5)
+medusa-1  | 2026-10-19T22:19:52.992221953Z     at async Object.graphConsumer [as consume] (/server/node_modules/.pnpm/@medusajs+utils@2.21.2_@types+node@20.19.43_express@4.22.2/node_modules/@medusajs/utils/src/search/definition-helpers.ts:323:25)
+medusa-1  | 2026-10-19T22:19:52.992225254Z     at async ingestEvent (/server/node_modules/.pnpm/@medusajs+search@2.21.2_@medusajs+framework@2.21.2_@medusajs+cli@2.21.2_@types+node@20._c3dab7ec51687abc81db6056c805124f/node_modules/@medusajs/search/src/utils/ingestion.ts:54:23)
+medusa-1  | 2026-10-19T22:19:52.992228554Z     at async SearchModuleService.ingest (/server/node_modules/.pnpm/@medusajs+search@2.21.2_@medusajs+framework@2.21.2_@medusajs+cli@2.21.2_@types+node@20._c3dab7ec51687abc81db6056c805124f/node_modules/@medusajs/search/src/services/search-module-service.ts:415:12)
+medusa-1  | 2026-10-19T22:19:52.992231954Z     at async searchIngestionHandler (/server/node_modules/.pnpm/@medusajs+medusa@2.21.2_3c518c990e8263c44237d3ad70c868d4/node_modules/@medusajs/medusa/src/subscribers/search-ingestion.ts:17:10)
+medusa-1  | 2026-10-19T22:19:52.992250756Z     at async subscriber (/server/node_modules/.pnpm/@medusajs+framework@2.21.2_@medusajs+cli@2.21.2_@types+node@20.19.43__@types+node@20.19_7ceeef4ebbb98853f28b37d0d7ecc27d/node_modules/@medusajs/framework/src/subscribers/subscriber-loader.ts:183:16)
+medusa-1  | 2026-10-19T22:19:52.992254956Z     at async EventEmitter.wrappedSubscriber (/server/node_modules/.pnpm/@medusajs+event-bus-local@2.21.2_@medusajs+framework@2.21.2_@medusajs+cli@2.21.2_@types_9fbf1a16b518c319dda19deebcdd9104/node_modules/@medusajs/event-bus-local/src/services/event-bus-local.ts:209:9)
+medusa-1  | 2026-10-19T22:19:53.084173610Z [32mhttp[39m:    POST /store/carts/cart_01M5B3ZV8D2MVK8Y05X2HB6KZV/line-items ← - (200) - 373.457 ms
+medusa-1  | 2026-10-19T22:19:53.548521976Z [32mhttp[39m:    POST /store/carts/cart_01M5B3ZV8D2MVK8Y05X2HB6KZV ← - (200) - 452.287 ms
+medusa-1  | 2026-10-19T22:19:53.648526603Z [32mhttp[39m:    GET /store/shipping-options?cart_id=cart_01M5B3ZV8D2MVK8Y05X2HB6KZV ← - (200) - 94.614 ms
+medusa-1  | 2026-10-19T22:19:54.148546539Z [32mhttp[39m:    POST /store/carts/cart_01M5B3ZV8D2MVK8Y05X2HB6KZV/shipping-methods ← - (200) - 495.263 ms
+medusa-1  | 2026-10-19T22:19:54.221385204Z [32mhttp[39m:    POST /store/payment-collections ← - (200) - 68.113 ms
+medusa-1  | 2026-10-19T22:19:54.272748081Z [32mhttp[39m:    POST /store/payment-collections/pay_col_01M5B3ZWYCD71VHZKEWN4YGQB3/payment-sessions ← - (200) - 46.656 ms
+medusa-1  | 2026-10-19T22:19:54.653165458Z [32mhttp[39m:    POST /store/carts/cart_01M5B3ZV8D2MVK8Y05X2HB6KZV/complete ← - (200) - 374.789 ms
+medusa-1  | 2026-10-19T22:19:54.712323684Z [32mhttp[39m:    GET /admin/orders/order_01M5B3ZX4S6WQP1X7VB0BY8DY2?fields=id,display_id,status,payment_status,fulfillment_status,email,currency_code,total,item_subtotal,shipping_total,*items,*shipping_methods,*shipping_address ← - (200) - 53.444 ms
+medusa-1  | 2026-10-19T22:19:54.780549665Z [32mhttp[39m:    GET /admin/orders?q=aqa-deliberate-bcedc5-a1f9f0e9%40agenticqa.test&fields=id,display_id,status,payment_status,fulfillment_status,email,currency_code,total,item_subtotal,shipping_total,*items,*shipping_methods,*shipping_address&limit=50 ← - (200) - 51.230 ms
+medusa-1  | 2026-10-19T22:19:54.810594466Z [32mhttp[39m:    GET /admin/orders/order_01M5B3ZX4S6WQP1X7VB0BY8DY2?fields=id,display_id,status,payment_status,fulfillment_status,email,currency_code,total,item_subtotal,shipping_total,*items,*shipping_methods,*shipping_address ← - (200) - 24.015 ms
+medusa-1  | 2026-10-19T22:19:55.088752028Z [32mhttp[39m:    POST /admin/orders/order_01M5B3ZX4S6WQP1X7VB0BY8DY2/cancel ← - (200) - 273.510 ms
+medusa-1  | 2026-10-19T22:19:55.121168127Z [32mhttp[39m:    GET /admin/orders/order_01M5B3ZX4S6WQP1X7VB0BY8DY2?fields=id,display_id,status,payment_status,fulfillment_status,email,currency_code,total,item_subtotal,shipping_total,*items,*shipping_methods,*shipping_address ← - (200) - 25.960 ms
+medusa-1  | 2026-10-19T22:19:55.259736866Z [32minfo[39m:    Processing product-option.deleted which has 1 subscribers
+medusa-1  | 2026-10-19T22:19:55.259789070Z [32minfo[39m:    Processing product.deleted which has 1 subscribers
+medusa-1  | 2026-10-19T22:19:55.262245275Z [32mhttp[39m:    DELETE /admin/products/prod_01M5B3ZTM5JHCEPM0SAGF9XZKR ← - (200) - 133.627 ms
+medusa-1  | 2026-10-19T22:19:55.263107547Z [31merror[39m:   An error occurred while processing product-option.deleted:
+medusa-1  | 2026-10-19T22:19:55.264036824Z TypeError: Cannot read properties of undefined (reading 'product_id')
+medusa-1  | 2026-10-19T22:19:55.264054225Z     at flatMap (/server/apps/backend/src/search/helpers/resolve-product-ids.ts:106:23)
+medusa-1  | 2026-10-19T22:19:55.264057326Z     at Array.flatMap (<anonymous>)
+medusa-1  | 2026-10-19T22:19:55.264060226Z     at relatedProductIds (/server/apps/backend/src/search/helpers/resolve-product-ids.ts:36:6)
+medusa-1  | 2026-10-19T22:19:55.264062726Z     at processTicksAndRejections (node:internal/process/task_queues:103:5)
+medusa-1  | 2026-10-19T22:19:55.264065226Z     at async Object.graphConsumer [as consume] (/server/node_modules/.pnpm/@medusajs+utils@2.21.2_@types+node@20.19.43_express@4.22.2/node_modules/@medusajs/utils/src/search/definition-helpers.ts:323:25)
+medusa-1  | 2026-10-19T22:19:55.264071327Z     at async ingestEvent (/server/node_modules/.pnpm/@medusajs+search@2.21.2_@medusajs+framework@2.21.2_@medusajs+cli@2.21.2_@types+node@20._c3dab7ec51687abc81db6056c805124f/node_modules/@medusajs/search/src/utils/ingestion.ts:54:23)
+medusa-1  | 2026-10-19T22:19:55.264077927Z     at async SearchModuleService.ingest (/server/node_modules/.pnpm/@medusajs+search@2.21.2_@medusajs+framework@2.21.2_@medusajs+cli@2.21.2_@types+node@20._c3dab7ec51687abc81db6056c805124f/node_modules/@medusajs/search/src/services/search-module-service.ts:415:12)
+medusa-1  | 2026-10-19T22:19:55.264076927Z [31merror[39m:   Cannot read properties of undefined (reading 'product_id')
+medusa-1  | 2026-10-19T22:19:55.264088328Z     at async searchIngestionHandler (/server/node_modules/.pnpm/@medusajs+medusa@2.21.2_3c518c990e8263c44237d3ad70c868d4/node_modules/@medusajs/medusa/src/subscribers/search-ingestion.ts:17:10)
+medusa-1  | 2026-10-19T22:19:55.264137632Z     at async subscriber (/server/node_modules/.pnpm/@medusajs+framework@2.21.2_@medusajs+cli@2.21.2_@types+node@20.19.43__@types+node@20.19_7ceeef4ebbb98853f28b37d0d7ecc27d/node_modules/@medusajs/framework/src/subscribers/subscriber-loader.ts:183:16)
+medusa-1  | 2026-10-19T22:19:55.264143933Z     at async EventEmitter.wrappedSubscriber (/server/node_modules/.pnpm/@medusajs+event-bus-local@2.21.2_@medusajs+framework@2.21.2_@medusajs+cli@2.21.2_@types_9fbf1a16b518c319dda19deebcdd9104/node_modules/@medusajs/event-bus-local/src/services/event-bus-local.ts:209:9)
+medusa-1  | 2026-10-19T22:19:56.276422824Z [32mhttp[39m:    POST /auth/user/emailpass ← - (200) - 107.064 ms
+medusa-1  | 2026-10-19T22:19:56.326859924Z [32mhttp[39m:    GET /admin/api-keys?type=publishable ← - (200) - 9.664 ms
+medusa-1  | 2026-10-19T22:19:56.353957480Z [32mhttp[39m:    GET /admin/shipping-profiles ← - (200) - 9.001 ms
+medusa-1  | 2026-10-19T22:19:56.364580865Z [32mhttp[39m:    GET /admin/sales-channels ← - (200) - 9.732 ms
+medusa-1  | 2026-10-19T22:19:56.372888456Z [32mhttp[39m:    GET /admin/stock-locations?fields=id,*sales_channels ← - (200) - 12.206 ms
+medusa-1  | 2026-10-19T22:19:56.526422141Z [32minfo[39m:    Processing product-variant.created which has 1 subscribers
+medusa-1  | 2026-10-19T22:19:56.527001289Z [32minfo[39m:    Processing product-variant.created which has 1 subscribers
+medusa-1  | 2026-10-19T22:19:56.527250810Z [32minfo[39m:    Processing product.created which has 1 subscribers
+medusa-1  | 2026-10-19T22:19:56.682587044Z [32mhttp[39m:    POST /admin/products ← - (200) - 302.918 ms
+medusa-1  | 2026-10-19T22:19:56.705983393Z [32mhttp[39m:    GET /admin/inventory-items?sku[]=AQA-BCEDC5-22D02E2D-S&sku[]=AQA-BCEDC5-22D02E2D-M ← - (200) - 14.021 ms
+medusa-1  | 2026-10-19T22:19:56.724302318Z [32mhttp[39m:    POST /admin/inventory-items/location-levels/batch ← - (200) - 12.791 ms
+medusa-1  | 2026-10-19T22:19:56.752115434Z [32mhttp[39m:    GET /store/regions?fields=id,name,currency_code,*countries ← - (200) - 19.195 ms
+medusa-1  | 2026-10-19T22:19:56.902861186Z [32mhttp[39m:    POST /store/carts ← - (200) - 144.643 ms
+medusa-1  | 2026-10-19T22:19:57.128605684Z [32mhttp[39m:    POST /store/carts/cart_01M5B3ZZFN8YQMSMHV97EQKW8A/line-items ← - (200) - 220.700 ms
+medusa-1  | 2026-10-19T22:19:57.469965808Z [32mhttp[39m:    POST /store/carts/cart_01M5B3ZZFN8YQMSMHV97EQKW8A ← - (200) - 335.908 ms
+medusa-1  | 2026-10-19T22:19:57.578402838Z [32mhttp[39m:    GET /store/shipping-options?cart_id=cart_01M5B3ZZFN8YQMSMHV97EQKW8A ← - (200) - 103.427 ms
+medusa-1  | 2026-10-19T22:19:58.012177630Z [32mhttp[39m:    POST /store/carts/cart_01M5B3ZZFN8YQMSMHV97EQKW8A/shipping-methods ← - (200) - 427.741 ms
+medusa-1  | 2026-10-19T22:19:58.082451985Z [32mhttp[39m:    POST /store/payment-collections ← - (200) - 64.671 ms
+medusa-1  | 2026-10-19T22:19:58.124383861Z [32mhttp[39m:    POST /store/payment-collections/pay_col_01M5B400Q2045NGSXTAV6SGPTF/payment-sessions ← - (200) - 37.121 ms
+medusa-1  | 2026-10-19T22:19:58.460052282Z [32mhttp[39m:    POST /store/carts/cart_01M5B3ZZFN8YQMSMHV97EQKW8A/complete ← - (200) - 330.839 ms
+medusa-1  | 2026-10-19T22:19:58.503840694Z [32mhttp[39m:    GET /admin/orders/order_01M5B400WMF0JYKV5Y2EQSGR2N?fields=id,display_id,status,payment_status,fulfillment_status,email,currency_code,total,item_subtotal,shipping_total,*items,*shipping_methods,*shipping_address ← - (200) - 37.701 ms
+medusa-1  | 2026-10-19T22:19:58.569527312Z [32mhttp[39m:    GET /admin/orders?q=aqa-deliberate-bcedc5-6a6b27aa%40agenticqa.test&fields=id,display_id,status,payment_status,fulfillment_status,email,currency_code,total,item_subtotal,shipping_total,*items,*shipping_methods,*shipping_address&limit=50 ← - (200) - 49.946 ms
+medusa-1  | 2026-10-19T22:19:58.601920088Z [32mhttp[39m:    GET /admin/orders/order_01M5B400WMF0JYKV5Y2EQSGR2N?fields=id,display_id,status,payment_status,fulfillment_status,email,currency_code,total,item_subtotal,shipping_total,*items,*shipping_methods,*shipping_address ← - (200) - 27.004 ms
+medusa-1  | 2026-10-19T22:19:58.867863495Z [32mhttp[39m:    POST /admin/orders/order_01M5B400WMF0JYKV5Y2EQSGR2N/cancel ← - (200) - 260.468 ms
+medusa-1  | 2026-10-19T22:19:58.898119215Z [32mhttp[39m:    GET /admin/orders/order_01M5B400WMF0JYKV5Y2EQSGR2N?fields=id,display_id,status,payment_status,fulfillment_status,email,currency_code,total,item_subtotal,shipping_total,*items,*shipping_methods,*shipping_address ← - (200) - 25.239 ms
+medusa-1  | 2026-10-19T22:19:59.032540275Z [32minfo[39m:    Processing product-option.deleted which has 1 subscribers
+medusa-1  | 2026-10-19T22:19:59.032569177Z [32minfo[39m:    Processing product.deleted which has 1 subscribers
+medusa-1  | 2026-10-19T22:19:59.035139865Z [32mhttp[39m:    DELETE /admin/products/prod_01M5B3ZZ325T16H22QE4WHPNAC ← - (200) - 129.496 ms
+medusa-1  | 2026-10-19T22:19:59.036207344Z [31merror[39m:   An error occurred while processing product-option.deleted:
+medusa-1  | 2026-10-19T22:19:59.037509639Z [31merror[39m:   Cannot read properties of undefined (reading 'product_id')
+medusa-1  | 2026-10-19T22:19:59.037689252Z TypeError: Cannot read properties of undefined (reading 'product_id')
+medusa-1  | 2026-10-19T22:19:59.037702753Z     at flatMap (/server/apps/backend/src/search/helpers/resolve-product-ids.ts:106:23)
+medusa-1  | 2026-10-19T22:19:59.037709954Z     at Array.flatMap (<anonymous>)
+medusa-1  | 2026-10-19T22:19:59.037717854Z     at relatedProductIds (/server/apps/backend/src/search/helpers/resolve-product-ids.ts:36:6)
+medusa-1  | 2026-10-19T22:19:59.037724755Z     at processTicksAndRejections (node:internal/process/task_queues:103:5)
+medusa-1  | 2026-10-19T22:19:59.037731555Z     at async Object.graphConsumer [as consume] (/server/node_modules/.pnpm/@medusajs+utils@2.21.2_@types+node@20.19.43_express@4.22.2/node_modules/@medusajs/utils/src/search/definition-helpers.ts:323:25)
+medusa-1  | 2026-10-19T22:19:59.037741056Z     at async ingestEvent (/server/node_modules/.pnpm/@medusajs+search@2.21.2_@medusajs+framework@2.21.2_@medusajs+cli@2.21.2_@types+node@20._c3dab7ec51687abc81db6056c805124f/node_modules/@medusajs/search/src/utils/ingestion.ts:54:23)
+medusa-1  | 2026-10-19T22:19:59.037745056Z     at async SearchModuleService.ingest (/server/node_modules/.pnpm/@medusajs+search@2.21.2_@medusajs+framework@2.21.2_@medusajs+cli@2.21.2_@types+node@20._c3dab7ec51687abc81db6056c805124f/node_modules/@medusajs/search/src/services/search-module-service.ts:415:12)
+medusa-1  | 2026-10-19T22:19:59.037748157Z     at async searchIngestionHandler (/server/node_modules/.pnpm/@medusajs+medusa@2.21.2_3c518c990e8263c44237d3ad70c868d4/node_modules/@medusajs/medusa/src/subscribers/search-ingestion.ts:17:10)
+medusa-1  | 2026-10-19T22:19:59.037772958Z     at async subscriber (/server/node_modules/.pnpm/@medusajs+framework@2.21.2_@medusajs+cli@2.21.2_@types+node@20.19.43__@types+node@20.19_7ceeef4ebbb98853f28b37d0d7ecc27d/node_modules/@medusajs/framework/src/subscribers/subscriber-loader.ts:183:16)
+medusa-1  | 2026-10-19T22:19:59.037776559Z     at async EventEmitter.wrappedSubscriber (/server/node_modules/.pnpm/@medusajs+event-bus-local@2.21.2_@medusajs+framework@2.21.2_@medusajs+cli@2.21.2_@types_9fbf1a16b518c319dda19deebcdd9104/node_modules/@medusajs/event-bus-local/src/services/event-bus-local.ts:209:9)

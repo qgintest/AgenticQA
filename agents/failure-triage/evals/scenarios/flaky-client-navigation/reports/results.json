@@ -1,0 +1,211 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "/repo/automation\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--project=regression",
+      "--retries=1",
+      "--grep",
+      "side menu navigates"
+    ],
+    "configFile": "/repo/automation\\playwright.config.ts",
+    "rootDir": "/repo/automation/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "/repo/automation\\tests\\global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "storefrontUrl": "http://localhost:8000",
+      "backendUrl": "http://localhost:9000",
+      "countryCode": "dk",
+      "deliberateFailure": "off",
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/repo/automation/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "storefrontUrl": "http://localhost:8000",
+          "backendUrl": "http://localhost:9000",
+          "countryCode": "dk",
+          "deliberateFailure": "off",
+          "actualWorkers": 1
+        },
+        "id": "regression",
+        "name": "regression",
+        "testDir": "/repo/automation/tests",
+        "testIgnore": [
+          "**/diagnostics/**"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "reports/html",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "reports/junit.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "storefront\\navigation.spec.ts",
+      "file": "storefront/navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Storefront navigation",
+          "file": "storefront/navigation.spec.ts",
+          "line": 10,
+          "column": 6,
+          "specs": [
+            {
+              "title": "side menu navigates to the store listing",
+              "ok": true,
+              "tags": [
+                "ui",
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4223,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/dk\\/store/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:8000/dk\"\u001b[39m\nTimeout: 600ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 600ms\u001b[22m\n\u001b[2m    5 × locator resolved to <html lang=\"en\" data-mode=\"light\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://localhost:8000/dk\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/dk\\/store/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:8000/dk\"\u001b[39m\nTimeout: 600ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 600ms\u001b[22m\n\u001b[2m    5 × locator resolved to <html lang=\"en\" data-mode=\"light\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://localhost:8000/dk\"\u001b[22m\n\n    at /repo/automation\\tests\\storefront\\navigation.spec.ts:27:24",
+                        "location": {
+                          "file": "/repo/automation\\tests\\storefront\\navigation.spec.ts",
+                          "column": 24,
+                          "line": 27
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 25 |\u001b[39m     \u001b[36mawait\u001b[39m nav\u001b[33m.\u001b[39mopenFromMenu(\u001b[32m'Store'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(\u001b[36mnew\u001b[39m \u001b[33mRegExp\u001b[39m(\u001b[32m`/${env.countryCode}/store`\u001b[39m)\u001b[33m,\u001b[39m \u001b[33mCLIENT_NAV\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m expect(storePage\u001b[33m.\u001b[39mheading)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'All products'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m     \u001b[36mawait\u001b[39m expect(storePage\u001b[33m.\u001b[39mproductCards\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\tests\\storefront\\navigation.spec.ts",
+                            "column": 24,
+                            "line": 27
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/dk\\/store/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:8000/dk\"\u001b[39m\nTimeout: 600ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 600ms\u001b[22m\n\u001b[2m    5 × locator resolved to <html lang=\"en\" data-mode=\"light\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://localhost:8000/dk\"\u001b[22m\n\n\n  25 |     await nav.openFromMenu('Store');\n  26 |\n> 27 |     await expect(page).toHaveURL(new RegExp(`/${env.countryCode}/store`), CLIENT_NAV);\n     |                        ^\n  28 |     await expect(storePage.heading).toHaveText('All products');\n  29 |     await expect(storePage.productCards.first()).toBeVisible();\n  30 |   });\n    at /repo/automation\\tests\\storefront\\navigation.spec.ts:27:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-19T22:28:47.063Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/artifacts/test-results/storefront-navigation-Stor-676fe-igates-to-the-store-listing-regression/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/storefront-navigation-Stor-676fe-igates-to-the-store-listing-regression/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/storefront-navigation-Stor-676fe-igates-to-the-store-listing-regression/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\tests\\storefront\\navigation.spec.ts",
+                        "column": 24,
+                        "line": 27
+                      }
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4414,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-19T22:28:52.503Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "flaky"
+                }
+              ],
+              "id": "cc410da092759338b5c7-aa2f4f07986b6a4566de",
+              "file": "storefront/navigation.spec.ts",
+              "line": 22,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T22:28:42.266Z",
+    "duration": 14942.884,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 1
+  }
+}

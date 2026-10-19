@@ -1,0 +1,601 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "/repo/automation\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--project=regression",
+      "--retries=1",
+      "tests/storefront/navigation.spec.ts",
+      "tests/orders/order-lifecycle.api.spec.ts"
+    ],
+    "configFile": "/repo/automation\\playwright.config.ts",
+    "rootDir": "/repo/automation/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "/repo/automation\\tests\\global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "storefrontUrl": "http://localhost:8000",
+      "backendUrl": "http://localhost:9000",
+      "countryCode": "dk",
+      "deliberateFailure": "off",
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/repo/automation/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "storefrontUrl": "http://localhost:8000",
+          "backendUrl": "http://localhost:9000",
+          "countryCode": "dk",
+          "deliberateFailure": "off",
+          "actualWorkers": 2
+        },
+        "id": "regression",
+        "name": "regression",
+        "testDir": "/repo/automation/tests",
+        "testIgnore": [
+          "**/diagnostics/**"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "reports/html",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "reports/junit.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "orders\\order-lifecycle.api.spec.ts",
+      "file": "orders/order-lifecycle.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Order lifecycle (Store + Admin API)",
+          "file": "orders/order-lifecycle.api.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "order placed via Store API reserves stock; cancelling releases it",
+              "ok": true,
+              "tags": [
+                "api",
+                "order"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5058,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "build cart with items, contact and shipping",
+                          "duration": 1987
+                        },
+                        {
+                          "title": "pay and complete the cart",
+                          "duration": 1022
+                        },
+                        {
+                          "title": "admin sees an authorized, unfulfilled order with reserved stock",
+                          "duration": 246
+                        },
+                        {
+                          "title": "cancelling the order releases the reservation",
+                          "duration": 672
+                        }
+                      ],
+                      "startTime": "2026-10-19T22:20:50.825Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "43282397200a733fe731-dd2b605d4c03ae0d6b41",
+              "file": "orders/order-lifecycle.api.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "adding more units than are in stock is rejected",
+              "ok": true,
+              "tags": [
+                "api",
+                "order"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1334,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-19T22:20:50.832Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "43282397200a733fe731-93e4e7c53141e4252457",
+              "file": "orders/order-lifecycle.api.spec.ts",
+              "line": 75,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "storefront\\navigation.spec.ts",
+      "file": "storefront/navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Storefront navigation",
+          "file": "storefront/navigation.spec.ts",
+          "line": 10,
+          "column": 6,
+          "specs": [
+            {
+              "title": "root URL redirects to the configured country and renders the shell",
+              "ok": true,
+              "tags": [
+                "ui",
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3474,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-19T22:20:52.446Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "cc410da092759338b5c7-a8ca22386d949257038c",
+              "file": "storefront/navigation.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "side menu navigates to the store listing",
+              "ok": false,
+              "tags": [
+                "ui",
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 27378,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('products-list').getByTestId('product-wrapper').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('products-list').getByTestId('product-wrapper').first() with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('products-list').getByTestId('product-wrapper').first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('products-list').getByTestId('product-wrapper').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('products-list').getByTestId('product-wrapper').first() with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('products-list').getByTestId('product-wrapper').first()\u001b[22m\n\n    at /repo/automation\\tests\\storefront\\navigation.spec.ts:29:50",
+                        "location": {
+                          "file": "/repo/automation\\tests\\storefront\\navigation.spec.ts",
+                          "column": 50,
+                          "line": 29
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 27 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(\u001b[36mnew\u001b[39m \u001b[33mRegExp\u001b[39m(\u001b[32m`/${env.countryCode}/store`\u001b[39m)\u001b[33m,\u001b[39m \u001b[33mCLIENT_NAV\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m expect(storePage\u001b[33m.\u001b[39mheading)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'All products'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 29 |\u001b[39m     \u001b[36mawait\u001b[39m expect(storePage\u001b[33m.\u001b[39mproductCards\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 30 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m\n \u001b[90m 32 |\u001b[39m   test(\u001b[32m'cart link opens an empty cart for a new visitor'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page\u001b[33m,\u001b[39m nav\u001b[33m,\u001b[39m cartPage }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\tests\\storefront\\navigation.spec.ts",
+                            "column": 50,
+                            "line": 29
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('products-list').getByTestId('product-wrapper').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('products-list').getByTestId('product-wrapper').first() with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('products-list').getByTestId('product-wrapper').first()\u001b[22m\n\n\n  27 |     await expect(page).toHaveURL(new RegExp(`/${env.countryCode}/store`), CLIENT_NAV);\n  28 |     await expect(storePage.heading).toHaveText('All products');\n> 29 |     await expect(storePage.productCards.first()).toBeVisible();\n     |                                                  ^\n  30 |   });\n  31 |\n  32 |   test('cart link opens an empty cart for a new visitor', async ({ page, nav, cartPage }) => {\n    at /repo/automation\\tests\\storefront\\navigation.spec.ts:29:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-19T22:20:56.100Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/artifacts/test-results/storefront-navigation-Stor-676fe-igates-to-the-store-listing-regression/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/storefront-navigation-Stor-676fe-igates-to-the-store-listing-regression/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/storefront-navigation-Stor-676fe-igates-to-the-store-listing-regression/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\tests\\storefront\\navigation.spec.ts",
+                        "column": 50,
+                        "line": 29
+                      }
+                    },
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 26989,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('products-list').getByTestId('product-wrapper').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('products-list').getByTestId('product-wrapper').first() with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('products-list').getByTestId('product-wrapper').first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('products-list').getByTestId('product-wrapper').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('products-list').getByTestId('product-wrapper').first() with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('products-list').getByTestId('product-wrapper').first()\u001b[22m\n\n    at /repo/automation\\tests\\storefront\\navigation.spec.ts:29:50",
+                        "location": {
+                          "file": "/repo/automation\\tests\\storefront\\navigation.spec.ts",
+                          "column": 50,
+                          "line": 29
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 27 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(\u001b[36mnew\u001b[39m \u001b[33mRegExp\u001b[39m(\u001b[32m`/${env.countryCode}/store`\u001b[39m)\u001b[33m,\u001b[39m \u001b[33mCLIENT_NAV\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m expect(storePage\u001b[33m.\u001b[39mheading)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'All products'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 29 |\u001b[39m     \u001b[36mawait\u001b[39m expect(storePage\u001b[33m.\u001b[39mproductCards\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 30 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m\n \u001b[90m 32 |\u001b[39m   test(\u001b[32m'cart link opens an empty cart for a new visitor'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page\u001b[33m,\u001b[39m nav\u001b[33m,\u001b[39m cartPage }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\tests\\storefront\\navigation.spec.ts",
+                            "column": 50,
+                            "line": 29
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('products-list').getByTestId('product-wrapper').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('products-list').getByTestId('product-wrapper').first() with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('products-list').getByTestId('product-wrapper').first()\u001b[22m\n\n\n  27 |     await expect(page).toHaveURL(new RegExp(`/${env.countryCode}/store`), CLIENT_NAV);\n  28 |     await expect(storePage.heading).toHaveText('All products');\n> 29 |     await expect(storePage.productCards.first()).toBeVisible();\n     |                                                  ^\n  30 |   });\n  31 |\n  32 |   test('cart link opens an empty cart for a new visitor', async ({ page, nav, cartPage }) => {\n    at /repo/automation\\tests\\storefront\\navigation.spec.ts:29:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-19T22:21:25.099Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/artifacts/test-results/storefront-navigation-Stor-676fe-igates-to-the-store-listing-regression-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/storefront-navigation-Stor-676fe-igates-to-the-store-listing-regression-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/storefront-navigation-Stor-676fe-igates-to-the-store-listing-regression-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\tests\\storefront\\navigation.spec.ts",
+                        "column": 50,
+                        "line": 29
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cc410da092759338b5c7-aa2f4f07986b6a4566de",
+              "file": "storefront/navigation.spec.ts",
+              "line": 22,
+              "column": 7
+            },
+            {
+              "title": "cart link opens an empty cart for a new visitor",
+              "ok": true,
+              "tags": [
+                "ui",
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 19794,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-19T22:20:56.168Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "cc410da092759338b5c7-0fae7773b00b73fc214a",
+              "file": "storefront/navigation.spec.ts",
+              "line": 32,
+              "column": 7
+            },
+            {
+              "title": "account link leads to the sign-in page for an anonymous visitor",
+              "ok": true,
+              "tags": [
+                "ui",
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 17123,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-19T22:21:16.232Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "cc410da092759338b5c7-2c4e61a640f0a7b89153",
+              "file": "storefront/navigation.spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "unknown product handle returns the 404 page",
+              "ok": false,
+              "tags": [
+                "ui",
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 10935,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /repo/automation\\tests\\storefront\\navigation.spec.ts:54:32",
+                        "location": {
+                          "file": "/repo/automation\\tests\\storefront\\navigation.spec.ts",
+                          "column": 32,
+                          "line": 54
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 52 |\u001b[39m     \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`/${env.countryCode}/products/aqa-does-not-exist-${Date.now()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 53 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 54 |\u001b[39m     expect(response\u001b[33m?\u001b[39m\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m404\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 55 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Page not found'\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 56 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 57 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\tests\\storefront\\navigation.spec.ts",
+                            "column": 32,
+                            "line": 54
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n  52 |     const response = await page.goto(`/${env.countryCode}/products/aqa-does-not-exist-${Date.now()}`);\n  53 |\n> 54 |     expect(response?.status()).toBe(404);\n     |                                ^\n  55 |     await expect(page.getByRole('heading', { name: 'Page not found' })).toBeVisible();\n  56 |   });\n  57 | });\n    at /repo/automation\\tests\\storefront\\navigation.spec.ts:54:32"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-19T22:21:33.386Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/artifacts/test-results/storefront-navigation-Stor-fabba-handle-returns-the-404-page-regression/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/storefront-navigation-Stor-fabba-handle-returns-the-404-page-regression/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/storefront-navigation-Stor-fabba-handle-returns-the-404-page-regression/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\tests\\storefront\\navigation.spec.ts",
+                        "column": 32,
+                        "line": 54
+                      }
+                    },
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8578,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at /repo/automation\\tests\\storefront\\navigation.spec.ts:54:32",
+                        "location": {
+                          "file": "/repo/automation\\tests\\storefront\\navigation.spec.ts",
+                          "column": 32,
+                          "line": 54
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 52 |\u001b[39m     \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`/${env.countryCode}/products/aqa-does-not-exist-${Date.now()}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 53 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 54 |\u001b[39m     expect(response\u001b[33m?\u001b[39m\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m404\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 55 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Page not found'\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 56 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 57 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\tests\\storefront\\navigation.spec.ts",
+                            "column": 32,
+                            "line": 54
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n  52 |     const response = await page.goto(`/${env.countryCode}/products/aqa-does-not-exist-${Date.now()}`);\n  53 |\n> 54 |     expect(response?.status()).toBe(404);\n     |                                ^\n  55 |     await expect(page.getByRole('heading', { name: 'Page not found' })).toBeVisible();\n  56 |   });\n  57 | });\n    at /repo/automation\\tests\\storefront\\navigation.spec.ts:54:32"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-19T22:21:45.791Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/artifacts/test-results/storefront-navigation-Stor-fabba-handle-returns-the-404-page-regression-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/storefront-navigation-Stor-fabba-handle-returns-the-404-page-regression-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/storefront-navigation-Stor-fabba-handle-returns-the-404-page-regression-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\tests\\storefront\\navigation.spec.ts",
+                        "column": 32,
+                        "line": 54
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cc410da092759338b5c7-edfe00a3c25166149966",
+              "file": "storefront/navigation.spec.ts",
+              "line": 51,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T22:20:45.678Z",
+    "duration": 69123.541,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

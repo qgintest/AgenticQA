@@ -1,0 +1,9 @@
+{
+  "description": "Test-maintenance failure: the shared ProductPage page object was changed to getByTestId('add-bag-button'), but the storefront renders data-testid=\"add-product-button\". Every test that touches the add-to-cart button fails with \"element(s) not found\" on both attempts; the application did not change.",
+  "source": "Local run against the Docker AUT with commit 50c7b14's page-object change applied temporarily (reverted afterwards), regression project with --retries=1. changes.diff is git diff 9a79f58..50c7b14 (only automation/src/pages/product-page.ts) in the CI step's format.",
+  "diff": "relevant",
+  "injection": null,
+  "tests": [
+    { "title": "*", "expected": "automation_defect", "acceptable": [], "evidenceKinds": ["changes", "page_state"] }
+  ]
+}

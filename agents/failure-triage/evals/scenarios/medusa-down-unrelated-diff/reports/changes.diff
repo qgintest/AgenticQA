@@ -1,0 +1,17 @@
+# base: pull request base c041e5006d453711e8fc4690186dd01533fbe9f0
+# head: working tree
+# files:
+# M	aut/apps/storefront/src/modules/layout/templates/footer/index.tsx
+diff --git a/aut/apps/storefront/src/modules/layout/templates/footer/index.tsx b/aut/apps/storefront/src/modules/layout/templates/footer/index.tsx
+index 24deccc..7a1fdbc 100644
+--- a/aut/apps/storefront/src/modules/layout/templates/footer/index.tsx
++++ b/aut/apps/storefront/src/modules/layout/templates/footer/index.tsx
+@@ -147,7 +147,7 @@ export default async function Footer() {
+         </div>
+         <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
+           <Text className="txt-compact-small">
+-            © {new Date().getFullYear()} Medusa Store. All rights reserved.
++            © {new Date().getFullYear()} AgenticQA Store. All rights reserved.
+           </Text>
+           <MedusaCTA />
+         </div>

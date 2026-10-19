@@ -14,7 +14,9 @@
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "npm run build && node --test \"dist/test/**/*.test.js\"",
-    "triage": "node dist/src/cli.js"
+    "triage": "node dist/src/cli.js",
+    "eval": "npm run build && node dist/evals/run.js",
+    "eval:capture": "npm run build && node dist/evals/capture.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "0.131.0"

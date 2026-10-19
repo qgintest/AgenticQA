@@ -1,0 +1,1747 @@
+storefront-1  | 2026-10-19T22:20:46.088362910Z Performing request to:
+storefront-1  | 2026-10-19T22:20:46.088411814Z  URL: http://medusa:9000/store/collections?fields=id%2C%20handle%2C%20title&limit=100&offset=0
+storefront-1  | 2026-10-19T22:20:46.088443217Z  Headers: {
+storefront-1  | 2026-10-19T22:20:46.088447517Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:46.088450518Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:46.088453418Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:46.088456518Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:46.088459618Z }
+storefront-1  | 2026-10-19T22:20:46.088478220Z 
+storefront-1  | 2026-10-19T22:20:46.089709220Z Performing request to:
+storefront-1  | 2026-10-19T22:20:46.089723221Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:20:46.089727222Z  Headers: {
+storefront-1  | 2026-10-19T22:20:46.089729922Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:46.089736222Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:46.089740023Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:46.089743023Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:46.089779726Z }
+storefront-1  | 2026-10-19T22:20:46.089784826Z 
+storefront-1  | 2026-10-19T22:20:46.092370937Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:46.092386538Z 
+storefront-1  | 2026-10-19T22:20:46.117179559Z Performing request to:
+storefront-1  | 2026-10-19T22:20:46.117224162Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:20:46.117228963Z  Headers: {
+storefront-1  | 2026-10-19T22:20:46.117231663Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:46.117234563Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:46.117237663Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:46.117240764Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:46.117254265Z }
+storefront-1  | 2026-10-19T22:20:46.117256965Z 
+storefront-1  | 2026-10-19T22:20:46.118273848Z Performing request to:
+storefront-1  | 2026-10-19T22:20:46.118287349Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:20:46.118291149Z  Headers: {
+storefront-1  | 2026-10-19T22:20:46.118294150Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:46.118297450Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:46.118300450Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:46.118308151Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:46.118311651Z }
+storefront-1  | 2026-10-19T22:20:46.118314351Z 
+storefront-1  | 2026-10-19T22:20:46.119359436Z Performing request to:
+storefront-1  | 2026-10-19T22:20:46.119380538Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:20:46.119388339Z  Headers: {
+storefront-1  | 2026-10-19T22:20:46.119409040Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:46.119413641Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:46.119429042Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:46.119443443Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:46.119447444Z }
+storefront-1  | 2026-10-19T22:20:46.119449844Z 
+storefront-1  | 2026-10-19T22:20:46.120678844Z Performing request to:
+storefront-1  | 2026-10-19T22:20:46.120688645Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:20:46.120692345Z  Headers: {
+storefront-1  | 2026-10-19T22:20:46.120695245Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:46.120698245Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:46.120701246Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:46.120704646Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:46.120707846Z }
+storefront-1  | 2026-10-19T22:20:46.120710546Z 
+storefront-1  | 2026-10-19T22:20:46.124604964Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:46.124632066Z 
+storefront-1  | 2026-10-19T22:20:46.126602827Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:46.126634629Z 
+storefront-1  | 2026-10-19T22:20:46.128498781Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:46.128518383Z 
+storefront-1  | 2026-10-19T22:20:46.129731882Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:46.129742783Z 
+storefront-1  | 2026-10-19T22:20:46.134439065Z Performing request to:
+storefront-1  | 2026-10-19T22:20:46.134463667Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNXQBCMJWW74N826YZ
+storefront-1  | 2026-10-19T22:20:46.134476068Z  Headers: {
+storefront-1  | 2026-10-19T22:20:46.134484069Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:46.134491169Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:46.134494670Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:46.134498770Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:46.134506071Z }
+storefront-1  | 2026-10-19T22:20:46.134511471Z 
+storefront-1  | 2026-10-19T22:20:46.138263577Z Performing request to:
+storefront-1  | 2026-10-19T22:20:46.138291279Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNB067PG2KDAKGMW04
+storefront-1  | 2026-10-19T22:20:46.138296780Z  Headers: {
+storefront-1  | 2026-10-19T22:20:46.138299680Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:46.138302680Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:46.138319081Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:46.138323182Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:46.138326282Z }
+storefront-1  | 2026-10-19T22:20:46.138328882Z 
+storefront-1  | 2026-10-19T22:20:46.142082288Z Performing request to:
+storefront-1  | 2026-10-19T22:20:46.142114191Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP06KY11HGCFQ61ZEH
+storefront-1  | 2026-10-19T22:20:46.142119991Z  Headers: {
+storefront-1  | 2026-10-19T22:20:46.142122791Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:46.142125992Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:46.142128892Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:46.142132092Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:46.142135292Z }
+storefront-1  | 2026-10-19T22:20:46.142138093Z 
+storefront-1  | 2026-10-19T22:20:46.145023928Z Performing request to:
+storefront-1  | 2026-10-19T22:20:46.145048630Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP5N4JPC7MJTYGB0AH
+storefront-1  | 2026-10-19T22:20:46.145054230Z  Headers: {
+storefront-1  | 2026-10-19T22:20:46.145057031Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:46.145060031Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:46.145062831Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:46.145066031Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:46.145068932Z }
+storefront-1  | 2026-10-19T22:20:46.145071332Z 
+storefront-1  | 2026-10-19T22:20:46.146514249Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:46.146533051Z 
+storefront-1  | 2026-10-19T22:20:46.156770585Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:46.156805488Z 
+storefront-1  | 2026-10-19T22:20:46.163984673Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:46.164114884Z 
+storefront-1  | 2026-10-19T22:20:46.167850688Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:46.167877490Z 
+storefront-1  | 2026-10-19T22:20:46.289624212Z Received response with status 401
+storefront-1  | 2026-10-19T22:20:46.289648514Z 
+storefront-1  | 2026-10-19T22:20:46.417924867Z Performing request to:
+storefront-1  | 2026-10-19T22:20:46.417958670Z  URL: http://medusa:9000/store/regions
+storefront-1  | 2026-10-19T22:20:46.417961570Z  Headers: {
+storefront-1  | 2026-10-19T22:20:46.417963470Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:46.417965371Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:46.417967371Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:46.417979072Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:46.417981672Z }
+storefront-1  | 2026-10-19T22:20:46.417983172Z 
+storefront-1  | 2026-10-19T22:20:46.419474794Z Performing request to:
+storefront-1  | 2026-10-19T22:20:46.419502696Z  URL: http://medusa:9000/store/locales
+storefront-1  | 2026-10-19T22:20:46.419507696Z  Headers: {
+storefront-1  | 2026-10-19T22:20:46.419510396Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:46.419513697Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:46.419516697Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:46.419523598Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:46.419527898Z }
+storefront-1  | 2026-10-19T22:20:46.419530098Z 
+storefront-1  | 2026-10-19T22:20:46.420999918Z Performing request to:
+storefront-1  | 2026-10-19T22:20:46.421022020Z  URL: http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0
+storefront-1  | 2026-10-19T22:20:46.421025720Z  Headers: {
+storefront-1  | 2026-10-19T22:20:46.421028120Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:46.421034721Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:46.421038121Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:46.421040021Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:46.421041821Z }
+storefront-1  | 2026-10-19T22:20:46.421043321Z 
+storefront-1  | 2026-10-19T22:20:46.427291731Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:46.427323933Z 
+storefront-1  | 2026-10-19T22:20:46.428436024Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:46.428446625Z 
+storefront-1  | 2026-10-19T22:20:46.432684270Z Performing request to:
+storefront-1  | 2026-10-19T22:20:46.432708472Z  URL: http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100
+storefront-1  | 2026-10-19T22:20:46.432714172Z  Headers: {
+storefront-1  | 2026-10-19T22:20:46.432716973Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:46.432720373Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:46.432723473Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:46.432726673Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:46.432729774Z }
+storefront-1  | 2026-10-19T22:20:46.432734374Z 
+storefront-1  | 2026-10-19T22:20:46.436743501Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:46.436772603Z 
+storefront-1  | 2026-10-19T22:20:46.835773219Z Received response with status 404
+storefront-1  | 2026-10-19T22:20:46.835808722Z 
+storefront-1  | 2026-10-19T22:20:46.847321360Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:20:46.847382265Z  {
+storefront-1  | 2026-10-19T22:20:46.847389665Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:46.847393266Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:46.847396266Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:46.847398966Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:46.847402366Z }
+storefront-1  | 2026-10-19T22:20:46.847404967Z 
+storefront-1  | 2026-10-19T22:20:47.374071186Z  GET /dk 200 in 1560ms
+storefront-1  | 2026-10-19T22:20:47.374111089Z  │ GET http://medusa:9000/store/collections?fields=id%2C%20handle%2C%20title&limit=100&offset=0 200 in 3ms (cache hit)
+storefront-1  | 2026-10-19T22:20:47.374118790Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 6ms (cache hit)
+storefront-1  | 2026-10-19T22:20:47.374122190Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 6ms (cache hit)
+storefront-1  | 2026-10-19T22:20:47.374125591Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 6ms (cache hit)
+storefront-1  | 2026-10-19T22:20:47.374128591Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 7ms (cache hit)
+storefront-1  | 2026-10-19T22:20:47.374131391Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNXQBCMJWW74N826YZ 200 in 6ms (cache hit)
+storefront-1  | 2026-10-19T22:20:47.374136491Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNB067PG2KDAKGMW04 200 in 6ms (cache hit)
+storefront-1  | 2026-10-19T22:20:47.374139692Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP06KY11HGCFQ61ZEH 200 in 6ms (cache hit)
+storefront-1  | 2026-10-19T22:20:47.374142592Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP5N4JPC7MJTYGB0AH 200 in 14ms (cache hit)
+storefront-1  | 2026-10-19T22:20:47.374145992Z  │ GET http://medusa:9000/store/customers/me?fields=%2Aorders 401 in 199ms (cache skip)
+storefront-1  | 2026-10-19T22:20:47.374148592Z  │ │ Cache skipped reason: (cache-control: no-cache (hard refresh))
+storefront-1  | 2026-10-19T22:20:47.374151293Z  │ GET http://medusa:9000/store/regions 200 in 8ms (cache hit)
+storefront-1  | 2026-10-19T22:20:47.374154193Z  │ GET http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0 200 in 5ms (cache hit)
+storefront-1  | 2026-10-19T22:20:47.374157493Z  │ GET http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100 200 in 3ms (cache hit)
+storefront-1  | 2026-10-19T22:20:47.374164594Z  │ GET http://medusa:9000/store/locales 404 in 415ms (cache skip)
+storefront-1  | 2026-10-19T22:20:47.374167994Z  │ │ Cache skipped reason: (cache-control: no-cache (hard refresh))
+storefront-1  | 2026-10-19T22:20:47.920288399Z Performing request to:
+storefront-1  | 2026-10-19T22:20:47.920338303Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:20:47.920343903Z  Headers: {
+storefront-1  | 2026-10-19T22:20:47.920346803Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:47.920363305Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:47.920371806Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:47.920375906Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:47.920379206Z }
+storefront-1  | 2026-10-19T22:20:47.920381906Z 
+storefront-1  | 2026-10-19T22:20:47.934801481Z Received response with status 401
+storefront-1  | 2026-10-19T22:20:47.934831784Z 
+storefront-1  | 2026-10-19T22:20:47.960064940Z Performing request to:
+storefront-1  | 2026-10-19T22:20:47.960097043Z  URL: http://medusa:9000/store/regions
+storefront-1  | 2026-10-19T22:20:47.960103943Z  Headers: {
+storefront-1  | 2026-10-19T22:20:47.960112444Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:47.960116044Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:47.960118945Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:47.960121845Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:47.960124845Z }
+storefront-1  | 2026-10-19T22:20:47.960127145Z 
+storefront-1  | 2026-10-19T22:20:47.965838111Z Performing request to:
+storefront-1  | 2026-10-19T22:20:47.965871613Z  URL: http://medusa:9000/store/locales
+storefront-1  | 2026-10-19T22:20:47.965879014Z  Headers: {
+storefront-1  | 2026-10-19T22:20:47.965881814Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:47.965884714Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:47.965887515Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:47.965890315Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:47.965893515Z }
+storefront-1  | 2026-10-19T22:20:47.965895915Z 
+storefront-1  | 2026-10-19T22:20:47.970695807Z Performing request to:
+storefront-1  | 2026-10-19T22:20:47.970727409Z  URL: http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0
+storefront-1  | 2026-10-19T22:20:47.970732810Z  Headers: {
+storefront-1  | 2026-10-19T22:20:47.970735610Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:47.970738610Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:47.970741410Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:47.970744611Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:47.970769913Z }
+storefront-1  | 2026-10-19T22:20:47.970774913Z 
+storefront-1  | 2026-10-19T22:20:47.977811786Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:47.977843189Z 
+storefront-1  | 2026-10-19T22:20:47.978887374Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:47.978897475Z 
+storefront-1  | 2026-10-19T22:20:47.982006328Z Performing request to:
+storefront-1  | 2026-10-19T22:20:47.982025930Z  URL: http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100
+storefront-1  | 2026-10-19T22:20:47.982030930Z  Headers: {
+storefront-1  | 2026-10-19T22:20:47.982033630Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:47.982036631Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:47.982042631Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:47.982047132Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:47.982049232Z }
+storefront-1  | 2026-10-19T22:20:47.982050732Z 
+storefront-1  | 2026-10-19T22:20:47.984253911Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:47.984279013Z 
+storefront-1  | 2026-10-19T22:20:48.034659919Z Received response with status 404
+storefront-1  | 2026-10-19T22:20:48.034698222Z 
+storefront-1  | 2026-10-19T22:20:48.141593533Z  GET /dk/store 200 in 549ms
+storefront-1  | 2026-10-19T22:20:48.141626236Z  │ GET http://medusa:9000/store/customers/me?fields=%2Aorders 401 in 14ms (cache skip)
+storefront-1  | 2026-10-19T22:20:48.141632437Z  │ │ Cache skipped reason: (cache-control: no-cache (hard refresh))
+storefront-1  | 2026-10-19T22:20:48.141636337Z  │ GET http://medusa:9000/store/regions 200 in 14ms (cache hit)
+storefront-1  | 2026-10-19T22:20:48.141639737Z  │ GET http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0 200 in 4ms (cache hit)
+storefront-1  | 2026-10-19T22:20:48.141643738Z  │ GET http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100 200 in 2ms (cache hit)
+storefront-1  | 2026-10-19T22:20:48.141648538Z  │ GET http://medusa:9000/store/locales 404 in 68ms (cache skip)
+storefront-1  | 2026-10-19T22:20:48.141651338Z  │ │ Cache skipped reason: (cache-control: no-cache (hard refresh))
+storefront-1  | 2026-10-19T22:20:48.534579959Z Performing request to:
+storefront-1  | 2026-10-19T22:20:48.534650865Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:20:48.534664166Z  Headers: {
+storefront-1  | 2026-10-19T22:20:48.534672967Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:48.534676667Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:48.534680067Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:48.534683567Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:48.534687068Z }
+storefront-1  | 2026-10-19T22:20:48.534689768Z 
+storefront-1  | 2026-10-19T22:20:48.539003519Z Performing request to:
+storefront-1  | 2026-10-19T22:20:48.539035922Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:20:48.539042023Z  Headers: {
+storefront-1  | 2026-10-19T22:20:48.539060224Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:48.539094527Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:48.539099927Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:48.539103128Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:48.539106228Z }
+storefront-1  | 2026-10-19T22:20:48.539108828Z 
+storefront-1  | 2026-10-19T22:20:48.555261344Z Received response with status 401
+storefront-1  | 2026-10-19T22:20:48.555295747Z 
+storefront-1  | 2026-10-19T22:20:48.584868557Z Performing request to:
+storefront-1  | 2026-10-19T22:20:48.584899560Z  URL: http://medusa:9000/store/regions
+storefront-1  | 2026-10-19T22:20:48.584904260Z  Headers: {
+storefront-1  | 2026-10-19T22:20:48.584907460Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:48.584910560Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:48.584913461Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:48.584916761Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:48.584920161Z }
+storefront-1  | 2026-10-19T22:20:48.584923062Z 
+storefront-1  | 2026-10-19T22:20:48.587050135Z Performing request to:
+storefront-1  | 2026-10-19T22:20:48.587080437Z  URL: http://medusa:9000/store/locales
+storefront-1  | 2026-10-19T22:20:48.587084238Z  Headers: {
+storefront-1  | 2026-10-19T22:20:48.587086538Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:48.587089138Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:48.587091738Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:48.587094538Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:48.587097439Z }
+storefront-1  | 2026-10-19T22:20:48.587099639Z 
+storefront-1  | 2026-10-19T22:20:48.588946989Z Performing request to:
+storefront-1  | 2026-10-19T22:20:48.588958290Z  URL: http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0
+storefront-1  | 2026-10-19T22:20:48.588963791Z  Headers: {
+storefront-1  | 2026-10-19T22:20:48.588966591Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:48.588969291Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:48.588972091Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:48.588974992Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:48.588977892Z }
+storefront-1  | 2026-10-19T22:20:48.588980392Z 
+storefront-1  | 2026-10-19T22:20:48.600318516Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:48.600351419Z 
+storefront-1  | 2026-10-19T22:20:48.601749033Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:48.601764234Z 
+storefront-1  | 2026-10-19T22:20:48.605388629Z Performing request to:
+storefront-1  | 2026-10-19T22:20:48.605442234Z  URL: http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100
+storefront-1  | 2026-10-19T22:20:48.605447534Z  Headers: {
+storefront-1  | 2026-10-19T22:20:48.605449334Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:48.605451134Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:48.605452935Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:48.605455035Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:48.605456935Z }
+storefront-1  | 2026-10-19T22:20:48.605458535Z 
+storefront-1  | 2026-10-19T22:20:48.607992542Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:48.608024544Z 
+storefront-1  | 2026-10-19T22:20:48.612076174Z Received response with status 401
+storefront-1  | 2026-10-19T22:20:48.612101576Z 
+storefront-1  | 2026-10-19T22:20:48.616473033Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:20:48.616504735Z  {
+storefront-1  | 2026-10-19T22:20:48.616509736Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:48.616512836Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:48.616516036Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:48.616519236Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:48.616522737Z }
+storefront-1  | 2026-10-19T22:20:48.616525537Z 
+storefront-1  | 2026-10-19T22:20:48.713171913Z Received response with status 404
+storefront-1  | 2026-10-19T22:20:48.713207816Z 
+storefront-1  | 2026-10-19T22:20:48.903425617Z  GET /dk/cart 200 in 716ms
+storefront-1  | 2026-10-19T22:20:48.903462720Z  │ GET http://medusa:9000/store/customers/me?fields=%2Aorders 401 in 18ms (cache skip)
+storefront-1  | 2026-10-19T22:20:48.903482222Z  │ │ Cache skipped reason: (cache-control: no-cache (hard refresh))
+storefront-1  | 2026-10-19T22:20:48.903484622Z  │ GET http://medusa:9000/store/regions 200 in 10ms (cache hit)
+storefront-1  | 2026-10-19T22:20:48.903486522Z  │ GET http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0 200 in 6ms (cache hit)
+storefront-1  | 2026-10-19T22:20:48.903488922Z  │ GET http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100 200 in 2ms (cache hit)
+storefront-1  | 2026-10-19T22:20:48.903491022Z  │ GET http://medusa:9000/store/customers/me?fields=%2Aorders 401 in 73ms (cache skip)
+storefront-1  | 2026-10-19T22:20:48.903493523Z  │ │ Cache skipped reason: (cache-control: no-cache (hard refresh))
+storefront-1  | 2026-10-19T22:20:48.903496523Z  │ GET http://medusa:9000/store/locales 404 in 125ms (cache skip)
+storefront-1  | 2026-10-19T22:20:48.903499423Z  │ │ Cache skipped reason: (cache-control: no-cache (hard refresh))
+storefront-1  | 2026-10-19T22:20:49.272660807Z Performing request to:
+storefront-1  | 2026-10-19T22:20:49.272708411Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:20:49.272713011Z  Headers: {
+storefront-1  | 2026-10-19T22:20:49.272715712Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:49.272718612Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:49.272721212Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:49.272724012Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:49.272727112Z }
+storefront-1  | 2026-10-19T22:20:49.272729513Z 
+storefront-1  | 2026-10-19T22:20:49.275101906Z Performing request to:
+storefront-1  | 2026-10-19T22:20:49.275133809Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price%2C%2Bvariants.inventory_quantity%2C%2Avariants.images%2C%2Avariants.options%2C%2Bmetadata%2C%2Btags%2C&handle=__aqa-warmup__
+storefront-1  | 2026-10-19T22:20:49.275138609Z  Headers: {
+storefront-1  | 2026-10-19T22:20:49.275141209Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:49.275143909Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:49.275146510Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:49.275149410Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:49.275152210Z }
+storefront-1  | 2026-10-19T22:20:49.275154710Z 
+storefront-1  | 2026-10-19T22:20:49.276655233Z Performing request to:
+storefront-1  | 2026-10-19T22:20:49.276674634Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price%2C%2Bvariants.inventory_quantity%2C%2Avariants.images%2C%2Avariants.options%2C%2Bmetadata%2C%2Btags%2C&handle=__aqa-warmup__
+storefront-1  | 2026-10-19T22:20:49.276678334Z  Headers: {
+storefront-1  | 2026-10-19T22:20:49.276680035Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:49.276681935Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:49.276683635Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:49.276685535Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:49.276687235Z }
+storefront-1  | 2026-10-19T22:20:49.276688735Z 
+storefront-1  | 2026-10-19T22:20:49.281716045Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:49.281748048Z 
+storefront-1  | 2026-10-19T22:20:49.283689006Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:49.283720308Z 
+storefront-1  | 2026-10-19T22:20:49.310550195Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:20:49.310588798Z  {
+storefront-1  | 2026-10-19T22:20:49.310594598Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:49.310597899Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:49.310600799Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:49.310645603Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:49.310657003Z }
+storefront-1  | 2026-10-19T22:20:49.310660204Z 
+storefront-1  | 2026-10-19T22:20:49.335859957Z Received response with status 401
+storefront-1  | 2026-10-19T22:20:49.336244289Z 
+storefront-1  | 2026-10-19T22:20:49.356093706Z Performing request to:
+storefront-1  | 2026-10-19T22:20:49.356129509Z  URL: http://medusa:9000/store/regions
+storefront-1  | 2026-10-19T22:20:49.356137110Z  Headers: {
+storefront-1  | 2026-10-19T22:20:49.356140610Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:49.356143610Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:49.356146310Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:49.356149411Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:49.356153211Z }
+storefront-1  | 2026-10-19T22:20:49.356156711Z 
+storefront-1  | 2026-10-19T22:20:49.358015763Z Performing request to:
+storefront-1  | 2026-10-19T22:20:49.358035164Z  URL: http://medusa:9000/store/locales
+storefront-1  | 2026-10-19T22:20:49.358039365Z  Headers: {
+storefront-1  | 2026-10-19T22:20:49.358042065Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:49.358044965Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:49.358047865Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:49.358053066Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:49.358062567Z }
+storefront-1  | 2026-10-19T22:20:49.358066167Z 
+storefront-1  | 2026-10-19T22:20:49.360004925Z Performing request to:
+storefront-1  | 2026-10-19T22:20:49.360028627Z  URL: http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0
+storefront-1  | 2026-10-19T22:20:49.360032527Z  Headers: {
+storefront-1  | 2026-10-19T22:20:49.360035227Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:49.360037928Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:49.360040628Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:49.360043328Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:49.360046028Z }
+storefront-1  | 2026-10-19T22:20:49.360048328Z 
+storefront-1  | 2026-10-19T22:20:49.372248923Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:49.372293126Z 
+storefront-1  | 2026-10-19T22:20:49.373417718Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:49.373429919Z 
+storefront-1  | 2026-10-19T22:20:49.376764591Z Performing request to:
+storefront-1  | 2026-10-19T22:20:49.376787893Z  URL: http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100
+storefront-1  | 2026-10-19T22:20:49.376791193Z  Headers: {
+storefront-1  | 2026-10-19T22:20:49.376792993Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:49.376806794Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:49.376808794Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:49.376810794Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:49.376812595Z }
+storefront-1  | 2026-10-19T22:20:49.376814195Z 
+storefront-1  | 2026-10-19T22:20:49.378874563Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:49.378890764Z 
+storefront-1  | 2026-10-19T22:20:49.476806343Z Received response with status 404
+storefront-1  | 2026-10-19T22:20:49.476837246Z 
+storefront-1  | 2026-10-19T22:20:49.562446122Z  GET /dk/products/__aqa-warmup__ 404 in 616ms
+storefront-1  | 2026-10-19T22:20:49.562714644Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price%2C%2Bvariants.inventory_quantity%2C%2Avariants.images%2C%2Avariants.options%2C%2Bmetadata%2C%2Btags%2C&handle=__aqa-warmup__ 200 in 5ms (cache hit)
+storefront-1  | 2026-10-19T22:20:49.562901459Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price%2C%2Bvariants.inventory_quantity%2C%2Avariants.images%2C%2Avariants.options%2C%2Bmetadata%2C%2Btags%2C&handle=__aqa-warmup__ 200 in 4ms (cache hit)
+storefront-1  | 2026-10-19T22:20:49.562911960Z  │ GET http://medusa:9000/store/customers/me?fields=%2Aorders 401 in 62ms (cache skip)
+storefront-1  | 2026-10-19T22:20:49.562915161Z  │ │ Cache skipped reason: (cache-control: no-cache (hard refresh))
+storefront-1  | 2026-10-19T22:20:49.562918161Z  │ GET http://medusa:9000/store/regions 200 in 10ms (cache hit)
+storefront-1  | 2026-10-19T22:20:49.562921061Z  │ GET http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0 200 in 7ms (cache hit)
+storefront-1  | 2026-10-19T22:20:49.562924161Z  │ GET http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100 200 in 1ms (cache hit)
+storefront-1  | 2026-10-19T22:20:49.562927462Z  │ GET http://medusa:9000/store/locales 404 in 118ms (cache skip)
+storefront-1  | 2026-10-19T22:20:49.562930162Z  │ │ Cache skipped reason: (cache-control: no-cache (hard refresh))
+storefront-1  | 2026-10-19T22:20:49.982542757Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:20:49.982584161Z  {
+storefront-1  | 2026-10-19T22:20:49.982592861Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:49.982596061Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:49.982598762Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:49.982601562Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:49.982650666Z }
+storefront-1  | 2026-10-19T22:20:49.982656866Z 
+storefront-1  | 2026-10-19T22:20:50.013382170Z  GET /dk/checkout 404 in 409ms
+storefront-1  | 2026-10-19T22:20:50.614169030Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:20:50.614208133Z  {
+storefront-1  | 2026-10-19T22:20:50.614228135Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:50.614230935Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:50.614232935Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:50.614234935Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:50.614237436Z }
+storefront-1  | 2026-10-19T22:20:50.614239036Z 
+storefront-1  | 2026-10-19T22:20:53.293253756Z Performing request to:
+storefront-1  | 2026-10-19T22:20:53.293299759Z  URL: http://medusa:9000/store/collections?fields=id%2C%20handle%2C%20title&limit=100&offset=0
+storefront-1  | 2026-10-19T22:20:53.293306260Z  Headers: {
+storefront-1  | 2026-10-19T22:20:53.293309460Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:53.293312760Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:53.293315561Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:53.293318661Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:53.293321761Z }
+storefront-1  | 2026-10-19T22:20:53.293324261Z 
+storefront-1  | 2026-10-19T22:20:53.294543461Z Performing request to:
+storefront-1  | 2026-10-19T22:20:53.294567763Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:20:53.294588964Z  Headers: {
+storefront-1  | 2026-10-19T22:20:53.294593565Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:53.294597265Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:53.294600165Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:53.294603165Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:53.294620967Z }
+storefront-1  | 2026-10-19T22:20:53.294625267Z 
+storefront-1  | 2026-10-19T22:20:53.297680316Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:53.297720920Z 
+storefront-1  | 2026-10-19T22:20:53.339621234Z Performing request to:
+storefront-1  | 2026-10-19T22:20:53.339657637Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:20:53.339662838Z  Headers: {
+storefront-1  | 2026-10-19T22:20:53.339665638Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:53.339668438Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:53.339671238Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:53.339674338Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:53.339677639Z }
+storefront-1  | 2026-10-19T22:20:53.339680139Z 
+storefront-1  | 2026-10-19T22:20:53.340849534Z Performing request to:
+storefront-1  | 2026-10-19T22:20:53.340864235Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:20:53.340869036Z  Headers: {
+storefront-1  | 2026-10-19T22:20:53.340886837Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:53.340890138Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:53.340897538Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:53.340902038Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:53.340905139Z }
+storefront-1  | 2026-10-19T22:20:53.340907739Z 
+storefront-1  | 2026-10-19T22:20:53.342078934Z Performing request to:
+storefront-1  | 2026-10-19T22:20:53.342096436Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:20:53.342100336Z  Headers: {
+storefront-1  | 2026-10-19T22:20:53.342103236Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:53.342106237Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:53.342109037Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:53.342111737Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:53.342114837Z }
+storefront-1  | 2026-10-19T22:20:53.342117238Z 
+storefront-1  | 2026-10-19T22:20:53.343295134Z Performing request to:
+storefront-1  | 2026-10-19T22:20:53.343321136Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:20:53.343325836Z  Headers: {
+storefront-1  | 2026-10-19T22:20:53.343328236Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:53.343331136Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:53.343333937Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:53.343343837Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:53.343348338Z }
+storefront-1  | 2026-10-19T22:20:53.343351038Z 
+storefront-1  | 2026-10-19T22:20:53.348885389Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:53.348922392Z 
+storefront-1  | 2026-10-19T22:20:53.351198178Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:53.351223880Z 
+storefront-1  | 2026-10-19T22:20:53.354048110Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:53.354085213Z 
+storefront-1  | 2026-10-19T22:20:53.356364599Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:53.356390701Z 
+storefront-1  | 2026-10-19T22:20:53.362903331Z Performing request to:
+storefront-1  | 2026-10-19T22:20:53.362942635Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNXQBCMJWW74N826YZ
+storefront-1  | 2026-10-19T22:20:53.362949835Z  Headers: {
+storefront-1  | 2026-10-19T22:20:53.362952635Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:53.362955636Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:53.362958336Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:53.362980438Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:53.362986038Z }
+storefront-1  | 2026-10-19T22:20:53.362988838Z 
+storefront-1  | 2026-10-19T22:20:53.367731425Z Performing request to:
+storefront-1  | 2026-10-19T22:20:53.367768428Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNB067PG2KDAKGMW04
+storefront-1  | 2026-10-19T22:20:53.367778729Z  Headers: {
+storefront-1  | 2026-10-19T22:20:53.367787329Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:53.367791030Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:53.367794230Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:53.367797130Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:53.367870136Z }
+storefront-1  | 2026-10-19T22:20:53.367882837Z 
+storefront-1  | 2026-10-19T22:20:53.376087906Z Performing request to:
+storefront-1  | 2026-10-19T22:20:53.376123909Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP06KY11HGCFQ61ZEH
+storefront-1  | 2026-10-19T22:20:53.376129709Z  Headers: {
+storefront-1  | 2026-10-19T22:20:53.376132610Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:53.376135710Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:53.376138510Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:53.376141310Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:53.376144711Z }
+storefront-1  | 2026-10-19T22:20:53.376147211Z 
+storefront-1  | 2026-10-19T22:20:53.379105652Z Performing request to:
+storefront-1  | 2026-10-19T22:20:53.379148155Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP5N4JPC7MJTYGB0AH
+storefront-1  | 2026-10-19T22:20:53.379157456Z  Headers: {
+storefront-1  | 2026-10-19T22:20:53.379160256Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:53.379162956Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:53.379165757Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:53.379168957Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:53.379171957Z }
+storefront-1  | 2026-10-19T22:20:53.379174257Z 
+storefront-1  | 2026-10-19T22:20:53.380679980Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:53.380696681Z 
+storefront-1  | 2026-10-19T22:20:53.386280537Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:53.386317039Z 
+storefront-1  | 2026-10-19T22:20:53.390636191Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:53.390694296Z 
+storefront-1  | 2026-10-19T22:20:53.394434401Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:53.394461803Z 
+storefront-1  | 2026-10-19T22:20:53.524677315Z Received response with status 401
+storefront-1  | 2026-10-19T22:20:53.524715018Z 
+storefront-1  | 2026-10-19T22:20:53.696610126Z Performing request to:
+storefront-1  | 2026-10-19T22:20:53.696643629Z  URL: http://medusa:9000/store/regions
+storefront-1  | 2026-10-19T22:20:53.696648029Z  Headers: {
+storefront-1  | 2026-10-19T22:20:53.696650829Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:53.696653830Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:53.696657030Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:53.696660330Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:53.696663530Z }
+storefront-1  | 2026-10-19T22:20:53.696665931Z 
+storefront-1  | 2026-10-19T22:20:53.698127750Z Performing request to:
+storefront-1  | 2026-10-19T22:20:53.698144051Z  URL: http://medusa:9000/store/locales
+storefront-1  | 2026-10-19T22:20:53.698147451Z  Headers: {
+storefront-1  | 2026-10-19T22:20:53.698150752Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:53.698153652Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:53.698156452Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:53.698159452Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:53.698167553Z }
+storefront-1  | 2026-10-19T22:20:53.698170353Z 
+storefront-1  | 2026-10-19T22:20:53.699591369Z Performing request to:
+storefront-1  | 2026-10-19T22:20:53.699615571Z  URL: http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0
+storefront-1  | 2026-10-19T22:20:53.699619771Z  Headers: {
+storefront-1  | 2026-10-19T22:20:53.699622372Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:53.699625172Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:53.699627972Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:53.699630872Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:53.699633672Z }
+storefront-1  | 2026-10-19T22:20:53.699636373Z 
+storefront-1  | 2026-10-19T22:20:53.708896627Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:53.708929330Z 
+storefront-1  | 2026-10-19T22:20:53.710276540Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:53.710291441Z 
+storefront-1  | 2026-10-19T22:20:53.717934264Z Performing request to:
+storefront-1  | 2026-10-19T22:20:53.717969167Z  URL: http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100
+storefront-1  | 2026-10-19T22:20:53.717977967Z  Headers: {
+storefront-1  | 2026-10-19T22:20:53.717982268Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:53.717986368Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:53.718009870Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:53.718015870Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:53.718019171Z }
+storefront-1  | 2026-10-19T22:20:53.718021671Z 
+storefront-1  | 2026-10-19T22:20:53.726254242Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:53.726288345Z 
+storefront-1  | 2026-10-19T22:20:54.258500807Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:20:54.258536610Z  {
+storefront-1  | 2026-10-19T22:20:54.258544311Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:54.258550911Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:54.258554011Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:54.258557011Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:54.258561512Z }
+storefront-1  | 2026-10-19T22:20:54.258563912Z 
+storefront-1  | 2026-10-19T22:20:54.267125883Z Received response with status 404
+storefront-1  | 2026-10-19T22:20:54.267159686Z 
+storefront-1  | 2026-10-19T22:20:55.454270914Z  GET /dk 200 in 2537ms
+storefront-1  | 2026-10-19T22:20:55.454313817Z  │ GET http://medusa:9000/store/collections?fields=id%2C%20handle%2C%20title&limit=100&offset=0 200 in 4ms (cache hit)
+storefront-1  | 2026-10-19T22:20:55.454322018Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 6ms (cache hit)
+storefront-1  | 2026-10-19T22:20:55.454325518Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 7ms (cache hit)
+storefront-1  | 2026-10-19T22:20:55.454328218Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 8ms (cache hit)
+storefront-1  | 2026-10-19T22:20:55.454331318Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 9ms (cache hit)
+storefront-1  | 2026-10-19T22:20:55.454334319Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNXQBCMJWW74N826YZ 200 in 11ms (cache hit)
+storefront-1  | 2026-10-19T22:20:55.454339619Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNB067PG2KDAKGMW04 200 in 10ms (cache hit)
+storefront-1  | 2026-10-19T22:20:55.454348220Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP06KY11HGCFQ61ZEH 200 in 6ms (cache hit)
+storefront-1  | 2026-10-19T22:20:55.454425626Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP5N4JPC7MJTYGB0AH 200 in 8ms (cache hit)
+storefront-1  | 2026-10-19T22:20:55.454446027Z  │ GET http://medusa:9000/store/customers/me?fields=%2Aorders 401 in 229ms (cache skip)
+storefront-1  | 2026-10-19T22:20:55.454450328Z  │ │ Cache skipped reason: (cache-control: no-cache (hard refresh))
+storefront-1  | 2026-10-19T22:20:55.454472729Z  │ GET http://medusa:9000/store/regions 200 in 9ms (cache hit)
+storefront-1  | 2026-10-19T22:20:55.454479130Z  │ GET http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0 200 in 7ms (cache hit)
+storefront-1  | 2026-10-19T22:20:55.454486031Z  │ GET http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100 200 in 6ms (cache hit)
+storefront-1  | 2026-10-19T22:20:55.454490531Z  │ GET http://medusa:9000/store/locales 404 in 568ms (cache skip)
+storefront-1  | 2026-10-19T22:20:55.454493831Z  │ │ Cache skipped reason: (cache-control: no-cache (hard refresh))
+storefront-1  | 2026-10-19T22:20:57.023389078Z Performing request to:
+storefront-1  | 2026-10-19T22:20:57.023434281Z  URL: http://medusa:9000/store/collections?fields=id%2C%20handle%2C%20title&limit=100&offset=0
+storefront-1  | 2026-10-19T22:20:57.023443582Z  Headers: {
+storefront-1  | 2026-10-19T22:20:57.023450382Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:57.023456483Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:57.023460483Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:57.023464584Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:57.023471184Z }
+storefront-1  | 2026-10-19T22:20:57.023477585Z 
+storefront-1  | 2026-10-19T22:20:57.024823290Z Performing request to:
+storefront-1  | 2026-10-19T22:20:57.024841791Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:20:57.024847292Z  Headers: {
+storefront-1  | 2026-10-19T22:20:57.024851092Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:57.024854893Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:57.024858793Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:57.024862893Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:57.024866893Z }
+storefront-1  | 2026-10-19T22:20:57.024870294Z 
+storefront-1  | 2026-10-19T22:20:57.027554704Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:57.027581006Z 
+storefront-1  | 2026-10-19T22:20:57.055133465Z Performing request to:
+storefront-1  | 2026-10-19T22:20:57.055175269Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:20:57.055181569Z  Headers: {
+storefront-1  | 2026-10-19T22:20:57.055185569Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:57.055189670Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:57.055193570Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:57.055197270Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:57.055202071Z }
+storefront-1  | 2026-10-19T22:20:57.055205671Z 
+storefront-1  | 2026-10-19T22:20:57.056270654Z Performing request to:
+storefront-1  | 2026-10-19T22:20:57.056312258Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:20:57.056317358Z  Headers: {
+storefront-1  | 2026-10-19T22:20:57.056320158Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:57.056323059Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:57.056325759Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:57.056328759Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:57.056332059Z }
+storefront-1  | 2026-10-19T22:20:57.056334659Z 
+storefront-1  | 2026-10-19T22:20:57.057337238Z Performing request to:
+storefront-1  | 2026-10-19T22:20:57.057349239Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:20:57.057351539Z  Headers: {
+storefront-1  | 2026-10-19T22:20:57.057353239Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:57.057355139Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:57.057356840Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:57.057358740Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:57.057360940Z }
+storefront-1  | 2026-10-19T22:20:57.057362540Z 
+storefront-1  | 2026-10-19T22:20:57.058353618Z Performing request to:
+storefront-1  | 2026-10-19T22:20:57.058366119Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:20:57.058376019Z  Headers: {
+storefront-1  | 2026-10-19T22:20:57.058383720Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:57.058391221Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:57.058393721Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:57.058395521Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:57.058397421Z }
+storefront-1  | 2026-10-19T22:20:57.058399021Z 
+storefront-1  | 2026-10-19T22:20:57.062134714Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:57.062167617Z 
+storefront-1  | 2026-10-19T22:20:57.064067265Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:57.064092467Z 
+storefront-1  | 2026-10-19T22:20:57.065574884Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:57.065590185Z 
+storefront-1  | 2026-10-19T22:20:57.066700572Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:57.066717373Z 
+storefront-1  | 2026-10-19T22:20:57.070028933Z Performing request to:
+storefront-1  | 2026-10-19T22:20:57.070052234Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNXQBCMJWW74N826YZ
+storefront-1  | 2026-10-19T22:20:57.070057235Z  Headers: {
+storefront-1  | 2026-10-19T22:20:57.070059935Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:57.070062735Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:57.070080437Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:57.070084237Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:57.070087537Z }
+storefront-1  | 2026-10-19T22:20:57.070090437Z 
+storefront-1  | 2026-10-19T22:20:57.074006944Z Performing request to:
+storefront-1  | 2026-10-19T22:20:57.074039547Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNB067PG2KDAKGMW04
+storefront-1  | 2026-10-19T22:20:57.074045047Z  Headers: {
+storefront-1  | 2026-10-19T22:20:57.074047948Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:57.074051048Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:57.074054048Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:57.074060849Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:57.074071349Z }
+storefront-1  | 2026-10-19T22:20:57.074074050Z 
+storefront-1  | 2026-10-19T22:20:57.078828122Z Performing request to:
+storefront-1  | 2026-10-19T22:20:57.078853424Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP06KY11HGCFQ61ZEH
+storefront-1  | 2026-10-19T22:20:57.078856724Z  Headers: {
+storefront-1  | 2026-10-19T22:20:57.078858625Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:57.078860425Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:57.078862425Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:57.078864325Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:57.078866225Z }
+storefront-1  | 2026-10-19T22:20:57.078867725Z 
+storefront-1  | 2026-10-19T22:20:57.082166884Z Performing request to:
+storefront-1  | 2026-10-19T22:20:57.082186385Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP5N4JPC7MJTYGB0AH
+storefront-1  | 2026-10-19T22:20:57.082190986Z  Headers: {
+storefront-1  | 2026-10-19T22:20:57.082193886Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:57.082196886Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:57.082199486Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:57.082202487Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:57.082205387Z }
+storefront-1  | 2026-10-19T22:20:57.082208087Z 
+storefront-1  | 2026-10-19T22:20:57.083751308Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:57.083773810Z 
+storefront-1  | 2026-10-19T22:20:57.089171733Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:57.089212436Z 
+storefront-1  | 2026-10-19T22:20:57.093346560Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:57.093377762Z 
+storefront-1  | 2026-10-19T22:20:57.097265967Z Received response with status 200
+storefront-1  | 2026-10-19T22:20:57.097297069Z 
+storefront-1  | 2026-10-19T22:20:57.624595391Z Performing request to:
+storefront-1  | 2026-10-19T22:20:57.624623193Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:20:57.624627194Z  Headers: {
+storefront-1  | 2026-10-19T22:20:57.624630194Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:57.624633994Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:57.624636794Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:57.624639795Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:57.624642995Z }
+storefront-1  | 2026-10-19T22:20:57.624645795Z 
+storefront-1  | 2026-10-19T22:20:57.972602063Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:20:57.972635165Z  {
+storefront-1  | 2026-10-19T22:20:57.972647666Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:57.972649666Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:57.972651667Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:57.972653567Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:57.972655767Z }
+storefront-1  | 2026-10-19T22:20:57.972657267Z 
+storefront-1  | 2026-10-19T22:20:58.542873752Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:20:58.542908755Z  {
+storefront-1  | 2026-10-19T22:20:58.542913355Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:20:58.542920256Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:20:58.542924056Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:20:58.542926156Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:20:58.542928056Z }
+storefront-1  | 2026-10-19T22:20:58.542929556Z 
+storefront-1  | 2026-10-19T22:21:00.382589821Z Performing request to:
+storefront-1  | 2026-10-19T22:21:00.382642026Z  URL: http://medusa:9000/store/regions
+storefront-1  | 2026-10-19T22:21:00.382649226Z  Headers: {
+storefront-1  | 2026-10-19T22:21:00.382652126Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:00.382654827Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:00.382661227Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:00.382665627Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:00.382667928Z }
+storefront-1  | 2026-10-19T22:21:00.382669428Z 
+storefront-1  | 2026-10-19T22:21:00.383676607Z Performing request to:
+storefront-1  | 2026-10-19T22:21:00.383685607Z  URL: http://medusa:9000/store/locales
+storefront-1  | 2026-10-19T22:21:00.383706309Z  Headers: {
+storefront-1  | 2026-10-19T22:21:00.383710509Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:00.383712209Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:00.383713910Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:00.383715510Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:00.383717310Z }
+storefront-1  | 2026-10-19T22:21:00.383718710Z 
+storefront-1  | 2026-10-19T22:21:00.384625081Z Performing request to:
+storefront-1  | 2026-10-19T22:21:00.384633882Z  URL: http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0
+storefront-1  | 2026-10-19T22:21:00.384637782Z  Headers: {
+storefront-1  | 2026-10-19T22:21:00.384640282Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:00.384643082Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:00.384647983Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:00.384654183Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:00.384656283Z }
+storefront-1  | 2026-10-19T22:21:00.384657784Z 
+storefront-1  | 2026-10-19T22:21:00.393337664Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:00.393371166Z 
+storefront-1  | 2026-10-19T22:21:00.394321041Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:00.394331942Z 
+storefront-1  | 2026-10-19T22:21:00.397174464Z Performing request to:
+storefront-1  | 2026-10-19T22:21:00.397193766Z  URL: http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100
+storefront-1  | 2026-10-19T22:21:00.397198266Z  Headers: {
+storefront-1  | 2026-10-19T22:21:00.397200866Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:00.397203567Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:00.397206267Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:00.397208967Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:00.397211667Z }
+storefront-1  | 2026-10-19T22:21:00.397214068Z 
+storefront-1  | 2026-10-19T22:21:00.399069313Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:00.399084414Z 
+storefront-1  | 2026-10-19T22:21:00.962714983Z Performing request to:
+storefront-1  | 2026-10-19T22:21:00.962749486Z  URL: http://medusa:9000/store/regions
+storefront-1  | 2026-10-19T22:21:00.962753686Z  Headers: {
+storefront-1  | 2026-10-19T22:21:00.962756186Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:00.962759286Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:00.962761987Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:00.962764787Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:00.962783188Z }
+storefront-1  | 2026-10-19T22:21:00.962785989Z 
+storefront-1  | 2026-10-19T22:21:00.965282884Z Performing request to:
+storefront-1  | 2026-10-19T22:21:00.965297885Z  URL: http://medusa:9000/store/locales
+storefront-1  | 2026-10-19T22:21:00.965301686Z  Headers: {
+storefront-1  | 2026-10-19T22:21:00.965304186Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:00.965306986Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:00.965309486Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:00.965312287Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:00.965316587Z }
+storefront-1  | 2026-10-19T22:21:00.965322687Z 
+storefront-1  | 2026-10-19T22:21:00.966414873Z Performing request to:
+storefront-1  | 2026-10-19T22:21:00.966425774Z  URL: http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0
+storefront-1  | 2026-10-19T22:21:00.966431274Z  Headers: {
+storefront-1  | 2026-10-19T22:21:00.966434174Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:00.966436875Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:00.966439575Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:00.966442275Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:00.966445075Z }
+storefront-1  | 2026-10-19T22:21:00.966447375Z 
+storefront-1  | 2026-10-19T22:21:00.975124756Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:00.975158858Z 
+storefront-1  | 2026-10-19T22:21:00.976307148Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:00.976317349Z 
+storefront-1  | 2026-10-19T22:21:00.979076665Z Performing request to:
+storefront-1  | 2026-10-19T22:21:00.979091866Z  URL: http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100
+storefront-1  | 2026-10-19T22:21:00.979096567Z  Headers: {
+storefront-1  | 2026-10-19T22:21:00.979099267Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:00.979102067Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:00.979104767Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:00.979107468Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:00.979110068Z }
+storefront-1  | 2026-10-19T22:21:00.979112268Z 
+storefront-1  | 2026-10-19T22:21:00.981125026Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:00.981134926Z 
+storefront-1  | 2026-10-19T22:21:05.010455072Z  GET /dk/store 200 in 8248ms
+storefront-1  | 2026-10-19T22:21:05.010493174Z  │ GET http://medusa:9000/store/regions 200 in 11ms (cache hit)
+storefront-1  | 2026-10-19T22:21:05.010497874Z  │ GET http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0 200 in 8ms (cache hit)
+storefront-1  | 2026-10-19T22:21:05.010519976Z  │ GET http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100 200 in 1ms (cache hit)
+storefront-1  | 2026-10-19T22:21:05.049425890Z  GET /dk 200 in 8673ms
+storefront-1  | 2026-10-19T22:21:05.049462293Z  │ GET http://medusa:9000/store/collections?fields=id%2C%20handle%2C%20title&limit=100&offset=0 200 in 3ms (cache hit)
+storefront-1  | 2026-10-19T22:21:05.049469493Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 5ms (cache hit)
+storefront-1  | 2026-10-19T22:21:05.049472793Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 5ms (cache hit)
+storefront-1  | 2026-10-19T22:21:05.049475793Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 6ms (cache hit)
+storefront-1  | 2026-10-19T22:21:05.049478594Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 6ms (cache hit)
+storefront-1  | 2026-10-19T22:21:05.049481594Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNXQBCMJWW74N826YZ 200 in 7ms (cache hit)
+storefront-1  | 2026-10-19T22:21:05.049485094Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNB067PG2KDAKGMW04 200 in 7ms (cache hit)
+storefront-1  | 2026-10-19T22:21:05.049488394Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP06KY11HGCFQ61ZEH 200 in 6ms (cache hit)
+storefront-1  | 2026-10-19T22:21:05.049491895Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP5N4JPC7MJTYGB0AH 200 in 8ms (cache hit)
+storefront-1  | 2026-10-19T22:21:05.049500095Z  │ GET http://medusa:9000/store/regions 200 in 10ms (cache hit)
+storefront-1  | 2026-10-19T22:21:05.049503095Z  │ GET http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0 200 in 8ms (cache hit)
+storefront-1  | 2026-10-19T22:21:05.049506296Z  │ GET http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100 200 in 1ms (cache hit)
+storefront-1  | 2026-10-19T22:21:06.655664918Z  POST /dk/store 200 in 670ms
+storefront-1  | 2026-10-19T22:21:07.251442851Z Performing request to:
+storefront-1  | 2026-10-19T22:21:07.251486054Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:21:07.251491554Z  Headers: {
+storefront-1  | 2026-10-19T22:21:07.251494554Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:07.251497454Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:07.251500655Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:07.251504055Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:07.251519756Z }
+storefront-1  | 2026-10-19T22:21:07.251523156Z 
+storefront-1  | 2026-10-19T22:21:07.319633933Z  GET /dk/store 200 in 1325ms
+storefront-1  | 2026-10-19T22:21:08.589304346Z Performing request to:
+storefront-1  | 2026-10-19T22:21:08.589346749Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:21:08.589351749Z  Headers: {
+storefront-1  | 2026-10-19T22:21:08.589354649Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:08.589357549Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:08.589360550Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:08.589363750Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:08.589367550Z }
+storefront-1  | 2026-10-19T22:21:08.589370050Z 
+storefront-1  | 2026-10-19T22:21:08.603231082Z Performing request to:
+storefront-1  | 2026-10-19T22:21:08.603277285Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:21:08.603284485Z  Headers: {
+storefront-1  | 2026-10-19T22:21:08.603288085Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:08.603291386Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:08.603294686Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:08.603302786Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:08.603311287Z }
+storefront-1  | 2026-10-19T22:21:08.603314887Z 
+storefront-1  | 2026-10-19T22:21:08.620642152Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:08.620684954Z  {
+storefront-1  | 2026-10-19T22:21:08.620691255Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:08.620695055Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:08.620698455Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:08.620702156Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:08.620706356Z }
+storefront-1  | 2026-10-19T22:21:08.620709256Z 
+storefront-1  | 2026-10-19T22:21:08.814439573Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:08.814475576Z  {
+storefront-1  | 2026-10-19T22:21:08.814480976Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:08.814484776Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:08.814488077Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:08.814491977Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:08.814495777Z }
+storefront-1  | 2026-10-19T22:21:08.814498877Z 
+storefront-1  | 2026-10-19T22:21:08.820217562Z  POST /dk/store 200 in 1018ms
+storefront-1  | 2026-10-19T22:21:09.643965112Z  POST /dk/store 200 in 617ms
+storefront-1  | 2026-10-19T22:21:10.469954570Z  POST /dk/store 200 in 404ms
+storefront-1  | 2026-10-19T22:21:10.605265997Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:10.605323802Z  {
+storefront-1  | 2026-10-19T22:21:10.605328302Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:10.605331602Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:10.605334602Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:10.605337603Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:10.605340803Z }
+storefront-1  | 2026-10-19T22:21:10.605343503Z 
+storefront-1  | 2026-10-19T22:21:10.617614485Z  GET /dk/cart 200 in 4621ms
+storefront-1  | 2026-10-19T22:21:10.925633030Z  POST /dk/store 200 in 369ms
+storefront-1  | 2026-10-19T22:21:11.443586072Z  POST /dk/store 200 in 402ms
+storefront-1  | 2026-10-19T22:21:11.870901062Z  POST /dk/store 200 in 316ms
+storefront-1  | 2026-10-19T22:21:11.947935125Z Performing request to:
+storefront-1  | 2026-10-19T22:21:11.947980529Z  URL: http://medusa:9000/store/regions
+storefront-1  | 2026-10-19T22:21:11.947987429Z  Headers: {
+storefront-1  | 2026-10-19T22:21:11.947991730Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:11.947997730Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:11.948003531Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:11.948007531Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:11.948012031Z }
+storefront-1  | 2026-10-19T22:21:11.948014832Z 
+storefront-1  | 2026-10-19T22:21:11.957337678Z Performing request to:
+storefront-1  | 2026-10-19T22:21:11.957374981Z  URL: http://medusa:9000/store/locales
+storefront-1  | 2026-10-19T22:21:11.957379081Z  Headers: {
+storefront-1  | 2026-10-19T22:21:11.957381781Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:11.957384781Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:11.957387682Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:11.957390882Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:11.957394282Z }
+storefront-1  | 2026-10-19T22:21:11.957397182Z 
+storefront-1  | 2026-10-19T22:21:11.960092798Z Performing request to:
+storefront-1  | 2026-10-19T22:21:11.960131601Z  URL: http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0
+storefront-1  | 2026-10-19T22:21:11.960136702Z  Headers: {
+storefront-1  | 2026-10-19T22:21:11.960139502Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:11.960142302Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:11.960145002Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:11.960147902Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:11.960150903Z }
+storefront-1  | 2026-10-19T22:21:11.960153203Z 
+storefront-1  | 2026-10-19T22:21:11.971621820Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:11.971657923Z 
+storefront-1  | 2026-10-19T22:21:11.975447327Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:11.975483029Z 
+storefront-1  | 2026-10-19T22:21:11.983428065Z Performing request to:
+storefront-1  | 2026-10-19T22:21:11.983465468Z  URL: http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100
+storefront-1  | 2026-10-19T22:21:11.983469768Z  Headers: {
+storefront-1  | 2026-10-19T22:21:11.983472569Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:11.983475469Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:11.983478069Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:11.983480869Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:11.983483670Z }
+storefront-1  | 2026-10-19T22:21:11.983486470Z 
+storefront-1  | 2026-10-19T22:21:11.991538714Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:11.991573017Z 
+storefront-1  | 2026-10-19T22:21:12.358089242Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:12.358123045Z  {
+storefront-1  | 2026-10-19T22:21:12.358132746Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:12.358139646Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:12.358143446Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:12.358150747Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:12.358154147Z }
+storefront-1  | 2026-10-19T22:21:12.358156748Z 
+storefront-1  | 2026-10-19T22:21:12.563713194Z  POST /dk/store 200 in 380ms
+storefront-1  | 2026-10-19T22:21:12.985320027Z  POST /dk/store 200 in 348ms
+storefront-1  | 2026-10-19T22:21:13.420325633Z  POST /dk/store 200 in 287ms
+storefront-1  | 2026-10-19T22:21:13.791712448Z  POST /dk/store 200 in 300ms
+storefront-1  | 2026-10-19T22:21:13.850211728Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:13.850248331Z  {
+storefront-1  | 2026-10-19T22:21:13.850253032Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:13.850278634Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:13.850282834Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:13.850286534Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:13.850290335Z }
+storefront-1  | 2026-10-19T22:21:13.850294035Z 
+storefront-1  | 2026-10-19T22:21:14.170045719Z  POST /dk/store 200 in 321ms
+storefront-1  | 2026-10-19T22:21:14.614528082Z  POST /dk/store 200 in 372ms
+storefront-1  | 2026-10-19T22:21:15.043579311Z  POST /dk/store 200 in 360ms
+storefront-1  | 2026-10-19T22:21:15.406530351Z  GET /dk/cart 200 in 7883ms
+storefront-1  | 2026-10-19T22:21:15.406595256Z  │ GET http://medusa:9000/store/regions 200 in 17ms (cache hit)
+storefront-1  | 2026-10-19T22:21:15.406602357Z  │ GET http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0 200 in 8ms (cache hit)
+storefront-1  | 2026-10-19T22:21:15.406624859Z  │ GET http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100 200 in 4ms (cache hit)
+storefront-1  | 2026-10-19T22:21:15.998295899Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:15.998333802Z  {
+storefront-1  | 2026-10-19T22:21:15.998337302Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:15.998340502Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:15.998343403Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:15.998346303Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:15.998350003Z }
+storefront-1  | 2026-10-19T22:21:15.998352803Z 
+storefront-1  | 2026-10-19T22:21:16.249395990Z  POST /dk/store 200 in 1027ms
+storefront-1  | 2026-10-19T22:21:16.877012606Z  POST /dk/store 200 in 448ms
+storefront-1  | 2026-10-19T22:21:17.254939644Z Performing request to:
+storefront-1  | 2026-10-19T22:21:17.254974547Z  URL: http://medusa:9000/store/collections?fields=id%2C%20handle%2C%20title&limit=100&offset=0
+storefront-1  | 2026-10-19T22:21:17.254981048Z  Headers: {
+storefront-1  | 2026-10-19T22:21:17.254985148Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:17.254988248Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:17.254991548Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:17.254994849Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:17.254997949Z }
+storefront-1  | 2026-10-19T22:21:17.255009850Z 
+storefront-1  | 2026-10-19T22:21:17.260613398Z Performing request to:
+storefront-1  | 2026-10-19T22:21:17.260650901Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:21:17.260660002Z  Headers: {
+storefront-1  | 2026-10-19T22:21:17.260666702Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:17.260674003Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:17.260676903Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:17.260679904Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:17.260683104Z }
+storefront-1  | 2026-10-19T22:21:17.260685704Z 
+storefront-1  | 2026-10-19T22:21:17.266170443Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:17.266211646Z 
+storefront-1  | 2026-10-19T22:21:17.330712007Z Performing request to:
+storefront-1  | 2026-10-19T22:21:17.330750710Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:21:17.330758311Z  Headers: {
+storefront-1  | 2026-10-19T22:21:17.330761811Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:17.330764711Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:17.330784613Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:17.330789513Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:17.330793013Z }
+storefront-1  | 2026-10-19T22:21:17.330795514Z 
+storefront-1  | 2026-10-19T22:21:17.336675684Z Performing request to:
+storefront-1  | 2026-10-19T22:21:17.336766291Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:21:17.336775392Z  Headers: {
+storefront-1  | 2026-10-19T22:21:17.336779992Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:17.336787693Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:17.336794594Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:17.336797994Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:17.336801494Z }
+storefront-1  | 2026-10-19T22:21:17.336803994Z 
+storefront-1  | 2026-10-19T22:21:17.339031473Z Performing request to:
+storefront-1  | 2026-10-19T22:21:17.339061175Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:21:17.339066675Z  Headers: {
+storefront-1  | 2026-10-19T22:21:17.339105678Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:17.339110879Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:17.339113979Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:17.339116879Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:17.339119980Z }
+storefront-1  | 2026-10-19T22:21:17.339123580Z 
+storefront-1  | 2026-10-19T22:21:17.341370860Z Performing request to:
+storefront-1  | 2026-10-19T22:21:17.341394762Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:21:17.341399562Z  Headers: {
+storefront-1  | 2026-10-19T22:21:17.341403062Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:17.341406263Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:17.341409063Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:17.341412763Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:17.341416563Z }
+storefront-1  | 2026-10-19T22:21:17.341419364Z 
+storefront-1  | 2026-10-19T22:21:17.351952706Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:17.351993110Z 
+storefront-1  | 2026-10-19T22:21:17.356036933Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:17.356075936Z 
+storefront-1  | 2026-10-19T22:21:17.359621420Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:17.359662723Z 
+storefront-1  | 2026-10-19T22:21:17.362880181Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:17.362916584Z 
+storefront-1  | 2026-10-19T22:21:17.371802295Z Performing request to:
+storefront-1  | 2026-10-19T22:21:17.371872900Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNXQBCMJWW74N826YZ
+storefront-1  | 2026-10-19T22:21:17.371884301Z  Headers: {
+storefront-1  | 2026-10-19T22:21:17.371886501Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:17.371888401Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:17.371890802Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:17.371894002Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:17.371897102Z }
+storefront-1  | 2026-10-19T22:21:17.371900602Z 
+storefront-1  | 2026-10-19T22:21:17.377070316Z Performing request to:
+storefront-1  | 2026-10-19T22:21:17.377106719Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNB067PG2KDAKGMW04
+storefront-1  | 2026-10-19T22:21:17.377116820Z  Headers: {
+storefront-1  | 2026-10-19T22:21:17.377120120Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:17.377122020Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:17.377123920Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:17.377125820Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:17.377127821Z }
+storefront-1  | 2026-10-19T22:21:17.377129521Z 
+storefront-1  | 2026-10-19T22:21:17.383371720Z Performing request to:
+storefront-1  | 2026-10-19T22:21:17.383428025Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP06KY11HGCFQ61ZEH
+storefront-1  | 2026-10-19T22:21:17.383436125Z  Headers: {
+storefront-1  | 2026-10-19T22:21:17.383439426Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:17.383448326Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:17.383458527Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:17.383462227Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:17.383466028Z }
+storefront-1  | 2026-10-19T22:21:17.383468928Z 
+storefront-1  | 2026-10-19T22:21:17.391769692Z Performing request to:
+storefront-1  | 2026-10-19T22:21:17.391805595Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP5N4JPC7MJTYGB0AH
+storefront-1  | 2026-10-19T22:21:17.391812796Z  Headers: {
+storefront-1  | 2026-10-19T22:21:17.391815896Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:17.391819596Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:17.391823196Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:17.391826497Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:17.391861800Z }
+storefront-1  | 2026-10-19T22:21:17.391867800Z 
+storefront-1  | 2026-10-19T22:21:17.393947066Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:17.393968268Z 
+storefront-1  | 2026-10-19T22:21:17.407308735Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:17.407343538Z 
+storefront-1  | 2026-10-19T22:21:17.413498431Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:17.413540534Z 
+storefront-1  | 2026-10-19T22:21:17.427125821Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:17.427164524Z 
+storefront-1  | 2026-10-19T22:21:18.156739084Z  POST /dk/store 200 in 1212ms
+storefront-1  | 2026-10-19T22:21:18.324428914Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:18.324464317Z  {
+storefront-1  | 2026-10-19T22:21:18.324469817Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:18.324473317Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:18.324476818Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:18.324480618Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:18.324484318Z }
+storefront-1  | 2026-10-19T22:21:18.324487319Z 
+storefront-1  | 2026-10-19T22:21:18.376075812Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:18.376115215Z  {
+storefront-1  | 2026-10-19T22:21:18.376121215Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:18.376124616Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:18.376127816Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:18.376131316Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:18.376135017Z }
+storefront-1  | 2026-10-19T22:21:18.376137817Z 
+storefront-1  | 2026-10-19T22:21:18.445706972Z  POST /dk/store 200 in 221ms
+storefront-1  | 2026-10-19T22:21:18.847371520Z  POST /dk/store 200 in 321ms
+storefront-1  | 2026-10-19T22:21:19.130740353Z  POST /dk/store 200 in 226ms
+storefront-1  | 2026-10-19T22:21:19.403778846Z  POST /dk/store 200 in 213ms
+storefront-1  | 2026-10-19T22:21:19.669437639Z  POST /dk/store 200 in 212ms
+storefront-1  | 2026-10-19T22:21:19.860026031Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:19.860063634Z  {
+storefront-1  | 2026-10-19T22:21:19.860073534Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:19.860077535Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:19.860081135Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:19.860084635Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:19.860088536Z }
+storefront-1  | 2026-10-19T22:21:19.860091536Z 
+storefront-1  | 2026-10-19T22:21:20.374776871Z  POST /dk/store 200 in 603ms
+storefront-1  | 2026-10-19T22:21:20.602057745Z Performing request to:
+storefront-1  | 2026-10-19T22:21:20.602099048Z  URL: http://medusa:9000/store/regions
+storefront-1  | 2026-10-19T22:21:20.602104048Z  Headers: {
+storefront-1  | 2026-10-19T22:21:20.602107049Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:20.602110749Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:20.602114349Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:20.602117849Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:20.602121250Z }
+storefront-1  | 2026-10-19T22:21:20.602124250Z 
+storefront-1  | 2026-10-19T22:21:20.603774284Z Performing request to:
+storefront-1  | 2026-10-19T22:21:20.603809287Z  URL: http://medusa:9000/store/locales
+storefront-1  | 2026-10-19T22:21:20.603815187Z  Headers: {
+storefront-1  | 2026-10-19T22:21:20.603820888Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:20.603829188Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:20.603835789Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:20.603839289Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:20.603905695Z }
+storefront-1  | 2026-10-19T22:21:20.603912195Z 
+storefront-1  | 2026-10-19T22:21:20.605728543Z Performing request to:
+storefront-1  | 2026-10-19T22:21:20.605753045Z  URL: http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0
+storefront-1  | 2026-10-19T22:21:20.605757945Z  Headers: {
+storefront-1  | 2026-10-19T22:21:20.605760946Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:20.605763646Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:20.605766646Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:20.605769746Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:20.605772446Z }
+storefront-1  | 2026-10-19T22:21:20.605775247Z 
+storefront-1  | 2026-10-19T22:21:20.645033838Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:20.645070241Z 
+storefront-1  | 2026-10-19T22:21:20.647224116Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:20.647252118Z 
+storefront-1  | 2026-10-19T22:21:20.663625049Z Performing request to:
+storefront-1  | 2026-10-19T22:21:20.663658852Z  URL: http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100
+storefront-1  | 2026-10-19T22:21:20.663663852Z  Headers: {
+storefront-1  | 2026-10-19T22:21:20.663666752Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:20.663669452Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:20.663672253Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:20.663675353Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:20.663694855Z }
+storefront-1  | 2026-10-19T22:21:20.663698155Z 
+storefront-1  | 2026-10-19T22:21:20.677422470Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:20.677464074Z 
+storefront-1  | 2026-10-19T22:21:21.099712395Z  POST /dk/store 200 in 670ms
+storefront-1  | 2026-10-19T22:21:21.393466572Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:21.393505675Z  {
+storefront-1  | 2026-10-19T22:21:21.393516076Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:21.393520276Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:21.393523477Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:21.393526677Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:21.393530177Z }
+storefront-1  | 2026-10-19T22:21:21.393533177Z 
+storefront-1  | 2026-10-19T22:21:21.457660190Z  POST /dk/store 200 in 302ms
+storefront-1  | 2026-10-19T22:21:21.760457902Z  POST /dk/store 200 in 252ms
+storefront-1  | 2026-10-19T22:21:22.086533606Z  POST /dk/store 200 in 278ms
+storefront-1  | 2026-10-19T22:21:22.453663447Z  POST /dk/store 200 in 289ms
+storefront-1  | 2026-10-19T22:21:22.728545490Z  POST /dk/store 200 in 219ms
+storefront-1  | 2026-10-19T22:21:22.920976831Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:22.921016135Z  {
+storefront-1  | 2026-10-19T22:21:22.921021735Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:22.921023835Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:22.921025835Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:22.921028136Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:22.921030536Z }
+storefront-1  | 2026-10-19T22:21:22.921032136Z 
+storefront-1  | 2026-10-19T22:21:23.020154293Z  POST /dk/store 200 in 240ms
+storefront-1  | 2026-10-19T22:21:23.366318430Z  POST /dk/store 200 in 272ms
+storefront-1  | 2026-10-19T22:21:23.676028404Z  ⨯ [Error: aborted] { code: 'ECONNRESET', digest: '2313178152' }
+storefront-1  | 2026-10-19T22:21:24.514608465Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:24.514657269Z  {
+storefront-1  | 2026-10-19T22:21:24.514664370Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:24.514726775Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:24.514739476Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:24.514742976Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:24.514746276Z }
+storefront-1  | 2026-10-19T22:21:24.514752277Z 
+storefront-1  | 2026-10-19T22:21:24.845337048Z  GET /dk 200 in 8279ms
+storefront-1  | 2026-10-19T22:21:24.845375451Z  │ GET http://medusa:9000/store/collections?fields=id%2C%20handle%2C%20title&limit=100&offset=0 200 in 11ms (cache hit)
+storefront-1  | 2026-10-19T22:21:24.845403753Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 15ms (cache hit)
+storefront-1  | 2026-10-19T22:21:24.845408753Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 11ms (cache hit)
+storefront-1  | 2026-10-19T22:21:24.845411854Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 15ms (cache hit)
+storefront-1  | 2026-10-19T22:21:24.845414554Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 16ms (cache hit)
+storefront-1  | 2026-10-19T22:21:24.845420854Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNXQBCMJWW74N826YZ 200 in 9ms (cache hit)
+storefront-1  | 2026-10-19T22:21:24.845431655Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNB067PG2KDAKGMW04 200 in 13ms (cache hit)
+storefront-1  | 2026-10-19T22:21:24.845439956Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP06KY11HGCFQ61ZEH 200 in 12ms (cache hit)
+storefront-1  | 2026-10-19T22:21:24.845444156Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP5N4JPC7MJTYGB0AH 200 in 16ms (cache hit)
+storefront-1  | 2026-10-19T22:21:24.845447057Z  │ GET http://medusa:9000/store/regions 200 in 28ms (cache hit)
+storefront-1  | 2026-10-19T22:21:24.845449757Z  │ GET http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0 200 in 26ms (cache hit)
+storefront-1  | 2026-10-19T22:21:24.845452757Z  │ GET http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100 200 in 13ms (cache hit)
+storefront-1  | 2026-10-19T22:21:25.994904087Z  ○ Compiling /[countryCode]/account ...
+storefront-1  | 2026-10-19T22:21:26.921150404Z Performing request to:
+storefront-1  | 2026-10-19T22:21:26.921193508Z  URL: http://medusa:9000/store/collections?fields=id%2C%20handle%2C%20title&limit=100&offset=0
+storefront-1  | 2026-10-19T22:21:26.921204109Z  Headers: {
+storefront-1  | 2026-10-19T22:21:26.921212510Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:26.921216010Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:26.921219110Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:26.921223210Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:26.921231311Z }
+storefront-1  | 2026-10-19T22:21:26.921238112Z 
+storefront-1  | 2026-10-19T22:21:26.924431172Z Performing request to:
+storefront-1  | 2026-10-19T22:21:26.924467875Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:21:26.924471376Z  Headers: {
+storefront-1  | 2026-10-19T22:21:26.924474076Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:26.924476876Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:26.924495578Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:26.924498778Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:26.924501978Z }
+storefront-1  | 2026-10-19T22:21:26.924504378Z 
+storefront-1  | 2026-10-19T22:21:26.929575292Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:26.929604095Z 
+storefront-1  | 2026-10-19T22:21:27.001617575Z Performing request to:
+storefront-1  | 2026-10-19T22:21:27.001657978Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:21:27.001665279Z  Headers: {
+storefront-1  | 2026-10-19T22:21:27.001672179Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:27.001675679Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:27.001678580Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:27.001681680Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:27.001688280Z }
+storefront-1  | 2026-10-19T22:21:27.001692781Z 
+storefront-1  | 2026-10-19T22:21:27.003241907Z Performing request to:
+storefront-1  | 2026-10-19T22:21:27.003274110Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:21:27.003278810Z  Headers: {
+storefront-1  | 2026-10-19T22:21:27.003285711Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:27.003289911Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:27.003293312Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:27.003296212Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:27.003299912Z }
+storefront-1  | 2026-10-19T22:21:27.003303212Z 
+storefront-1  | 2026-10-19T22:21:27.009111887Z Performing request to:
+storefront-1  | 2026-10-19T22:21:27.009147590Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:21:27.009153590Z  Headers: {
+storefront-1  | 2026-10-19T22:21:27.009156890Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:27.009160391Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:27.009163091Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:27.009165991Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:27.009169591Z }
+storefront-1  | 2026-10-19T22:21:27.009172392Z 
+storefront-1  | 2026-10-19T22:21:27.014377617Z Performing request to:
+storefront-1  | 2026-10-19T22:21:27.014409719Z  URL: http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9
+storefront-1  | 2026-10-19T22:21:27.014415220Z  Headers: {
+storefront-1  | 2026-10-19T22:21:27.014418520Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:27.014422020Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:27.014425420Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:27.014445322Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:27.014517328Z }
+storefront-1  | 2026-10-19T22:21:27.014586334Z 
+storefront-1  | 2026-10-19T22:21:27.037808630Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:27.037844233Z 
+storefront-1  | 2026-10-19T22:21:27.054769915Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:27.054803417Z 
+storefront-1  | 2026-10-19T22:21:27.061329050Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:27.061368753Z 
+storefront-1  | 2026-10-19T22:21:27.064714327Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:27.064753230Z 
+storefront-1  | 2026-10-19T22:21:27.078135422Z Performing request to:
+storefront-1  | 2026-10-19T22:21:27.078178926Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNXQBCMJWW74N826YZ
+storefront-1  | 2026-10-19T22:21:27.078187827Z  Headers: {
+storefront-1  | 2026-10-19T22:21:27.078190727Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:27.078193527Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:27.078196427Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:27.078207228Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:27.078210229Z }
+storefront-1  | 2026-10-19T22:21:27.078212729Z 
+storefront-1  | 2026-10-19T22:21:27.084933577Z Performing request to:
+storefront-1  | 2026-10-19T22:21:27.084971381Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNB067PG2KDAKGMW04
+storefront-1  | 2026-10-19T22:21:27.084977081Z  Headers: {
+storefront-1  | 2026-10-19T22:21:27.084980181Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:27.084983182Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:27.084986082Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:27.084988882Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:27.084992182Z }
+storefront-1  | 2026-10-19T22:21:27.084994682Z 
+storefront-1  | 2026-10-19T22:21:27.094937094Z Performing request to:
+storefront-1  | 2026-10-19T22:21:27.094976697Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP06KY11HGCFQ61ZEH
+storefront-1  | 2026-10-19T22:21:27.094981898Z  Headers: {
+storefront-1  | 2026-10-19T22:21:27.094984498Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:27.094987098Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:27.094990199Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:27.095022901Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:27.095027402Z }
+storefront-1  | 2026-10-19T22:21:27.095029902Z 
+storefront-1  | 2026-10-19T22:21:27.100357237Z Performing request to:
+storefront-1  | 2026-10-19T22:21:27.100402541Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP5N4JPC7MJTYGB0AH
+storefront-1  | 2026-10-19T22:21:27.100417242Z  Headers: {
+storefront-1  | 2026-10-19T22:21:27.100420842Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:27.100435743Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:27.100439444Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:27.100442744Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:27.100445444Z }
+storefront-1  | 2026-10-19T22:21:27.100447944Z 
+storefront-1  | 2026-10-19T22:21:27.106711256Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:27.106750959Z 
+storefront-1  | 2026-10-19T22:21:27.122709062Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:27.122746065Z 
+storefront-1  | 2026-10-19T22:21:27.142806003Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:27.142845506Z 
+storefront-1  | 2026-10-19T22:21:27.149847478Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:27.149893281Z 
+storefront-1  | 2026-10-19T22:21:28.062421490Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:28.062467294Z  {
+storefront-1  | 2026-10-19T22:21:28.062473694Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:28.062477894Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:28.062481795Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:28.062485795Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:28.062490195Z }
+storefront-1  | 2026-10-19T22:21:28.062493496Z 
+storefront-1  | 2026-10-19T22:21:28.688706626Z  ✓ Compiled /[countryCode]/account in 3.2s
+storefront-1  | 2026-10-19T22:21:29.644965105Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:29.644990807Z  {
+storefront-1  | 2026-10-19T22:21:29.644993508Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:29.644995808Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:29.644997908Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:29.645000108Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:29.645002508Z }
+storefront-1  | 2026-10-19T22:21:29.645004209Z 
+storefront-1  | 2026-10-19T22:21:29.836097111Z Performing request to:
+storefront-1  | 2026-10-19T22:21:29.836139915Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:21:29.836144215Z  Headers: {
+storefront-1  | 2026-10-19T22:21:29.836164617Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:29.836168317Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:29.836170817Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:29.836173218Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:29.836175818Z }
+storefront-1  | 2026-10-19T22:21:29.836177618Z 
+storefront-1  | 2026-10-19T22:21:29.838333894Z Performing request to:
+storefront-1  | 2026-10-19T22:21:29.838352195Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:21:29.838356196Z  Headers: {
+storefront-1  | 2026-10-19T22:21:29.838359496Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:29.838362696Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:29.838365897Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:29.838369297Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:29.838372697Z }
+storefront-1  | 2026-10-19T22:21:29.838375597Z 
+storefront-1  | 2026-10-19T22:21:30.260044927Z Performing request to:
+storefront-1  | 2026-10-19T22:21:30.260081830Z  URL: http://medusa:9000/store/regions
+storefront-1  | 2026-10-19T22:21:30.260086630Z  Headers: {
+storefront-1  | 2026-10-19T22:21:30.260089731Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:30.260092931Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:30.260095931Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:30.260099131Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:30.260102632Z }
+storefront-1  | 2026-10-19T22:21:30.260105532Z 
+storefront-1  | 2026-10-19T22:21:30.261085112Z Performing request to:
+storefront-1  | 2026-10-19T22:21:30.261104313Z  URL: http://medusa:9000/store/locales
+storefront-1  | 2026-10-19T22:21:30.261108314Z  Headers: {
+storefront-1  | 2026-10-19T22:21:30.261111214Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:30.261114314Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:30.261117414Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:30.261120515Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:30.261123815Z }
+storefront-1  | 2026-10-19T22:21:30.261126315Z 
+storefront-1  | 2026-10-19T22:21:30.262541531Z Performing request to:
+storefront-1  | 2026-10-19T22:21:30.262563233Z  URL: http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0
+storefront-1  | 2026-10-19T22:21:30.262567433Z  Headers: {
+storefront-1  | 2026-10-19T22:21:30.262570133Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:30.262574533Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:30.262579934Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:30.262597335Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:30.262599435Z }
+storefront-1  | 2026-10-19T22:21:30.262600936Z 
+storefront-1  | 2026-10-19T22:21:30.270857210Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:30.270909314Z 
+storefront-1  | 2026-10-19T22:21:30.272381834Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:30.272396735Z 
+storefront-1  | 2026-10-19T22:21:30.276543574Z Performing request to:
+storefront-1  | 2026-10-19T22:21:30.276571176Z  URL: http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100
+storefront-1  | 2026-10-19T22:21:30.276575577Z  Headers: {
+storefront-1  | 2026-10-19T22:21:30.276578177Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:30.276581177Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:30.276584177Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:30.276586978Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:30.276589978Z }
+storefront-1  | 2026-10-19T22:21:30.276592578Z 
+storefront-1  | 2026-10-19T22:21:30.279364504Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:30.279388106Z 
+storefront-1  | 2026-10-19T22:21:33.143670876Z Performing request to:
+storefront-1  | 2026-10-19T22:21:33.143728581Z  URL: http://medusa:9000/store/orders?limit=10&offset=0&order=-created_at&fields=%2Aitems%2C%2Bitems.metadata%2C%2Aitems.variant%2C%2Aitems.product
+storefront-1  | 2026-10-19T22:21:33.143733482Z  Headers: {
+storefront-1  | 2026-10-19T22:21:33.143736282Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:33.143739482Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:33.143742382Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:33.143745583Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:33.143748483Z }
+storefront-1  | 2026-10-19T22:21:33.143751083Z 
+storefront-1  | 2026-10-19T22:21:33.374814849Z  GET /dk/account 200 in 8017ms
+storefront-1  | 2026-10-19T22:21:34.407960430Z Performing request to:
+storefront-1  | 2026-10-19T22:21:34.407995432Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:21:34.408012534Z  Headers: {
+storefront-1  | 2026-10-19T22:21:34.408018434Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:34.408021635Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:34.408024635Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:34.408027835Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:34.408031135Z }
+storefront-1  | 2026-10-19T22:21:34.408033836Z 
+storefront-1  | 2026-10-19T22:21:34.409403448Z Performing request to:
+storefront-1  | 2026-10-19T22:21:34.409422949Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price%2C%2Bvariants.inventory_quantity%2C%2Avariants.images%2C%2Avariants.options%2C%2Bmetadata%2C%2Btags%2C&handle=aqa-does-not-exist-1792448493513
+storefront-1  | 2026-10-19T22:21:34.409428650Z  Headers: {
+storefront-1  | 2026-10-19T22:21:34.409431850Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:34.409435150Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:34.409438450Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:34.409442051Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:34.409445251Z }
+storefront-1  | 2026-10-19T22:21:34.409447951Z 
+storefront-1  | 2026-10-19T22:21:34.411475617Z Performing request to:
+storefront-1  | 2026-10-19T22:21:34.411508420Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price%2C%2Bvariants.inventory_quantity%2C%2Avariants.images%2C%2Avariants.options%2C%2Bmetadata%2C%2Btags%2C&handle=aqa-does-not-exist-1792448493513
+storefront-1  | 2026-10-19T22:21:34.411513020Z  Headers: {
+storefront-1  | 2026-10-19T22:21:34.411515020Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:34.411517720Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:34.411521321Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:34.411526021Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:34.411528121Z }
+storefront-1  | 2026-10-19T22:21:34.411530021Z 
+storefront-1  | 2026-10-19T22:21:34.645450936Z  GET /dk 200 in 8655ms
+storefront-1  | 2026-10-19T22:21:34.645487039Z  │ GET http://medusa:9000/store/collections?fields=id%2C%20handle%2C%20title&limit=100&offset=0 200 in 7ms (cache hit)
+storefront-1  | 2026-10-19T22:21:34.645493439Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 26ms (cache hit)
+storefront-1  | 2026-10-19T22:21:34.645497540Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 32ms (cache hit)
+storefront-1  | 2026-10-19T22:21:34.645500940Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 34ms (cache hit)
+storefront-1  | 2026-10-19T22:21:34.645504040Z  │ GET http://medusa:9000/store/regions/reg_01M537PSQ5N47NE3R6WJV30GS9 200 in 44ms (cache hit)
+storefront-1  | 2026-10-19T22:21:34.645507941Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNXQBCMJWW74N826YZ 200 in 15ms (cache hit)
+storefront-1  | 2026-10-19T22:21:34.645513241Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VNB067PG2KDAKGMW04 200 in 13ms (cache hit)
+storefront-1  | 2026-10-19T22:21:34.645517341Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP06KY11HGCFQ61ZEH 200 in 18ms (cache hit)
+storefront-1  | 2026-10-19T22:21:34.645536843Z  │ GET http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price&collection_id=pcol_01M537Q0VP5N4JPC7MJTYGB0AH 200 in 34ms (cache hit)
+storefront-1  | 2026-10-19T22:21:34.645540543Z  │ GET http://medusa:9000/store/regions 200 in 9ms (cache hit)
+storefront-1  | 2026-10-19T22:21:34.645543443Z  │ GET http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0 200 in 7ms (cache hit)
+storefront-1  | 2026-10-19T22:21:34.645546544Z  │ GET http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100 200 in 2ms (cache hit)
+storefront-1  | 2026-10-19T22:21:35.439829247Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:35.439855149Z  {
+storefront-1  | 2026-10-19T22:21:35.439860050Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:35.439867350Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:35.439871951Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:35.439874951Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:35.439877351Z }
+storefront-1  | 2026-10-19T22:21:35.439879151Z 
+storefront-1  | 2026-10-19T22:21:35.690112099Z  GET /dk/store 200 in 368ms
+storefront-1  | 2026-10-19T22:21:36.119510986Z  POST /dk/store 200 in 234ms
+storefront-1  | 2026-10-19T22:21:36.533188990Z  POST /dk/store 200 in 307ms
+storefront-1  | 2026-10-19T22:21:36.963731171Z  POST /dk/store 200 in 320ms
+storefront-1  | 2026-10-19T22:21:36.980370930Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:36.980406333Z  {
+storefront-1  | 2026-10-19T22:21:36.980411534Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:36.980415034Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:36.980418234Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:36.980421734Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:36.980425535Z }
+storefront-1  | 2026-10-19T22:21:36.980428335Z 
+storefront-1  | 2026-10-19T22:21:37.320359012Z  POST /dk/store 200 in 306ms
+storefront-1  | 2026-10-19T22:21:37.630197230Z  POST /dk/store 200 in 261ms
+storefront-1  | 2026-10-19T22:21:37.749195954Z Performing request to:
+storefront-1  | 2026-10-19T22:21:37.749221656Z  URL: http://medusa:9000/store/regions
+storefront-1  | 2026-10-19T22:21:37.749224756Z  Headers: {
+storefront-1  | 2026-10-19T22:21:37.749226556Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:37.749228756Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:37.749230857Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:37.749233157Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:37.749245758Z }
+storefront-1  | 2026-10-19T22:21:37.749248458Z 
+storefront-1  | 2026-10-19T22:21:37.751171615Z Performing request to:
+storefront-1  | 2026-10-19T22:21:37.751188917Z  URL: http://medusa:9000/store/locales
+storefront-1  | 2026-10-19T22:21:37.751193617Z  Headers: {
+storefront-1  | 2026-10-19T22:21:37.751196617Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:37.751200017Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:37.751203418Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:37.751207118Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:37.751210818Z }
+storefront-1  | 2026-10-19T22:21:37.751213519Z 
+storefront-1  | 2026-10-19T22:21:37.753186380Z Performing request to:
+storefront-1  | 2026-10-19T22:21:37.753221583Z  URL: http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0
+storefront-1  | 2026-10-19T22:21:37.753228083Z  Headers: {
+storefront-1  | 2026-10-19T22:21:37.753230283Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:37.753232284Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:37.753234384Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:37.753237184Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:37.753240584Z }
+storefront-1  | 2026-10-19T22:21:37.753244185Z 
+storefront-1  | 2026-10-19T22:21:37.764957242Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:37.765014646Z 
+storefront-1  | 2026-10-19T22:21:37.767318535Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:37.767342337Z 
+storefront-1  | 2026-10-19T22:21:37.771681591Z Performing request to:
+storefront-1  | 2026-10-19T22:21:37.771718094Z  URL: http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100
+storefront-1  | 2026-10-19T22:21:37.771724295Z  Headers: {
+storefront-1  | 2026-10-19T22:21:37.771733795Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:37.771744496Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:37.771747596Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:37.771750997Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:37.771754097Z }
+storefront-1  | 2026-10-19T22:21:37.771757197Z 
+storefront-1  | 2026-10-19T22:21:37.773915174Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:37.773940676Z 
+storefront-1  | 2026-10-19T22:21:38.011501688Z  POST /dk/store 200 in 323ms
+storefront-1  | 2026-10-19T22:21:38.203067541Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:38.203107244Z  {
+storefront-1  | 2026-10-19T22:21:38.203112445Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:38.203114845Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:38.203138947Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:38.203144747Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:38.203147248Z }
+storefront-1  | 2026-10-19T22:21:38.203148848Z 
+storefront-1  | 2026-10-19T22:21:38.307041037Z  POST /dk/store 200 in 245ms
+storefront-1  | 2026-10-19T22:21:38.620951388Z  POST /dk/store 200 in 256ms
+storefront-1  | 2026-10-19T22:21:38.993489429Z  POST /dk/store 200 in 283ms
+storefront-1  | 2026-10-19T22:21:39.355747131Z  POST /dk/store 200 in 300ms
+storefront-1  | 2026-10-19T22:21:39.630254762Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:39.630282064Z  {
+storefront-1  | 2026-10-19T22:21:39.630285364Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:39.630287364Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:39.630289264Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:39.630291865Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:39.630294765Z }
+storefront-1  | 2026-10-19T22:21:39.630296665Z 
+storefront-1  | 2026-10-19T22:21:39.655251504Z  POST /dk/store 200 in 249ms
+storefront-1  | 2026-10-19T22:21:40.119883971Z  ⨯ [Error [TypeError]: fetch failed] {
+storefront-1  | 2026-10-19T22:21:40.119925374Z   environmentName: 'Server',
+storefront-1  | 2026-10-19T22:21:40.119930375Z   digest: '2265348410'
+storefront-1  | 2026-10-19T22:21:40.119933275Z }
+storefront-1  | 2026-10-19T22:21:40.125037992Z  ⨯ [TypeError: fetch failed] {
+storefront-1  | 2026-10-19T22:21:40.125077195Z   digest: '744148363',
+storefront-1  | 2026-10-19T22:21:40.125082796Z   [cause]: [Error: getaddrinfo ENOTFOUND medusa] {
+storefront-1  | 2026-10-19T22:21:40.125086196Z     errno: -3008,
+storefront-1  | 2026-10-19T22:21:40.125089296Z     code: 'ENOTFOUND',
+storefront-1  | 2026-10-19T22:21:40.125092297Z     syscall: 'getaddrinfo',
+storefront-1  | 2026-10-19T22:21:40.125104397Z     hostname: 'medusa'
+storefront-1  | 2026-10-19T22:21:40.125107098Z   }
+storefront-1  | 2026-10-19T22:21:40.125109798Z }
+storefront-1  | 2026-10-19T22:21:40.176487796Z Performing request to:
+storefront-1  | 2026-10-19T22:21:40.176525699Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price%2C%2Bvariants.inventory_quantity%2C%2Avariants.images%2C%2Avariants.options%2C%2Bmetadata%2C%2Btags%2C&handle=aqa-does-not-exist-1792448493513
+storefront-1  | 2026-10-19T22:21:40.176532300Z  Headers: {
+storefront-1  | 2026-10-19T22:21:40.176535500Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:40.176538500Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:40.176541701Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:40.176545101Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:40.176548301Z }
+storefront-1  | 2026-10-19T22:21:40.176566303Z 
+storefront-1  | 2026-10-19T22:21:40.954738390Z  POST /dk/store 200 in 1250ms
+storefront-1  | 2026-10-19T22:21:41.576327682Z  POST /dk/store 200 in 555ms
+storefront-1  | 2026-10-19T22:21:42.338616329Z  POST /dk/store 200 in 604ms
+storefront-1  | 2026-10-19T22:21:42.547611404Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:42.547640906Z  {
+storefront-1  | 2026-10-19T22:21:42.547646506Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:42.547651107Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:42.547655207Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:42.547660707Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:42.547665307Z }
+storefront-1  | 2026-10-19T22:21:42.547668908Z 
+storefront-1  | 2026-10-19T22:21:42.694055255Z  POST /dk/store 200 in 277ms
+storefront-1  | 2026-10-19T22:21:43.082784456Z  POST /dk/store 200 in 294ms
+storefront-1  | 2026-10-19T22:21:43.415542804Z  POST /dk/store 200 in 269ms
+storefront-1  | 2026-10-19T22:21:43.540488444Z  GET /dk/products/aqa-does-not-exist-1792448493513 500 in 9980ms
+storefront-1  | 2026-10-19T22:21:43.540532646Z  │ GET http://medusa:9000/store/regions 200 in 12ms (cache hit)
+storefront-1  | 2026-10-19T22:21:43.540541047Z  │ GET http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0 200 in 8ms (cache hit)
+storefront-1  | 2026-10-19T22:21:43.540566448Z  │ GET http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100 200 in 2ms (cache hit)
+storefront-1  | 2026-10-19T22:21:43.841673412Z  POST /dk/store 200 in 345ms
+storefront-1  | 2026-10-19T22:21:44.512211191Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:44.512243993Z  {
+storefront-1  | 2026-10-19T22:21:44.512251793Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:44.512256493Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:44.512260994Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:44.512265494Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:44.512270394Z }
+storefront-1  | 2026-10-19T22:21:44.512274194Z 
+storefront-1  | 2026-10-19T22:21:44.542967524Z  POST /dk/store 200 in 520ms
+storefront-1  | 2026-10-19T22:21:44.977848225Z  POST /dk/store 200 in 315ms
+storefront-1  | 2026-10-19T22:21:45.376482184Z  POST /dk/store 200 in 316ms
+storefront-1  | 2026-10-19T22:21:45.841743797Z  POST /dk/store 200 in 309ms
+storefront-1  | 2026-10-19T22:21:46.317602808Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:46.317647410Z  {
+storefront-1  | 2026-10-19T22:21:46.317656311Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:46.317666111Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:46.317673012Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:46.317700113Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:46.317705613Z }
+storefront-1  | 2026-10-19T22:21:46.317708514Z 
+storefront-1  | 2026-10-19T22:21:46.393930108Z  POST /dk/store 200 in 472ms
+storefront-1  | 2026-10-19T22:21:46.998366962Z Performing request to:
+storefront-1  | 2026-10-19T22:21:46.998393964Z  URL: http://medusa:9000/store/customers/me?fields=%2Aorders
+storefront-1  | 2026-10-19T22:21:46.998396464Z  Headers: {
+storefront-1  | 2026-10-19T22:21:46.998398064Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:46.998399764Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:46.998401564Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:46.998403364Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:46.998405364Z }
+storefront-1  | 2026-10-19T22:21:46.998406864Z 
+storefront-1  | 2026-10-19T22:21:47.000647691Z Performing request to:
+storefront-1  | 2026-10-19T22:21:47.000686093Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price%2C%2Bvariants.inventory_quantity%2C%2Avariants.images%2C%2Avariants.options%2C%2Bmetadata%2C%2Btags%2C&handle=aqa-does-not-exist-1792448506321
+storefront-1  | 2026-10-19T22:21:47.000691793Z  Headers: {
+storefront-1  | 2026-10-19T22:21:47.000693393Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:47.000695093Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:47.000696893Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:47.000698694Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:47.000700494Z }
+storefront-1  | 2026-10-19T22:21:47.000701994Z 
+storefront-1  | 2026-10-19T22:21:47.002699106Z Performing request to:
+storefront-1  | 2026-10-19T22:21:47.002724208Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price%2C%2Bvariants.inventory_quantity%2C%2Avariants.images%2C%2Avariants.options%2C%2Bmetadata%2C%2Btags%2C&handle=aqa-does-not-exist-1792448506321
+storefront-1  | 2026-10-19T22:21:47.002729408Z  Headers: {
+storefront-1  | 2026-10-19T22:21:47.002732408Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:47.002735508Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:47.002738708Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:47.002741909Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:47.002745209Z }
+storefront-1  | 2026-10-19T22:21:47.002748109Z 
+storefront-1  | 2026-10-19T22:21:47.136684955Z  POST /dk/store 200 in 653ms
+storefront-1  | 2026-10-19T22:21:47.669083651Z  POST /dk/store 200 in 446ms
+storefront-1  | 2026-10-19T22:21:48.124264596Z  POST /dk/store 200 in 379ms
+storefront-1  | 2026-10-19T22:21:48.494386849Z  POST /dk/store 200 in 295ms
+storefront-1  | 2026-10-19T22:21:48.507836006Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:48.507873909Z  {
+storefront-1  | 2026-10-19T22:21:48.507882009Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:48.507889009Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:48.507892010Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:48.507895110Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:48.507898410Z }
+storefront-1  | 2026-10-19T22:21:48.507901010Z 
+storefront-1  | 2026-10-19T22:21:48.617004757Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:48.617042259Z  {
+storefront-1  | 2026-10-19T22:21:48.617050860Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:48.617054360Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:48.617057660Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:48.617061060Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:48.617064460Z }
+storefront-1  | 2026-10-19T22:21:48.617067261Z 
+storefront-1  | 2026-10-19T22:21:48.866481113Z  POST /dk/store 200 in 315ms
+storefront-1  | 2026-10-19T22:21:49.221341806Z  POST /dk/store 200 in 286ms
+storefront-1  | 2026-10-19T22:21:49.566068628Z  POST /dk/store 200 in 296ms
+storefront-1  | 2026-10-19T22:21:49.928906670Z  POST /dk/store 200 in 239ms
+storefront-1  | 2026-10-19T22:21:50.027260412Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:50.027301014Z  {
+storefront-1  | 2026-10-19T22:21:50.027309014Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:50.027312814Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:50.027316015Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:50.027319115Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:50.027322615Z }
+storefront-1  | 2026-10-19T22:21:50.027325315Z 
+storefront-1  | 2026-10-19T22:21:50.360916906Z Performing request to:
+storefront-1  | 2026-10-19T22:21:50.360955710Z  URL: http://medusa:9000/store/regions
+storefront-1  | 2026-10-19T22:21:50.360961710Z  Headers: {
+storefront-1  | 2026-10-19T22:21:50.360965610Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:50.360972811Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:50.360976811Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:50.360981212Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:50.360984812Z }
+storefront-1  | 2026-10-19T22:21:50.360987412Z 
+storefront-1  | 2026-10-19T22:21:50.364001565Z Performing request to:
+storefront-1  | 2026-10-19T22:21:50.364026867Z  URL: http://medusa:9000/store/locales
+storefront-1  | 2026-10-19T22:21:50.364048969Z  Headers: {
+storefront-1  | 2026-10-19T22:21:50.364052169Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:50.364054269Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:50.364056270Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:50.364058970Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:50.364061370Z }
+storefront-1  | 2026-10-19T22:21:50.364062970Z 
+storefront-1  | 2026-10-19T22:21:50.366023935Z Performing request to:
+storefront-1  | 2026-10-19T22:21:50.366058038Z  URL: http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0
+storefront-1  | 2026-10-19T22:21:50.366064338Z  Headers: {
+storefront-1  | 2026-10-19T22:21:50.366068839Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:50.366074739Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:50.366077939Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:50.366081140Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:50.366084240Z }
+storefront-1  | 2026-10-19T22:21:50.366087340Z 
+storefront-1  | 2026-10-19T22:21:50.378709199Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:50.378744302Z 
+storefront-1  | 2026-10-19T22:21:50.381466430Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:50.381503534Z 
+storefront-1  | 2026-10-19T22:21:50.387800662Z Performing request to:
+storefront-1  | 2026-10-19T22:21:50.387843665Z  URL: http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100
+storefront-1  | 2026-10-19T22:21:50.387850266Z  Headers: {
+storefront-1  | 2026-10-19T22:21:50.387853666Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:50.387857167Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:50.387860367Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:50.387863867Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:50.387867567Z }
+storefront-1  | 2026-10-19T22:21:50.387871168Z 
+storefront-1  | 2026-10-19T22:21:50.391834600Z Received response with status 200
+storefront-1  | 2026-10-19T22:21:50.391873204Z 
+storefront-1  | 2026-10-19T22:21:50.762938936Z  ⨯ [Error [TypeError]: fetch failed] {
+storefront-1  | 2026-10-19T22:21:50.762975839Z   environmentName: 'Server',
+storefront-1  | 2026-10-19T22:21:50.762980540Z   digest: '2265348410'
+storefront-1  | 2026-10-19T22:21:50.762983640Z }
+storefront-1  | 2026-10-19T22:21:50.771397946Z  ⨯ [TypeError: fetch failed] {
+storefront-1  | 2026-10-19T22:21:50.771429849Z   digest: '744148363',
+storefront-1  | 2026-10-19T22:21:50.771433449Z   [cause]: [Error: getaddrinfo ENOTFOUND medusa] {
+storefront-1  | 2026-10-19T22:21:50.771435749Z     errno: -3008,
+storefront-1  | 2026-10-19T22:21:50.771449650Z     code: 'ENOTFOUND',
+storefront-1  | 2026-10-19T22:21:50.771452051Z     syscall: 'getaddrinfo',
+storefront-1  | 2026-10-19T22:21:50.771453751Z     hostname: 'medusa'
+storefront-1  | 2026-10-19T22:21:50.771455651Z   }
+storefront-1  | 2026-10-19T22:21:50.771457251Z }
+storefront-1  | 2026-10-19T22:21:50.865400433Z Performing request to:
+storefront-1  | 2026-10-19T22:21:50.865435736Z  URL: http://medusa:9000/store/products?limit=12&offset=0&region_id=reg_01M537PSQ5N47NE3R6WJV30GS9&fields=%2Avariants.calculated_price%2C%2Bvariants.inventory_quantity%2C%2Avariants.images%2C%2Avariants.options%2C%2Bmetadata%2C%2Btags%2C&handle=aqa-does-not-exist-1792448506321
+storefront-1  | 2026-10-19T22:21:50.865442436Z  Headers: {
+storefront-1  | 2026-10-19T22:21:50.865445437Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:50.865448237Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:50.865451037Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:50.865453937Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:50.865456838Z }
+storefront-1  | 2026-10-19T22:21:50.865459638Z 
+storefront-1  | 2026-10-19T22:21:50.871686260Z  POST /dk/store 200 in 877ms
+storefront-1  | 2026-10-19T22:21:51.496479281Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:51.496554987Z  {
+storefront-1  | 2026-10-19T22:21:51.496561588Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:51.496564988Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:51.496567988Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:51.496570989Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:51.496574289Z }
+storefront-1  | 2026-10-19T22:21:51.496580089Z 
+storefront-1  | 2026-10-19T22:21:52.147780326Z  POST /dk/store 200 in 1113ms
+storefront-1  | 2026-10-19T22:21:52.804556530Z  ⨯ [Error: aborted] { code: 'ECONNRESET', digest: '2313178152' }
+storefront-1  | 2026-10-19T22:21:53.462930368Z Initiating Medusa client with default headers:
+storefront-1  | 2026-10-19T22:21:53.462969571Z  {
+storefront-1  | 2026-10-19T22:21:53.462975571Z   "accept": "application/json",
+storefront-1  | 2026-10-19T22:21:53.462979172Z   "content-type": "application/json",
+storefront-1  | 2026-10-19T22:21:53.462982172Z   "x-publishable-api-key": "[REDACTED]",
+storefront-1  | 2026-10-19T22:21:53.462985172Z   "authorization": "[REDACTED]"
+storefront-1  | 2026-10-19T22:21:53.462988473Z }
+storefront-1  | 2026-10-19T22:21:53.462990973Z 
+storefront-1  | 2026-10-19T22:21:54.232065999Z  GET /dk/products/aqa-does-not-exist-1792448506321 500 in 7762ms
+storefront-1  | 2026-10-19T22:21:54.232132804Z  │ GET http://medusa:9000/store/regions 200 in 13ms (cache hit)
+storefront-1  | 2026-10-19T22:21:54.232140905Z  │ GET http://medusa:9000/store/collections?fields=%2Aproducts&limit=100&offset=0 200 in 9ms (cache hit)
+storefront-1  | 2026-10-19T22:21:54.232161107Z  │ GET http://medusa:9000/store/product-categories?fields=%2Acategory_children%2C%20%2Aproducts%2C%20%2Aparent_category%2C%20%2Aparent_category.parent_category&limit=100 200 in 3ms (cache hit)

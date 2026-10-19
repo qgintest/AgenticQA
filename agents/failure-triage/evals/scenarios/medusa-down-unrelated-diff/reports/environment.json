@@ -1,0 +1,11 @@
+{
+  "runId": "9a5f82",
+  "startedAt": "2026-10-19T22:20:50.003Z",
+  "storefrontUrl": "http://localhost:8000",
+  "backendUrl": "http://localhost:9000",
+  "countryCode": "dk",
+  "publishableKeyPrefix": "pk_b999a",
+  "deliberateFailure": "off",
+  "ci": false,
+  "commit": null
+}

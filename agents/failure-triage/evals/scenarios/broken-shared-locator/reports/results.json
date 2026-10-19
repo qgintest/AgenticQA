@@ -1,0 +1,586 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "/repo/automation\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--project=regression",
+      "--retries=1",
+      "--grep",
+      "gating|adding a variant to the cart|guest places an order"
+    ],
+    "configFile": "/repo/automation\\playwright.config.ts",
+    "rootDir": "/repo/automation/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "/repo/automation\\tests\\global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "storefrontUrl": "http://localhost:8000",
+      "backendUrl": "http://localhost:9000",
+      "countryCode": "dk",
+      "deliberateFailure": "off",
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/repo/automation/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "storefrontUrl": "http://localhost:8000",
+          "backendUrl": "http://localhost:9000",
+          "countryCode": "dk",
+          "deliberateFailure": "off",
+          "actualWorkers": 2
+        },
+        "id": "regression",
+        "name": "regression",
+        "testDir": "/repo/automation/tests",
+        "testIgnore": [
+          "**/diagnostics/**"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "reports/html",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "reports/junit.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "orders\\guest-checkout.ui.spec.ts",
+      "file": "orders/guest-checkout.ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Guest checkout (UI)",
+          "file": "orders/guest-checkout.ui.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "guest places an order and the backend records it correctly",
+              "ok": false,
+              "tags": [
+                "ui",
+                "order",
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 270000,
+                  "annotations": [
+                    {
+                      "type": "slow",
+                      "location": {
+                        "file": "/repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts",
+                        "line": 21,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 25632,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n\n    at ProductPage.addToCart (/repo/automation\\src\\pages\\product-page.ts:31:40)\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:34:25\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:31:5",
+                        "location": {
+                          "file": "/repo/automation\\src\\pages\\product-page.ts",
+                          "column": 40,
+                          "line": 31
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\product-page.ts:31\n\n\u001b[0m \u001b[90m 29 |\u001b[39m   \u001b[90m/** Clicks \"Add to cart\" and waits until the request finishes (button leaves its loading state). */\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36masync\u001b[39m addToCart()\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Add to cart'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 33 |\u001b[39m     \u001b[90m// Adding is a server action (creates the cart on first add); allow for `next dev` latency.\u001b[39m\n \u001b[90m 34 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoBeEnabled({ timeout\u001b[33m:\u001b[39m \u001b[35m45\u001b[39m_000 })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\src\\pages\\product-page.ts",
+                            "column": 40,
+                            "line": 31
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n\n\n   at ..\\src\\pages\\product-page.ts:31\n\n  29 |   /** Clicks \"Add to cart\" and waits until the request finishes (button leaves its loading state). */\n  30 |   async addToCart(): Promise<void> {\n> 31 |     await expect(this.addToCartButton).toHaveText('Add to cart');\n     |                                        ^\n  32 |     await this.addToCartButton.click();\n  33 |     // Adding is a server action (creates the cart on first add); allow for `next dev` latency.\n  34 |     await expect(this.addToCartButton).toBeEnabled({ timeout: 45_000 });\n    at ProductPage.addToCart (/repo/automation\\src\\pages\\product-page.ts:31:40)\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:34:25\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:31:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "add product variant to cart",
+                          "duration": 18698,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n\n    at ProductPage.addToCart (/repo/automation\\src\\pages\\product-page.ts:31:40)\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:34:25\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:31:5",
+                            "location": {
+                              "file": "/repo/automation\\src\\pages\\product-page.ts",
+                              "column": 40,
+                              "line": 31
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\product-page.ts:31\n\n\u001b[0m \u001b[90m 29 |\u001b[39m   \u001b[90m/** Clicks \"Add to cart\" and waits until the request finishes (button leaves its loading state). */\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36masync\u001b[39m addToCart()\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Add to cart'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 33 |\u001b[39m     \u001b[90m// Adding is a server action (creates the cart on first add); allow for `next dev` latency.\u001b[39m\n \u001b[90m 34 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoBeEnabled({ timeout\u001b[33m:\u001b[39m \u001b[35m45\u001b[39m_000 })\u001b[33m;\u001b[39m\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-19T22:17:38.198Z",
+                      "annotations": [
+                        {
+                          "type": "slow",
+                          "location": {
+                            "file": "/repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts",
+                            "line": 21,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\src\\pages\\product-page.ts",
+                        "column": 40,
+                        "line": 31
+                      }
+                    },
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 21831,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n\n    at ProductPage.addToCart (/repo/automation\\src\\pages\\product-page.ts:31:40)\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:34:25\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:31:5",
+                        "location": {
+                          "file": "/repo/automation\\src\\pages\\product-page.ts",
+                          "column": 40,
+                          "line": 31
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\product-page.ts:31\n\n\u001b[0m \u001b[90m 29 |\u001b[39m   \u001b[90m/** Clicks \"Add to cart\" and waits until the request finishes (button leaves its loading state). */\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36masync\u001b[39m addToCart()\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Add to cart'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 33 |\u001b[39m     \u001b[90m// Adding is a server action (creates the cart on first add); allow for `next dev` latency.\u001b[39m\n \u001b[90m 34 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoBeEnabled({ timeout\u001b[33m:\u001b[39m \u001b[35m45\u001b[39m_000 })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\src\\pages\\product-page.ts",
+                            "column": 40,
+                            "line": 31
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n\n\n   at ..\\src\\pages\\product-page.ts:31\n\n  29 |   /** Clicks \"Add to cart\" and waits until the request finishes (button leaves its loading state). */\n  30 |   async addToCart(): Promise<void> {\n> 31 |     await expect(this.addToCartButton).toHaveText('Add to cart');\n     |                                        ^\n  32 |     await this.addToCartButton.click();\n  33 |     // Adding is a server action (creates the cart on first add); allow for `next dev` latency.\n  34 |     await expect(this.addToCartButton).toBeEnabled({ timeout: 45_000 });\n    at ProductPage.addToCart (/repo/automation\\src\\pages\\product-page.ts:31:40)\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:34:25\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:31:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "steps": [
+                        {
+                          "title": "add product variant to cart",
+                          "duration": 19030,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n\n    at ProductPage.addToCart (/repo/automation\\src\\pages\\product-page.ts:31:40)\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:34:25\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:31:5",
+                            "location": {
+                              "file": "/repo/automation\\src\\pages\\product-page.ts",
+                              "column": 40,
+                              "line": 31
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\product-page.ts:31\n\n\u001b[0m \u001b[90m 29 |\u001b[39m   \u001b[90m/** Clicks \"Add to cart\" and waits until the request finishes (button leaves its loading state). */\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36masync\u001b[39m addToCart()\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Add to cart'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 33 |\u001b[39m     \u001b[90m// Adding is a server action (creates the cart on first add); allow for `next dev` latency.\u001b[39m\n \u001b[90m 34 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoBeEnabled({ timeout\u001b[33m:\u001b[39m \u001b[35m45\u001b[39m_000 })\u001b[33m;\u001b[39m\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-19T22:18:06.696Z",
+                      "annotations": [
+                        {
+                          "type": "slow",
+                          "location": {
+                            "file": "/repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts",
+                            "line": 21,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\src\\pages\\product-page.ts",
+                        "column": 40,
+                        "line": 31
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1542c9f3c3abdbb17d8b-8f1a04f52c17468f5bf7",
+              "file": "orders/guest-checkout.ui.spec.ts",
+              "line": 9,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "storefront\\product-browsing.spec.ts",
+      "file": "storefront/product-browsing.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Product browsing",
+          "file": "storefront/product-browsing.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "product card opens the detail page with variant selection gating \"Add to cart\"",
+              "ok": false,
+              "tags": [
+                "ui"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 21302,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: disabled\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: disabled\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n\n    at /repo/automation\\tests\\storefront\\product-browsing.spec.ts:75:47",
+                        "location": {
+                          "file": "/repo/automation\\tests\\storefront\\product-browsing.spec.ts",
+                          "column": 47,
+                          "line": 75
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 73 |\u001b[39m     \u001b[36mawait\u001b[39m expect(productPage\u001b[33m.\u001b[39moptionButton(\u001b[32m'S'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 74 |\u001b[39m     \u001b[36mawait\u001b[39m expect(productPage\u001b[33m.\u001b[39moptionButton(\u001b[32m'M'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 75 |\u001b[39m     \u001b[36mawait\u001b[39m expect(productPage\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoBeDisabled()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 76 |\u001b[39m     \u001b[36mawait\u001b[39m expect(productPage\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Select variant'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 77 |\u001b[39m\n \u001b[90m 78 |\u001b[39m     \u001b[36mawait\u001b[39m productPage\u001b[33m.\u001b[39mselectOption(\u001b[32m'M'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\tests\\storefront\\product-browsing.spec.ts",
+                            "column": 47,
+                            "line": 75
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: disabled\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n\n\n  73 |     await expect(productPage.optionButton('S')).toBeVisible();\n  74 |     await expect(productPage.optionButton('M')).toBeVisible();\n> 75 |     await expect(productPage.addToCartButton).toBeDisabled();\n     |                                               ^\n  76 |     await expect(productPage.addToCartButton).toHaveText('Select variant');\n  77 |\n  78 |     await productPage.selectOption('M');\n    at /repo/automation\\tests\\storefront\\product-browsing.spec.ts:75:47"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-19T22:17:38.218Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/artifacts/test-results/storefront-product-browsin-4a685-lection-gating-Add-to-cart--regression/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/storefront-product-browsin-4a685-lection-gating-Add-to-cart--regression/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/storefront-product-browsin-4a685-lection-gating-Add-to-cart--regression/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\tests\\storefront\\product-browsing.spec.ts",
+                        "column": 47,
+                        "line": 75
+                      }
+                    },
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 22349,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: disabled\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: disabled\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n\n    at /repo/automation\\tests\\storefront\\product-browsing.spec.ts:75:47",
+                        "location": {
+                          "file": "/repo/automation\\tests\\storefront\\product-browsing.spec.ts",
+                          "column": 47,
+                          "line": 75
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 73 |\u001b[39m     \u001b[36mawait\u001b[39m expect(productPage\u001b[33m.\u001b[39moptionButton(\u001b[32m'S'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 74 |\u001b[39m     \u001b[36mawait\u001b[39m expect(productPage\u001b[33m.\u001b[39moptionButton(\u001b[32m'M'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 75 |\u001b[39m     \u001b[36mawait\u001b[39m expect(productPage\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoBeDisabled()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 76 |\u001b[39m     \u001b[36mawait\u001b[39m expect(productPage\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Select variant'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 77 |\u001b[39m\n \u001b[90m 78 |\u001b[39m     \u001b[36mawait\u001b[39m productPage\u001b[33m.\u001b[39mselectOption(\u001b[32m'M'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\tests\\storefront\\product-browsing.spec.ts",
+                            "column": 47,
+                            "line": 75
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: disabled\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n\n\n  73 |     await expect(productPage.optionButton('S')).toBeVisible();\n  74 |     await expect(productPage.optionButton('M')).toBeVisible();\n> 75 |     await expect(productPage.addToCartButton).toBeDisabled();\n     |                                               ^\n  76 |     await expect(productPage.addToCartButton).toHaveText('Select variant');\n  77 |\n  78 |     await productPage.selectOption('M');\n    at /repo/automation\\tests\\storefront\\product-browsing.spec.ts:75:47"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-19T22:18:01.012Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/artifacts/test-results/storefront-product-browsin-4a685-lection-gating-Add-to-cart--regression-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/storefront-product-browsin-4a685-lection-gating-Add-to-cart--regression-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/storefront-product-browsin-4a685-lection-gating-Add-to-cart--regression-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\tests\\storefront\\product-browsing.spec.ts",
+                        "column": 47,
+                        "line": 75
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "7bb66dce9710e6461733-f70b908644c2cccf19dc",
+              "file": "storefront/product-browsing.spec.ts",
+              "line": 57,
+              "column": 7
+            },
+            {
+              "title": "adding a variant to the cart updates the nav count and cart contents",
+              "ok": false,
+              "tags": [
+                "ui"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 21134,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n\n    at ProductPage.addToCart (/repo/automation\\src\\pages\\product-page.ts:31:40)\n    at /repo/automation\\tests\\storefront\\product-browsing.spec.ts:95:23",
+                        "location": {
+                          "file": "/repo/automation\\src\\pages\\product-page.ts",
+                          "column": 40,
+                          "line": 31
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\product-page.ts:31\n\n\u001b[0m \u001b[90m 29 |\u001b[39m   \u001b[90m/** Clicks \"Add to cart\" and waits until the request finishes (button leaves its loading state). */\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36masync\u001b[39m addToCart()\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Add to cart'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 33 |\u001b[39m     \u001b[90m// Adding is a server action (creates the cart on first add); allow for `next dev` latency.\u001b[39m\n \u001b[90m 34 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoBeEnabled({ timeout\u001b[33m:\u001b[39m \u001b[35m45\u001b[39m_000 })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\src\\pages\\product-page.ts",
+                            "column": 40,
+                            "line": 31
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n\n\n   at ..\\src\\pages\\product-page.ts:31\n\n  29 |   /** Clicks \"Add to cart\" and waits until the request finishes (button leaves its loading state). */\n  30 |   async addToCart(): Promise<void> {\n> 31 |     await expect(this.addToCartButton).toHaveText('Add to cart');\n     |                                        ^\n  32 |     await this.addToCartButton.click();\n  33 |     // Adding is a server action (creates the cart on first add); allow for `next dev` latency.\n  34 |     await expect(this.addToCartButton).toBeEnabled({ timeout: 45_000 });\n    at ProductPage.addToCart (/repo/automation\\src\\pages\\product-page.ts:31:40)\n    at /repo/automation\\tests\\storefront\\product-browsing.spec.ts:95:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-19T22:18:24.839Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\src\\pages\\product-page.ts",
+                        "column": 40,
+                        "line": 31
+                      }
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 19700,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n\n    at ProductPage.addToCart (/repo/automation\\src\\pages\\product-page.ts:31:40)\n    at /repo/automation\\tests\\storefront\\product-browsing.spec.ts:95:23",
+                        "location": {
+                          "file": "/repo/automation\\src\\pages\\product-page.ts",
+                          "column": 40,
+                          "line": 31
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\product-page.ts:31\n\n\u001b[0m \u001b[90m 29 |\u001b[39m   \u001b[90m/** Clicks \"Add to cart\" and waits until the request finishes (button leaves its loading state). */\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36masync\u001b[39m addToCart()\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Add to cart'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 33 |\u001b[39m     \u001b[90m// Adding is a server action (creates the cart on first add); allow for `next dev` latency.\u001b[39m\n \u001b[90m 34 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39maddToCartButton)\u001b[33m.\u001b[39mtoBeEnabled({ timeout\u001b[33m:\u001b[39m \u001b[35m45\u001b[39m_000 })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\src\\pages\\product-page.ts",
+                            "column": 40,
+                            "line": 31
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('add-bag-button')\nExpected: \u001b[32m\"Add to cart\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('add-bag-button') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('add-bag-button')\u001b[22m\n\n\n   at ..\\src\\pages\\product-page.ts:31\n\n  29 |   /** Clicks \"Add to cart\" and waits until the request finishes (button leaves its loading state). */\n  30 |   async addToCart(): Promise<void> {\n> 31 |     await expect(this.addToCartButton).toHaveText('Add to cart');\n     |                                        ^\n  32 |     await this.addToCartButton.click();\n  33 |     // Adding is a server action (creates the cart on first add); allow for `next dev` latency.\n  34 |     await expect(this.addToCartButton).toBeEnabled({ timeout: 45_000 });\n    at ProductPage.addToCart (/repo/automation\\src\\pages\\product-page.ts:31:40)\n    at /repo/automation\\tests\\storefront\\product-browsing.spec.ts:95:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-19T22:18:47.367Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\src\\pages\\product-page.ts",
+                        "column": 40,
+                        "line": 31
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "7bb66dce9710e6461733-4b76a71b1df9e7bff450",
+              "file": "storefront/product-browsing.spec.ts",
+              "line": 85,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T22:17:32.764Z",
+    "duration": 95153.32299999999,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

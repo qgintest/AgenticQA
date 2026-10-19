@@ -32,3 +32,7 @@ coverage/
 
 # TypeScript incremental build info
 *.tsbuildinfo
+
+# Failure-triage eval scenarios are frozen run artifacts, committed with their logs and test-results.
+!agents/failure-triage/evals/scenarios/**/*.log
+!agents/failure-triage/evals/scenarios/*/test-results/

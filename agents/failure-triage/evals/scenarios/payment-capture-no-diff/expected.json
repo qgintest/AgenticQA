@@ -1,0 +1,9 @@
+{
+  "description": "Product-behaviour mismatch with no code change to look at: after checkout the storefront reports the order as paid, but the backend only authorized the payment (payment_status \"authorized\", expected \"captured\"). Fails identically on both attempts. Labelled an application defect, as in the deliberate-failure spec and the triage README; there is no changes.diff, so the agent has to reason from the error, trace and logs.",
+  "source": "Local run against the Docker AUT with AQA_DELIBERATE_FAILURE=assertion, deliberate-failure project, --retries=1. No changes.diff (as in a local run or a manual re-run without a base commit).",
+  "diff": "none",
+  "injection": null,
+  "tests": [
+    { "title": "payment is captured when the order is placed", "expected": "application_defect", "acceptable": [], "evidenceKinds": ["logs"] }
+  ]
+}
