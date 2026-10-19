@@ -1,0 +1,11 @@
+**/node_modules
+apps/backend/.medusa
+apps/storefront/.next
+**/.turbo
+**/.env
+**/.env.local
+**/*.log
+.git
+coverage
+dist
+build

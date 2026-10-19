@@ -1,0 +1,29 @@
+{
+  "name": "@agenticqa/automation",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Playwright + TypeScript regression suite for the Medusa AUT in ../aut",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:api": "playwright test --grep @api",
+    "test:ui": "playwright test --grep @ui",
+    "test:headed": "playwright test --headed --workers=1",
+    "test:deliberate-failure": "cross-env AQA_DELIBERATE_FAILURE=assertion playwright test --project=deliberate-failure",
+    "test:deliberate-failure:locator": "cross-env AQA_DELIBERATE_FAILURE=locator playwright test --project=deliberate-failure",
+    "report": "playwright show-report reports/html",
+    "typecheck": "tsc --noEmit",
+    "install:browsers": "playwright install chromium"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "22.20.5",
+    "cross-env": "10.1.0",
+    "dotenv": "17.4.2",
+    "typescript": "6.0.3"
+  }
+}

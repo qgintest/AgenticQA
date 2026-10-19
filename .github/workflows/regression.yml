@@ -1,0 +1,139 @@
+name: Regression
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      deliberate_failure:
+        description: Also run the deliberately failing scenario (job will fail on purpose)
+        type: choice
+        options: ['off', 'assertion', 'locator']
+        default: 'off'
+
+concurrency:
+  group: regression-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  regression:
+    name: Playwright regression (Medusa AUT)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      CI: 'true'
+      AQA_DELIBERATE_FAILURE: ${{ inputs.deliberate_failure || 'off' }}
+      AQA_RUN_ID: gh${{ github.run_id }}-${{ github.run_attempt }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: automation/package-lock.json
+
+      # ---------- Medusa test environment (same compose stack and scripts as local dev) ----------
+
+      - name: Create AUT env files (random secrets per run)
+        working-directory: aut
+        run: sh scripts/init-env.sh
+
+      - name: Build AUT image
+        working-directory: aut
+        run: docker compose build medusa
+
+      - name: Start Postgres, Redis and Medusa (migrations + seed run on start)
+        working-directory: aut
+        run: docker compose up -d --wait --wait-timeout 600 postgres redis medusa
+
+      - name: Create admin user and wire publishable key
+        working-directory: aut
+        run: |
+          sh scripts/create-admin.sh
+          sh scripts/get-publishable-key.sh
+
+      - name: Start storefront
+        working-directory: aut
+        run: |
+          docker compose up -d storefront
+          for i in $(seq 1 60); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 60 http://localhost:8000/dk || true)
+            [ "$code" = "200" ] && echo "storefront ready" && exit 0
+            sleep 5
+          done
+          echo "storefront did not become ready" >&2
+          docker compose logs --no-color storefront | tail -100
+          exit 1
+
+      # ---------- Test suite ----------
+
+      - name: Install test dependencies
+        working-directory: automation
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('automation/package-lock.json') }}
+
+      - name: Install Chromium
+        working-directory: automation
+        run: npx playwright install --with-deps chromium
+
+      - name: Typecheck
+        working-directory: automation
+        run: npm run typecheck
+
+      - name: Run regression suite
+        working-directory: automation
+        # Admin credentials come from aut/.env (generated above); no repository secrets needed.
+        run: npx playwright test
+
+      # ---------- Diagnostics (kept for every run; failure artifacts only when something failed) ----------
+
+      - name: Job summary
+        if: always()
+        working-directory: automation
+        run: node scripts/ci-summary.mjs >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Collect AUT logs and state
+        if: always()
+        working-directory: aut
+        run: |
+          mkdir -p ../automation/reports/aut
+          docker compose ps -a > ../automation/reports/aut/compose-ps.txt 2>&1 || true
+          for s in medusa storefront postgres redis; do
+            docker compose logs --no-color --timestamps "$s" > "../automation/reports/aut/$s.log" 2>&1 || true
+          done
+
+      - name: Upload reports (HTML, JSON, JUnit, environment, AUT logs)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-reports-${{ github.run_id }}-${{ github.run_attempt }}
+          path: automation/reports/
+          retention-days: 14
+          if-no-files-found: warn
+
+      - name: Upload failure artifacts (traces, screenshots, videos)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-test-results-${{ github.run_id }}-${{ github.run_attempt }}
+          path: automation/test-results/
+          retention-days: 14
+          if-no-files-found: ignore
+
+      - name: Tear down AUT
+        if: always()
+        working-directory: aut
+        run: docker compose down -v --remove-orphans

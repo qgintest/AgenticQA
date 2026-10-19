@@ -1,0 +1,108 @@
+# AgenticQA — Application Under Test (Medusa 2.21.2)
+# Usage (from aut/):  docker compose up --build -d
+# Compose-level variables come from aut/.env (copy from .env.example).
+
+name: agenticqa-aut
+
+# Shared settings for the Node services. Only `medusa` builds the image;
+# `storefront` reuses it (building the same tag twice in parallel can corrupt it).
+x-node-app: &node-app
+  image: agenticqa/aut-dev:local
+  restart: on-failure:3
+  networks: [aut]
+
+services:
+  postgres:
+    image: postgres:15.14-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?set in aut/.env}
+      POSTGRES_USER: ${POSTGRES_USER:?set in aut/.env}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set in aut/.env}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    networks: [aut]
+
+  redis:
+    image: redis:7.4-alpine
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks: [aut]
+
+  # Medusa backend: REST API + Admin dashboard
+  medusa:
+    <<: *node-app
+    build: .
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    ports:
+      - "9000:9000"   # API + admin (/app)
+      - "5173:5173"   # admin HMR websocket
+    env_file:
+      - apps/backend/.env
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      REDIS_URL: redis://redis:6379
+      SEED_DEMO_PRODUCTS: ${SEED_DEMO_PRODUCTS:-true}
+      # Windows bind mounts do not propagate fs events; poll for changes
+      CHOKIDAR_USEPOLLING: "true"
+    volumes:
+      - .:/server
+      - /server/node_modules
+      - /server/apps/backend/node_modules
+      - /server/apps/storefront/node_modules
+      - /server/apps/backend/.medusa
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:9000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 180s
+
+  # Next.js Starter Storefront
+  storefront:
+    <<: *node-app
+    pull_policy: never
+    entrypoint: ["/bin/sh", "/server/docker/start-storefront.sh"]
+    depends_on:
+      medusa: { condition: service_healthy }
+    ports:
+      - "8000:8000"
+    env_file:
+      - apps/storefront/.env.local
+    environment:
+      NODE_ENV: development
+      # Browser-facing URL (client bundle) and server-side URL (compose network)
+      NEXT_PUBLIC_MEDUSA_BACKEND_URL: http://localhost:9000
+      MEDUSA_BACKEND_URL: http://medusa:9000
+      WATCHPACK_POLLING: "true"
+    volumes:
+      - .:/server
+      - /server/node_modules
+      - /server/apps/backend/node_modules
+      - /server/apps/storefront/node_modules
+      - /server/apps/storefront/.next
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  aut:
