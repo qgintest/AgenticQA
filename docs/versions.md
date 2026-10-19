@@ -14,6 +14,8 @@ Verified against the official Medusa docs on 2026-10-16.
 | Redis | 7.4 (`redis:7.4-alpine`) | `aut/docker-compose.yml` | |
 | Playwright (`@playwright/test`) | 1.63.0 (Chromium) | `automation/package.json` (exact) | 1.64.x was <2 weeks old at setup |
 | TypeScript (automation) | 6.0.3 | `automation/package.json` | typecheck only; Playwright transpiles tests itself |
+| Anthropic SDK (`@anthropic-ai/sdk`) | 0.131.0 | `agents/failure-triage/package.json` (exact) | failure-triage agent; newer releases were <2 weeks old |
+| Claude model (triage) | `claude-opus-5-5` | `agents/failure-triage/src/config.ts` (override: `TRIAGE_MODEL`) | adaptive thinking, effort `high` |
 | Docker Desktop / Compose | 29.8 / v5.5 | host | |
 
 ## Local modifications to upstream starter

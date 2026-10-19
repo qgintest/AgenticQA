@@ -171,7 +171,12 @@ It brings up a fresh AUT with the same compose stack and scripts used locally
 then `npm ci`, installs Chromium, typechecks and runs `npx playwright test`. Always uploaded:
 `playwright-reports-<run>` (HTML/JSON/JUnit/environment + all AUT container logs). On failure also:
 `playwright-test-results-<run>` (traces, screenshots, videos). A pass/fail table goes to the job summary.
-No repository secrets or paid services are needed — credentials are generated per run.
+The regression suite needs no repository secrets — AUT credentials are generated per run.
+
+When the regression step fails, the [failure-triage agent](../agents/failure-triage) investigates the
+artifacts and appends a classified diagnostic report to the job summary (artifact `failure-triage-<run>`).
+It uses the Claude API only if the optional `ANTHROPIC_API_KEY` repository secret is set (paid per token);
+otherwise it falls back to free deterministic heuristics. It never changes the job result.
 
 ## Known limitations
 

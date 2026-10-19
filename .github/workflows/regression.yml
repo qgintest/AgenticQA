@@ -38,7 +38,9 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: automation/package-lock.json
+          cache-dependency-path: |
+            automation/package-lock.json
+            agents/failure-triage/package-lock.json
 
       # ---------- Medusa test environment (same compose stack and scripts as local dev) ----------
 
@@ -94,8 +96,10 @@ jobs:
         run: npm run typecheck
 
       - name: Run regression suite
+        id: regression
         working-directory: automation
         # Admin credentials come from aut/.env (generated above); no repository secrets needed.
+        # This step's exit code alone decides the job result; nothing after it can turn a failure green.
         run: npx playwright test
 
       # ---------- Diagnostics (kept for every run; failure artifacts only when something failed) ----------
@@ -114,6 +118,42 @@ jobs:
           for s in medusa storefront postgres redis; do
             docker compose logs --no-color --timestamps "$s" > "../automation/reports/aut/$s.log" 2>&1 || true
           done
+
+      # ---------- AI failure triage (only when the regression suite failed; advisory, read-only) ----------
+
+      - name: Build failure-triage agent
+        if: ${{ !cancelled() && steps.regression.outcome == 'failure' }}
+        continue-on-error: true
+        working-directory: agents/failure-triage
+        run: |
+          npm ci
+          npm run build
+
+      - name: Triage failures
+        if: ${{ !cancelled() && steps.regression.outcome == 'failure' }}
+        # A triage problem must never hide or replace the regression failure: the job already failed
+        # at the regression step, and this step cannot change that either way.
+        continue-on-error: true
+        timeout-minutes: 10
+        working-directory: agents/failure-triage
+        env:
+          # Only this step sees the key. Without it (e.g. PRs from forks) triage falls back to heuristics.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TRIAGE_MODEL: ${{ vars.TRIAGE_MODEL }}
+        run: >-
+          node dist/src/cli.js
+          --reports ../../automation/reports
+          --test-results ../../automation/test-results
+          --out ../../automation/reports/triage
+
+      - name: Upload triage report
+        if: ${{ !cancelled() && steps.regression.outcome == 'failure' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-triage-${{ github.run_id }}-${{ github.run_attempt }}
+          path: automation/reports/triage/
+          retention-days: 14
+          if-no-files-found: warn
 
       - name: Upload reports (HTML, JSON, JUnit, environment, AUT logs)
         if: always()
