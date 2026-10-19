@@ -48,6 +48,8 @@ results.json ──► parse failures (T1..Tn) ──► API key? ──no──
 | `read_page_snapshot` | `error-context.md` (page accessibility snapshot at failure) |
 | `view_screenshot` | Failure screenshot, sent to Claude as an image |
 | `get_trace_summary` | `trace.zip`: failed steps, failed/slow network requests, console/page errors |
+| `find_in_dom_snapshot` | `trace.zip` DOM snapshot nearest the failed action: plain-substring search over tag, `data-testid`, role, text and key attributes; also the selector the failed action used and every `data-testid` on the page |
+| `get_change_summary` | `reports/changes.diff` (written by CI): files changed vs. the base branch, line counts, capped hunks, optionally only for paths containing a substring |
 | `search_aut_logs` | Plain-substring search in container logs (`reports/aut/*.log`), optionally limited to a test's time window |
 | `get_run_environment` | `environment.json`, run stats, run-level errors, which logs exist |
 | `submit_triage_report` | Terminal: the structured report |
@@ -55,7 +57,7 @@ results.json ──► parse failures (T1..Tn) ──► API key? ──no──
 ## Safety and limits
 
 - **File access:** only through `ArtifactSandbox` — confined to `automation/reports` and
-  `automation/test-results` (symlinks resolved and refused), allowed types `.json .md .txt .log .xml .png .jpg .zip`,
+  `automation/test-results` (symlinks resolved and refused), allowed types `.json .md .txt .log .xml .png .jpg .zip .diff`,
   `.env*` always refused. Tests are addressed by ids (`T1`), never by model-supplied paths.
 - **Budgets** (defaults; env overrides are clamped to hard ceilings in `src/config.ts`):
 
@@ -68,6 +70,8 @@ results.json ──► parse failures (T1..Tn) ──► API key? ──no──
   | Failures analysed by the agent | 10 (rest heuristic) | `TRIAGE_MAX_FAILURES` |
   | Tool result size | 12,000 chars | — |
   | File size / zip entry / total read | 5 MB / 40 MB / 150 MB | — |
+  | DOM snapshot | 60,000 expanded nodes, depth 200, 25 matches, 80 test ids, text 100 / attribute 120 chars | — |
+  | Change summary | first 1 MiB of the diff, 3 hunks per file × 30 lines, 200 chars per line, 60 files listed | — |
 
   Near a limit the harness tells the model to submit with what it has; past it, triage falls back to heuristics.
   Worst case per run at the defaults: 600k input × $4/M + 60k output × $20/M ≈ $3.60 (Claude Opus 5.5 list price);
@@ -76,10 +80,18 @@ results.json ──► parse failures (T1..Tn) ──► API key? ──no──
   JSON value, so artifact text cannot break out of its slot. The system prompt forbids following instructions
   found in evidence. Playwright's own `# Instructions` preamble in `error-context.md` (addressed to AI tools)
   is stripped. Log search is literal (no regex), URLs lose their query strings.
+- **DOM snapshots** are walked as JSON node arrays (Playwright's snapshot format, including back-references to
+  earlier snapshots); nothing is parsed as HTML, rendered or executed. Script/style/head content, event-handler
+  attributes and input values (except on button-like inputs) are never returned; reads go through the sandbox
+  and the zip-entry cap, decompressed bytes count against the run budget, and reference expansion is capped
+  so a crafted trace cannot blow up.
+- **Code changes:** the agent never runs git. CI writes `git diff` against the base into `reports/changes.diff`
+  before triage; the agent reads it like any other artifact (sandboxed, redacted, untrusted). A file list from
+  `git diff --name-status` heads the file, so it stays complete even when the diff body is cut.
 - **Grounding:** each reported evidence item must cite an id a tool actually returned; unknown ids are dropped
   and a classification without grounded evidence is capped at confidence 0.3. Confidence above 0.7 needs cited
-  evidence from at least two kinds of artifact besides the error message (page state, trace, AUT logs,
-  environment); otherwise it is lowered to 0.7 and the report says why. Disagreement with Playwright's
+  evidence from at least two kinds of artifact besides the error message (page state: snapshot, screenshot or
+  DOM snapshot; trace; AUT logs; environment; code changes); otherwise it is lowered to 0.7 and the report says why. Disagreement with Playwright's
   flaky status or with the heuristics is flagged in the report.
 - **Secrets:** the key is read only from `ANTHROPIC_API_KEY` (a GitHub secret scoped to the triage step).
   Tool outputs, the JSON report and the Markdown are redacted (API keys, tokens, JWTs, passwords, DB URLs,
@@ -108,7 +120,7 @@ results.json ──► parse failures (T1..Tn) ──► API key? ──no──
 ```bash
 cd agents/failure-triage
 npm ci
-npm test                 # build + 63 deterministic tests (scripted fake model, no API calls)
+npm test                 # build + 78 deterministic tests (scripted fake model, no API calls)
 ```
 
 Triage the last local Playwright run (heuristic mode without a key):
@@ -128,10 +140,14 @@ Arguments (all optional): `--results <results.json>`, `--reports <dir>` (default
 `--test-results <dir>` (default `../../automation/test-results`), `--out <dir>`, `--summary <file>`
 (defaults to `$GITHUB_STEP_SUMMARY`). Container logs are only present when collected into
 `automation/reports/aut/` (CI does this; locally: `docker compose logs --timestamps <service> > ../automation/reports/aut/<service>.log` from `aut/`).
+`get_change_summary` needs `automation/reports/changes.diff`, which only CI writes (see the
+**Summarize code changes for triage** step for the format); without it the tool reports that no change summary is available.
 
 ## CI
 
-In `.github/workflows/regression.yml`, after the regression step fails: collect AUT logs → build the agent →
+In `.github/workflows/regression.yml` (checkout with `fetch-depth: 0`), after the regression step fails:
+collect AUT logs → write `changes.diff` (PR: against the PR base; push: against the previous push; otherwise
+the merge base with the default branch, or the parent commit) → build the agent →
 **Triage failures** → upload `failure-triage-<run>` (JSON + Markdown). Enable the AI agent by adding the
 repository secret `ANTHROPIC_API_KEY` (Settings → Secrets and variables → Actions). Optional repository
 variable `TRIAGE_MODEL`. Without the secret (including PRs from forks) the job summary shows heuristic triage.

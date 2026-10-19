@@ -9,7 +9,7 @@ export class SandboxError extends Error {
   }
 }
 
-const ALLOWED_EXTENSIONS = new Set(['.json', '.md', '.txt', '.log', '.xml', '.png', '.jpg', '.jpeg', '.zip']);
+const ALLOWED_EXTENSIONS = new Set(['.json', '.md', '.txt', '.log', '.xml', '.png', '.jpg', '.jpeg', '.zip', '.diff']);
 
 /**
  * The only way tools touch the filesystem. Read-only by construction (no write API), confined to
@@ -91,6 +91,22 @@ export class ArtifactSandbox {
     try {
       const buf = Buffer.alloc(take);
       fs.readSync(fd, buf, 0, take, size - take);
+      return { text: buf.toString('utf8'), truncated: take < size, size };
+    } finally {
+      fs.closeSync(fd);
+    }
+  }
+
+  /** Reads text, keeping only the first `maxBytes` of large files (a diff is read from the top). */
+  readTextHead(candidate: string, maxBytes = this.limits.maxFileBytes): { text: string; truncated: boolean; size: number } {
+    const file = this.resolve(candidate);
+    const size = fs.statSync(file).size;
+    const take = Math.min(size, maxBytes, this.limits.maxFileBytes);
+    this.charge(take);
+    const fd = fs.openSync(file, 'r');
+    try {
+      const buf = Buffer.alloc(take);
+      fs.readSync(fd, buf, 0, take, 0);
       return { text: buf.toString('utf8'), truncated: take < size, size };
     } finally {
       fs.closeSync(fd);

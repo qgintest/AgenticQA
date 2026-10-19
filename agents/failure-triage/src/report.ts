@@ -181,9 +181,11 @@ const EVIDENCE_KIND: Record<string, string> = {
   get_failure_details: 'error',
   read_page_snapshot: 'page_state',
   view_screenshot: 'page_state',
+  find_in_dom_snapshot: 'page_state',
   get_trace_summary: 'trace',
   search_aut_logs: 'logs',
   get_run_environment: 'environment',
+  get_change_summary: 'changes',
 };
 
 export function corroboratingKinds(tools: string[]): string[] {
