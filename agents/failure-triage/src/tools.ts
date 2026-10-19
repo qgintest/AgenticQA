@@ -303,7 +303,7 @@ export class ToolRunner {
     const { text, truncated } = this.ctx.sandbox.readTextTail(p, 200_000);
     const { body, removed } = stripPlaywrightPreamble(text);
     return this.ok('read_page_snapshot', t.id, `error-context.md of ${t.id}`, {
-      note: removed ? "Playwright's generic '# Instructions' preamble (addressed to AI assistants) was removed; the rest is the recorded page state." : null,
+      generic_header_omitted: removed,
       truncated_from_start: truncated,
       content: body,
     });

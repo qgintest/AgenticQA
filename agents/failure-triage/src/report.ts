@@ -168,6 +168,28 @@ export function validateSubmission(input: unknown, knownTestIds: Set<string>): V
 /** Ungrounded claims can never be reported with more confidence than this. */
 export const UNGROUNDED_CONFIDENCE_CAP = 0.3;
 
+/**
+ * "High" confidence must be corroborated: above this cap, the cited evidence has to cover at least
+ * HIGH_CONFIDENCE_MIN_KINDS kinds of artifact besides the error message itself.
+ */
+export const UNCORROBORATED_CONFIDENCE_CAP = 0.7;
+export const HIGH_CONFIDENCE_MIN_KINDS = 2;
+
+/** Which kind of artifact each tool reads. `error` (results.json) does not count as corroboration. */
+const EVIDENCE_KIND: Record<string, string> = {
+  list_failed_tests: 'error',
+  get_failure_details: 'error',
+  read_page_snapshot: 'page_state',
+  view_screenshot: 'page_state',
+  get_trace_summary: 'trace',
+  search_aut_logs: 'logs',
+  get_run_environment: 'environment',
+};
+
+export function corroboratingKinds(tools: string[]): string[] {
+  return [...new Set(tools.map((t) => EVIDENCE_KIND[t] ?? 'other'))].filter((k) => k !== 'error').sort();
+}
+
 export function confidenceLabel(c: number): ConfidenceLabel {
   return c >= 0.75 ? 'high' : c >= 0.45 ? 'medium' : 'low';
 }
@@ -224,19 +246,28 @@ export function groundedFailures(submission: Submission, tests: FailedTest[], ev
 
     const issues: string[] = [];
     const grounded: ReportEvidence[] = [];
+    const citedTools: string[] = [];
     for (const e of sub.evidence) {
       const rec = evidence.get(e.evidence_id);
       if (!rec) {
         issues.push(`Dropped evidence citing unknown id "${e.evidence_id}".`);
         continue;
       }
+      citedTools.push(rec.tool);
       grounded.push({ evidenceId: rec.id, source: rec.source, observation: e.observation, excerpt: rec.excerpt });
     }
 
     let confidence = sub.confidence;
+    const kinds = corroboratingKinds(citedTools);
     if (grounded.length === 0) {
       confidence = Math.min(confidence, UNGROUNDED_CONFIDENCE_CAP);
       issues.push(`No grounded evidence cited; confidence capped at ${UNGROUNDED_CONFIDENCE_CAP}.`);
+    } else if (confidence > UNCORROBORATED_CONFIDENCE_CAP && kinds.length < HIGH_CONFIDENCE_MIN_KINDS) {
+      issues.push(
+        `Confidence ${confidence.toFixed(2)} lowered to ${UNCORROBORATED_CONFIDENCE_CAP}: cited evidence covers ` +
+          `${kinds.length ? kinds.join(', ') : 'only the error message'}; high confidence needs ${HIGH_CONFIDENCE_MIN_KINDS} kinds besides the error message.`,
+      );
+      confidence = UNCORROBORATED_CONFIDENCE_CAP;
     }
     const base = baseFailure(test);
     if (test.outcome === 'flaky' && sub.classification !== 'flaky') {

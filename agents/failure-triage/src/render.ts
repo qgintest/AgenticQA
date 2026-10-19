@@ -22,6 +22,26 @@ export function mdInline(text: string, max = 200): string {
   return mdEscape(flat.length > max ? `${flat.slice(0, max - 1)}…` : flat);
 }
 
+/**
+ * Text inside raw HTML blocks (e.g. a `<details><summary>` line): GitHub does not parse Markdown
+ * there, so backslash escapes would show literally. Escape for HTML only.
+ */
+export function htmlInline(text: string, max = 200): string {
+  const flat = text.replace(/\s+/g, ' ').trim();
+  return (flat.length > max ? `${flat.slice(0, max - 1)}…` : flat)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/** Inline code: content is literal (no escapes apply), so only backticks and newlines are removed. */
+export function codeSpan(text: string, max = 100): string {
+  const flat = text.replace(/[`\r\n]+/g, ' ').trim();
+  return `\`${flat.length > max ? `${flat.slice(0, max - 1)}…` : flat}\``;
+}
+
 export function fence(text: string): string {
   const longest = Math.max(0, ...(text.match(/`+/g) ?? []).map((m) => m.length));
   const f = '`'.repeat(Math.max(3, longest + 1));
@@ -39,7 +59,7 @@ const LABEL: Record<string, string> = {
 
 function failureSection(f: FailureTriage): string {
   const lines: string[] = [];
-  lines.push(`<details><summary><b>${mdInline(f.testId)}</b> ${mdInline(f.title, 120)}: ${LABEL[f.classification]} (${f.confidenceLabel}, ${f.confidence.toFixed(2)})</summary>`, '');
+  lines.push(`<details><summary><b>${htmlInline(f.testId)}</b> ${htmlInline(f.title, 120)}: ${LABEL[f.classification]} (${f.confidenceLabel}, ${f.confidence.toFixed(2)})</summary>`, '');
   lines.push(`**Failure:** ${mdInline(f.headline, 300)}`, '');
   lines.push(`**Where:** ${mdInline(f.file || '(none)')} · project ${mdInline(f.project)} · outcome ${mdInline(f.outcome)} · classified by ${f.source}`, '');
   lines.push(`**Rationale:** ${mdEscape(f.rationale)}`, '');
@@ -68,7 +88,7 @@ function failureSection(f: FailureTriage): string {
 export function renderMarkdown(report: TriageReport): string {
   const out: string[] = ['## 🤖 Failure triage', ''];
   if (report.mode === 'agent') {
-    out.push(`> AI triage by \`${mdInline(report.agent?.model ?? 'unknown')}\`: evidence gathered with read-only tools. Advisory only: **the regression result is unchanged.**`);
+    out.push(`> AI triage by ${codeSpan(report.agent?.model ?? 'unknown')}: evidence gathered with read-only tools. Advisory only: **the regression result is unchanged.**`);
   } else if (report.mode === 'heuristic') {
     out.push(`> ⚠️ **Heuristic triage only**: ${mdInline(report.modeReason ?? 'AI agent unavailable', 300)}. Classifications come from deterministic error-pattern rules. The regression result is unchanged.`);
   } else if (report.mode === 'no_results') {
@@ -79,7 +99,7 @@ export function renderMarkdown(report: TriageReport): string {
   out.push('');
 
   if (report.failures.length) {
-    out.push(`**Overall:** ${LABEL[report.overall.classification]} · regression status: \`${report.regressionStatus}\``, '');
+    out.push(`**Overall:** ${LABEL[report.overall.classification]} · regression status: ${codeSpan(report.regressionStatus)}`, '');
     out.push(mdEscape(report.overall.summary), '');
     out.push('| Test | Title | Classification | Confidence | By |', '|---|---|---|---|---|');
     for (const f of report.failures) {
@@ -98,7 +118,7 @@ export function renderMarkdown(report: TriageReport): string {
   if (a) {
     const tools = a.toolCalls.map((c) => c.name).reduce<Record<string, number>>((m, n) => ((m[n] = (m[n] ?? 0) + 1), m), {});
     out.push(
-      `<sub>Agent: ${a.iterations} model turns · ${a.toolCalls.length} tool calls (${Object.entries(tools).map(([n, c]) => `${n}×${c}`).join(', ') || 'none'}) · ` +
+      `<sub>Agent: ${a.iterations} model turns · ${a.toolCalls.length} tool calls (${Object.entries(tools).map(([n, c]) => `${mdInline(n, 40)}×${c}`).join(', ') || 'none'}) · ` +
         `${a.usage.inputTokens.toLocaleString('en-US')} input / ${a.usage.outputTokens.toLocaleString('en-US')} output tokens · ${(a.durationMs / 1000).toFixed(1)} s · ` +
         `${(a.bytesRead / 1024).toFixed(0)} KiB read${a.limitsHit.length ? ` · limits hit: ${mdInline(a.limitsHit.join(', '))}` : ''}${a.errors.length ? ` · errors: ${mdInline(a.errors.join('; '), 300)}` : ''}</sub>`,
       '',

@@ -23,7 +23,7 @@ Evidence handling:
 - Cite evidence only with evidence_id values you received from tool calls in this conversation. Every classification should cite at least one.
 
 Report rules:
-- confidence: 0.75 or more only when several independent pieces of evidence agree; below 0.5 when evidence is thin or conflicting.
+- confidence: below 0.5 when evidence is thin or conflicting. Confidence above 0.7 is accepted only when the evidence you cite covers at least two kinds of artifact besides the error message (page state: snapshot or screenshot; trace; AUT logs; run environment); otherwise it is lowered to 0.7. If you state in "uncertainty" that a key fact is unverified, your confidence should reflect that.
 - recommended_actions: concrete next steps for a human (what to check, where, how to confirm, what to fix). You cannot change code or re-run tests; do not claim that anything was fixed or verified beyond the evidence.
 - Keep the summary short and factual. Plain text only, no markdown or HTML.`;
 

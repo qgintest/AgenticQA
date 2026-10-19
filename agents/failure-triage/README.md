@@ -77,7 +77,9 @@ results.json ──► parse failures (T1..Tn) ──► API key? ──no──
   found in evidence. Playwright's own `# Instructions` preamble in `error-context.md` (addressed to AI tools)
   is stripped. Log search is literal (no regex), URLs lose their query strings.
 - **Grounding:** each reported evidence item must cite an id a tool actually returned; unknown ids are dropped
-  and a classification without grounded evidence is capped at confidence 0.3. Disagreement with Playwright's
+  and a classification without grounded evidence is capped at confidence 0.3. Confidence above 0.7 needs cited
+  evidence from at least two kinds of artifact besides the error message (page state, trace, AUT logs,
+  environment); otherwise it is lowered to 0.7 and the report says why. Disagreement with Playwright's
   flaky status or with the heuristics is flagged in the report.
 - **Secrets:** the key is read only from `ANTHROPIC_API_KEY` (a GitHub secret scoped to the triage step).
   Tool outputs, the JSON report and the Markdown are redacted (API keys, tokens, JWTs, passwords, DB URLs,
@@ -106,7 +108,7 @@ results.json ──► parse failures (T1..Tn) ──► API key? ──no──
 ```bash
 cd agents/failure-triage
 npm ci
-npm test                 # build + 60 deterministic tests (scripted fake model, no API calls)
+npm test                 # build + 63 deterministic tests (scripted fake model, no API calls)
 ```
 
 Triage the last local Playwright run (heuristic mode without a key):

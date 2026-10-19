@@ -15,9 +15,12 @@ import { testAddress, testEmail } from '../../src/data/factories';
  *  - locator: a *test-maintenance* failure. Uses a stale test id (`add-to-bag-button`, as if the
  *    UI had renamed `add-product-button`). Fails with a locator timeout. Triage should classify:
  *    broken locator → candidate for self-healing.
+ *
+ * Keep hints out of what the triage agent can see: test titles, and the lines Playwright quotes
+ * around the failing statement in its error message (no comments near the failing lines).
  */
 test.describe('Deliberate failure', { tag: '@deliberate-failure' }, () => {
-  test('[assertion] payment is captured when the order is placed', async ({ adminApi, storeApi, testData, testProduct }) => {
+  test('payment is captured when the order is placed', async ({ adminApi, storeApi, testData, testProduct }) => {
     test.skip(env.deliberateFailure !== 'assertion', 'enable with AQA_DELIBERATE_FAILURE=assertion');
 
     const email = testEmail('deliberate');
@@ -37,12 +40,11 @@ test.describe('Deliberate failure', { tag: '@deliberate-failure' }, () => {
     expect(order.payment_status, 'confirmation page reports the order as paid').toBe('captured');
   });
 
-  test('[locator] add a product to the cart', async ({ page, productPage, nav, testProduct }) => {
+  test('shopper adds a product to the cart', async ({ page, productPage, nav, testProduct }) => {
     test.skip(env.deliberateFailure !== 'locator', 'enable with AQA_DELIBERATE_FAILURE=locator');
 
     await productPage.goto(testProduct.handle);
     await productPage.selectOption('S');
-    // Stale selector: the real test id is `add-product-button`.
     await page.getByTestId('add-to-bag-button').click({ timeout: 10_000 });
     await nav.expectCartCount(1);
   });

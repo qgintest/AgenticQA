@@ -67,15 +67,44 @@ describe('grounding', () => {
     failures: [{ test_id: 'T1', classification, confidence, rationale: 'r', evidence: [{ evidence_id: evidenceId, observation: 'o' }], recommended_actions: [] }],
   });
 
+  const multi = (ids: string[], confidence: number): Submission => ({
+    summary: 's',
+    uncertainty: [],
+    failures: [{ test_id: 'T1', classification: 'automation_defect', confidence, rationale: 'r', evidence: ids.map((evidence_id) => ({ evidence_id, observation: 'o' })), recommended_actions: [] }],
+  });
+
   it('keeps cited evidence that the tools actually returned', () => {
     const store = new EvidenceStore();
     store.add('get_failure_details', 'T1', 'results.json: attempts of T1', 'excerpt');
-    const [f] = groundedFailures(sub('E1'), [test('T1')], store);
+    store.add('read_page_snapshot', 'T1', 'error-context.md of T1', 'snapshot');
+    store.add('get_trace_summary', 'T1', 'trace.zip of T1 (actions)', 'trace');
+    const [f] = groundedFailures(multi(['E1', 'E2', 'E3'], 0.9), [test('T1')], store);
     assert.equal(f!.source, 'agent');
-    assert.equal(f!.evidence.length, 1);
-    assert.equal(f!.confidence, 0.9);
+    assert.equal(f!.evidence.length, 3);
+    assert.equal(f!.confidence, 0.9, 'two corroborating kinds (page_state, trace): high confidence kept');
     assert.equal(f!.confidenceLabel, 'high');
+    assert.deepEqual(f!.issues, []);
     assert.equal(f!.recommendedActions.length > 0, true, 'falls back to default actions when none given');
+  });
+
+  it('lowers uncorroborated high confidence to 0.7 (error + one other kind of artifact)', () => {
+    const store = new EvidenceStore();
+    store.add('get_failure_details', 'T1', 'details', 'e');
+    store.add('read_page_snapshot', 'T1', 'snapshot', 'e');
+    store.add('view_screenshot', 'T1', 'screenshot', 'e');
+    // The run seen in CI: details + snapshot at 0.95. Snapshot and screenshot are the same kind.
+    const [f] = groundedFailures(multi(['E1', 'E2', 'E3'], 0.95), [test('T1')], store);
+    assert.equal(f!.confidence, 0.7);
+    assert.equal(f!.confidenceLabel, 'medium');
+    assert.ok(f!.issues.some((i) => /lowered to 0\.7.*page_state/.test(i)));
+  });
+
+  it('does not touch confidence at or below 0.7', () => {
+    const store = new EvidenceStore();
+    store.add('get_failure_details', 'T1', 'details', 'e');
+    const [f] = groundedFailures(multi(['E1'], 0.6), [test('T1')], store);
+    assert.equal(f!.confidence, 0.6);
+    assert.deepEqual(f!.issues, []);
   });
 
   it('drops invented evidence ids and caps confidence', () => {
@@ -138,6 +167,30 @@ describe('markdown rendering', () => {
     const s = mdInline('a\n\n## heading\nb'.repeat(50), 50);
     assert.ok(!s.includes('\n'));
     assert.ok(s.length < 120);
+  });
+
+  it('escapes for the context: HTML-only inside <summary>, literal inside code spans', () => {
+    const store = new EvidenceStore();
+    const failures = groundedFailures(sub2('automation_defect'), [{ ...test('T1'), title: 'Cart › [locator] add <b>x</b> & "y"' }], store);
+    const md = renderMarkdown({
+      schemaVersion: '1.0',
+      generatedAt: '',
+      mode: 'agent',
+      modeReason: null,
+      run: { url: null, commit: null, stats: null, projects: [], runErrors: [] },
+      regressionStatus: 'failed',
+      overall: { classification: 'automation_defect', summary: 's' },
+      failures,
+      uncertainty: [],
+      agent: { model: 'claude-opus-5-5', effort: 'high', iterations: 1, toolCalls: [{ iteration: 1, name: 'evil_[x](y)', input: '{}', ok: false, evidenceId: null, error: null }], usage: { inputTokens: 1, outputTokens: 1, cacheReadInputTokens: 0 }, stopReason: 'tool_use', limitsHit: [], errors: [], durationMs: 1, bytesRead: 0 },
+      notes: [],
+    });
+    const summaryLine = md.split('\n').find((l) => l.startsWith('<details><summary>'))!;
+    assert.ok(summaryLine.includes('[locator]'), 'no literal backslashes in the HTML block');
+    assert.ok(!summaryLine.includes('\\['));
+    assert.ok(summaryLine.includes('&lt;b&gt;x&lt;/b&gt; &amp; &quot;y&quot;'));
+    assert.ok(md.includes('AI triage by `claude-opus-5-5`'), 'model name shown literally');
+    assert.ok(!md.includes('evil_[x](y)'), 'model-supplied tool names are escaped');
   });
 
   it('uses a fence longer than any backtick run in the content', () => {

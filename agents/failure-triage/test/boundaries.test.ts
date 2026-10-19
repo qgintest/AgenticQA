@@ -189,7 +189,8 @@ describe('tools', () => {
     const data = JSON.parse(out.content as string).data;
     assert.ok(!data.content.includes('Provide a snippet of code'));
     assert.ok(data.content.includes('Add to cart'));
-    assert.ok(data.note);
+    assert.equal(data.generic_header_omitted, true);
+    assert.ok(!/instruction|assistant/i.test(JSON.stringify(data)), 'neutral wording: nothing that invites commentary');
     assert.deepEqual(stripPlaywrightPreamble('no preamble here'), { body: 'no preamble here', removed: false });
   });
 
