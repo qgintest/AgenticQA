@@ -181,13 +181,20 @@ const EVIDENCE_KIND: Record<string, string> = {
   get_failure_details: 'error',
   read_page_snapshot: 'page_state',
   view_screenshot: 'page_state',
+  find_in_dom_snapshot: 'page_state',
   get_trace_summary: 'trace',
   search_aut_logs: 'logs',
   get_run_environment: 'environment',
+  get_change_summary: 'changes',
 };
 
+/** The kind of artifact a tool reads (`error`, `page_state`, `trace`, `logs`, `environment`, `changes`). */
+export function evidenceKind(tool: string): string {
+  return EVIDENCE_KIND[tool] ?? 'other';
+}
+
 export function corroboratingKinds(tools: string[]): string[] {
-  return [...new Set(tools.map((t) => EVIDENCE_KIND[t] ?? 'other'))].filter((k) => k !== 'error').sort();
+  return [...new Set(tools.map(evidenceKind))].filter((k) => k !== 'error').sort();
 }
 
 export function confidenceLabel(c: number): ConfidenceLabel {

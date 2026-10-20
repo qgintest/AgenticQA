@@ -1,0 +1,17 @@
+# base: previous push 9a79f58aac06934bb0aa8f368f702cae58fa5dec
+# head: 50c7b14e57c4ea1f9e345e4f5ce519d9785cd272
+# files:
+# M	automation/src/pages/product-page.ts
+diff --git a/automation/src/pages/product-page.ts b/automation/src/pages/product-page.ts
+index 5291462..f1ea371 100644
+--- a/automation/src/pages/product-page.ts
++++ b/automation/src/pages/product-page.ts
+@@ -9,7 +9,7 @@ export class ProductPage extends BasePage {
+   readonly description: Locator = this.container.getByTestId('product-description');
+   readonly options: Locator = this.container.getByTestId('product-options');
+   readonly price: Locator = this.container.getByTestId('product-price').first();
+-  readonly addToCartButton: Locator = this.page.getByTestId('add-product-button');
++  readonly addToCartButton: Locator = this.page.getByTestId('add-bag-button');
+ 
+   async goto(handle: string): Promise<void> {
+     await this.page.goto(this.localized(`/products/${handle}`));

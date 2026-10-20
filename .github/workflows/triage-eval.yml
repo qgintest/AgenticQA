@@ -1,0 +1,92 @@
+name: Triage eval
+
+# Measures the failure-triage agent's classification accuracy on the frozen scenarios in
+# agents/failure-triage/evals/scenarios. Needs no AUT: the scenarios are committed artifacts.
+# Manual only (Actions -> Triage eval -> Run workflow): run it periodically, e.g. after changing
+# the triage agent or when self-heal fixes based on triage verdicts are rejected too often.
+# With the ANTHROPIC_API_KEY secret this calls the Claude API and costs money (the log prints the
+# worst case before the first call); without it, it runs the free dry run.
+
+on:
+  workflow_dispatch:
+    inputs:
+      repeat:
+        description: Runs per scenario (worst case $3.60 per scenario per run; actual cost is in the job summary)
+        type: number
+        default: 1
+      scenarios:
+        description: Comma-separated scenario names (empty = all)
+        type: string
+        default: ''
+
+concurrency:
+  group: triage-eval-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  eval:
+    name: Failure-triage eval
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: agents/failure-triage
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: agents/failure-triage/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Deterministic tests (scoring, capture, dry-run runner)
+        run: npm test
+
+      - name: Check for API key
+        id: key
+        env:
+          HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+        run: echo "available=$HAS_KEY" >> "$GITHUB_OUTPUT"
+
+      - name: Run eval against the Claude API
+        if: steps.key.outputs.available == 'true'
+        env:
+          # Only this step sees the key. Starting the workflow by hand is the spending approval: --yes.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TRIAGE_MODEL: ${{ vars.TRIAGE_MODEL }}
+          REPEAT: ${{ inputs.repeat }}
+          SCENARIOS: ${{ inputs.scenarios }}
+        run: |
+          args=(--yes --repeat "$REPEAT")
+          if [ -n "$SCENARIOS" ]; then args+=(--scenario "$SCENARIOS"); fi
+          node dist/evals/run.js "${args[@]}"
+
+      - name: Dry run (no API key available)
+        if: steps.key.outputs.available != 'true'
+        run: |
+          echo "::notice::ANTHROPIC_API_KEY is not available; running the dry run (heuristic baseline) instead of the real agent."
+          node dist/evals/run.js --dry-run --repeat 1
+
+      - name: Job summary
+        if: ${{ !cancelled() }}
+        run: |
+          if [ -f evals/out/summary.md ]; then cat evals/out/summary.md >> "$GITHUB_STEP_SUMMARY"; fi
+
+      - name: Upload eval results
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: triage-eval-${{ github.run_id }}-${{ github.run_attempt }}
+          path: agents/failure-triage/evals/out/
+          retention-days: 30
+          if-no-files-found: warn

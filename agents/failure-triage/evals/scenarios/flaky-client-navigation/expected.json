@@ -1,0 +1,9 @@
+{
+  "description": "Timing-dependent test: the side-menu client navigation to /store is awaited with a 600 ms toHaveURL timeout, which the next dev storefront sometimes misses. The first attempt failed (still on /dk after 600 ms), the retry passed; nothing deterministic is broken. A test-side timing fix (automation_defect) is also accepted.",
+  "source": "Local run against the Docker AUT with CLIENT_NAV temporarily lowered from 45 s to 600 ms in tests/storefront/navigation.spec.ts (reverted afterwards), only this test, --retries=1; repeated until Playwright recorded it as flaky (run 6 of 6: 4 failed both attempts, 1 passed). No changes.diff.",
+  "diff": "none",
+  "injection": null,
+  "tests": [
+    { "title": "side menu navigates to the store listing", "expected": "flaky", "acceptable": ["automation_defect"], "evidenceKinds": ["error"] }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "description": "Storefront bug: the product page adds quantity 2 instead of 1 (product-actions/index.tsx). Both cart tests see \"Cart (2)\" on every attempt. The push also fixed the add-to-cart test id in the page object, which is not the cause.",
+  "source": "Local run of commit c041e50 against the Docker AUT (storefront restarted to serve the committed code), regression project with --retries=1. changes.diff is git diff c041e50~1..c041e50 in the CI step's format.",
+  "diff": "relevant",
+  "injection": null,
+  "tests": [
+    { "title": "*", "expected": "application_defect", "acceptable": [], "evidenceKinds": ["changes", "page_state"] }
+  ]
+}

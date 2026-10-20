@@ -1,0 +1,31 @@
+# base: previous push bc41d7072f23b88c9d26fb540bd543fe950ceb15
+# head: c041e5006d453711e8fc4690186dd01533fbe9f0
+# files:
+# M	aut/apps/storefront/src/modules/products/components/product-actions/index.tsx
+# M	automation/src/pages/product-page.ts
+diff --git a/aut/apps/storefront/src/modules/products/components/product-actions/index.tsx b/aut/apps/storefront/src/modules/products/components/product-actions/index.tsx
+index 4a06f7e..9bc5be7 100644
+--- a/aut/apps/storefront/src/modules/products/components/product-actions/index.tsx
++++ b/aut/apps/storefront/src/modules/products/components/product-actions/index.tsx
+@@ -128,7 +128,7 @@ export default function ProductActions({
+ 
+     await addToCart({
+       variantId: selectedVariant.id,
+-      quantity: 1,
++      quantity: 2,
+       countryCode,
+     })
+ 
+diff --git a/automation/src/pages/product-page.ts b/automation/src/pages/product-page.ts
+index f1ea371..5291462 100644
+--- a/automation/src/pages/product-page.ts
++++ b/automation/src/pages/product-page.ts
+@@ -9,7 +9,7 @@ export class ProductPage extends BasePage {
+   readonly description: Locator = this.container.getByTestId('product-description');
+   readonly options: Locator = this.container.getByTestId('product-options');
+   readonly price: Locator = this.container.getByTestId('product-price').first();
+-  readonly addToCartButton: Locator = this.page.getByTestId('add-bag-button');
++  readonly addToCartButton: Locator = this.page.getByTestId('add-product-button');
+ 
+   async goto(handle: string): Promise<void> {
+     await this.page.goto(this.localized(`/products/${handle}`));

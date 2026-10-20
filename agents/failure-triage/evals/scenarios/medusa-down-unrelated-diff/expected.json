@@ -1,0 +1,9 @@
+{
+  "description": "Infrastructure failure: the Medusa backend container was stopped while the suite was running (docker compose ps: Exited; medusa log: \"Gracefully shutting down server\"; storefront log: fetch failed, getaddrinfo ENOTFOUND medusa). Tests that ran before the stop passed; the two that ran during the outage failed on both attempts with UI symptoms, not connection errors. The pull request only changes the footer copyright text, which none of these tests check: blaming it is the over-trust this scenario measures.",
+  "source": "Local run against the Docker AUT (navigation.spec.ts and order-lifecycle.api.spec.ts, --retries=1); `docker compose stop medusa` right after the first test finished, restarted after log collection. changes.diff is an uncommitted footer text edit diffed against HEAD c041e50 (CI format, head \"working tree\"); it was reverted at once and never served, and is unrelated to the failure either way.",
+  "diff": "irrelevant",
+  "injection": null,
+  "tests": [
+    { "title": "*", "expected": "environment_issue", "acceptable": [], "evidenceKinds": ["logs"] }
+  ]
+}

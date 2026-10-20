@@ -1,0 +1,314 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "/repo/automation\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--project=deliberate-failure",
+      "--retries=1"
+    ],
+    "configFile": "/repo/automation\\playwright.config.ts",
+    "rootDir": "/repo/automation/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "/repo/automation\\tests\\global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "storefrontUrl": "http://localhost:8000",
+      "backendUrl": "http://localhost:9000",
+      "countryCode": "dk",
+      "deliberateFailure": "assertion",
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/repo/automation/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "storefrontUrl": "http://localhost:8000",
+          "backendUrl": "http://localhost:9000",
+          "countryCode": "dk",
+          "deliberateFailure": "assertion",
+          "actualWorkers": 2
+        },
+        "id": "regression",
+        "name": "regression",
+        "testDir": "/repo/automation/tests",
+        "testIgnore": [
+          "**/diagnostics/**"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/repo/automation/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "storefrontUrl": "http://localhost:8000",
+          "backendUrl": "http://localhost:9000",
+          "countryCode": "dk",
+          "deliberateFailure": "assertion",
+          "actualWorkers": 2
+        },
+        "id": "deliberate-failure",
+        "name": "deliberate-failure",
+        "testDir": "/repo/automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/diagnostics/**"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "reports/html",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "reports/junit.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "diagnostics\\deliberate-failure.spec.ts",
+      "file": "diagnostics/deliberate-failure.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Deliberate failure",
+          "file": "diagnostics/deliberate-failure.spec.ts",
+          "line": 22,
+          "column": 6,
+          "specs": [
+            {
+              "title": "payment is captured when the order is placed",
+              "ok": false,
+              "tags": [
+                "deliberate-failure"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "deliberate-failure",
+                  "projectName": "deliberate-failure",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 3536,
+                      "error": {
+                        "message": "Error: confirmation page reports the order as paid\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mcaptur\u001b[27med\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mauthoriz\u001b[27med\"\u001b[39m",
+                        "stack": "Error: confirmation page reports the order as paid\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mcaptur\u001b[27med\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mauthoriz\u001b[27med\"\u001b[39m\n    at /repo/automation\\tests\\diagnostics\\deliberate-failure.spec.ts:40:81",
+                        "location": {
+                          "file": "/repo/automation\\tests\\diagnostics\\deliberate-failure.spec.ts",
+                          "column": 81,
+                          "line": 40
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 38 |\u001b[39m\n \u001b[90m 39 |\u001b[39m     \u001b[36mconst\u001b[39m order \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m adminApi\u001b[33m.\u001b[39mgetOrder(result\u001b[33m.\u001b[39morder\u001b[33m.\u001b[39mid)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 40 |\u001b[39m     expect(order\u001b[33m.\u001b[39mpayment_status\u001b[33m,\u001b[39m \u001b[32m'confirmation page reports the order as paid'\u001b[39m)\u001b[33m.\u001b[39mtoBe(\u001b[32m'captured'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 41 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 42 |\u001b[39m\n \u001b[90m 43 |\u001b[39m   test(\u001b[32m'shopper adds a product to the cart'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page\u001b[33m,\u001b[39m productPage\u001b[33m,\u001b[39m nav\u001b[33m,\u001b[39m testProduct }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\tests\\diagnostics\\deliberate-failure.spec.ts",
+                            "column": 81,
+                            "line": 40
+                          },
+                          "message": "Error: confirmation page reports the order as paid\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mcaptur\u001b[27med\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mauthoriz\u001b[27med\"\u001b[39m\n\n  38 |\n  39 |     const order = await adminApi.getOrder(result.order.id);\n> 40 |     expect(order.payment_status, 'confirmation page reports the order as paid').toBe('captured');\n     |                                                                                 ^\n  41 |   });\n  42 |\n  43 |   test('shopper adds a product to the cart', async ({ page, productPage, nav, testProduct }) => {\n    at /repo/automation\\tests\\diagnostics\\deliberate-failure.spec.ts:40:81"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-19T22:19:51.359Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/diagnostics-deliberate-fai-df68e-ed-when-the-order-is-placed-deliberate-failure/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/diagnostics-deliberate-fai-df68e-ed-when-the-order-is-placed-deliberate-failure/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\tests\\diagnostics\\deliberate-failure.spec.ts",
+                        "column": 81,
+                        "line": 40
+                      }
+                    },
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 2700,
+                      "error": {
+                        "message": "Error: confirmation page reports the order as paid\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mcaptur\u001b[27med\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mauthoriz\u001b[27med\"\u001b[39m",
+                        "stack": "Error: confirmation page reports the order as paid\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mcaptur\u001b[27med\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mauthoriz\u001b[27med\"\u001b[39m\n    at /repo/automation\\tests\\diagnostics\\deliberate-failure.spec.ts:40:81",
+                        "location": {
+                          "file": "/repo/automation\\tests\\diagnostics\\deliberate-failure.spec.ts",
+                          "column": 81,
+                          "line": 40
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 38 |\u001b[39m\n \u001b[90m 39 |\u001b[39m     \u001b[36mconst\u001b[39m order \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m adminApi\u001b[33m.\u001b[39mgetOrder(result\u001b[33m.\u001b[39morder\u001b[33m.\u001b[39mid)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 40 |\u001b[39m     expect(order\u001b[33m.\u001b[39mpayment_status\u001b[33m,\u001b[39m \u001b[32m'confirmation page reports the order as paid'\u001b[39m)\u001b[33m.\u001b[39mtoBe(\u001b[32m'captured'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 41 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 42 |\u001b[39m\n \u001b[90m 43 |\u001b[39m   test(\u001b[32m'shopper adds a product to the cart'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page\u001b[33m,\u001b[39m productPage\u001b[33m,\u001b[39m nav\u001b[33m,\u001b[39m testProduct }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\tests\\diagnostics\\deliberate-failure.spec.ts",
+                            "column": 81,
+                            "line": 40
+                          },
+                          "message": "Error: confirmation page reports the order as paid\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mcaptur\u001b[27med\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mauthoriz\u001b[27med\"\u001b[39m\n\n  38 |\n  39 |     const order = await adminApi.getOrder(result.order.id);\n> 40 |     expect(order.payment_status, 'confirmation page reports the order as paid').toBe('captured');\n     |                                                                                 ^\n  41 |   });\n  42 |\n  43 |   test('shopper adds a product to the cart', async ({ page, productPage, nav, testProduct }) => {\n    at /repo/automation\\tests\\diagnostics\\deliberate-failure.spec.ts:40:81"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-19T22:19:56.108Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/diagnostics-deliberate-fai-df68e-ed-when-the-order-is-placed-deliberate-failure-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/diagnostics-deliberate-fai-df68e-ed-when-the-order-is-placed-deliberate-failure-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\tests\\diagnostics\\deliberate-failure.spec.ts",
+                        "column": 81,
+                        "line": 40
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "637416f17f542ee44068-b9845c5d9d7fcccb8257",
+              "file": "diagnostics/deliberate-failure.spec.ts",
+              "line": 23,
+              "column": 7
+            },
+            {
+              "title": "shopper adds a product to the cart",
+              "ok": true,
+              "tags": [
+                "deliberate-failure"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "enable with AQA_DELIBERATE_FAILURE=locator",
+                      "location": {
+                        "file": "/repo/automation\\tests\\diagnostics\\deliberate-failure.spec.ts",
+                        "line": 44,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "deliberate-failure",
+                  "projectName": "deliberate-failure",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "skipped",
+                      "duration": 1279,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-19T22:19:51.359Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "enable with AQA_DELIBERATE_FAILURE=locator",
+                          "location": {
+                            "file": "/repo/automation\\tests\\diagnostics\\deliberate-failure.spec.ts",
+                            "line": 44,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "637416f17f542ee44068-cfe6bff12fe3ca301a53",
+              "file": "diagnostics/deliberate-failure.spec.ts",
+              "line": 43,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T22:19:45.927Z",
+    "duration": 13280.334,
+    "expected": 0,
+    "skipped": 1,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

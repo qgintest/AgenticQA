@@ -32,6 +32,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Full history so the triage step can diff this push or PR against its base.
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -120,6 +123,50 @@ jobs:
           done
 
       # ---------- AI failure triage (only when the regression suite failed; advisory, read-only) ----------
+
+      - name: Summarize code changes for triage
+        if: ${{ !cancelled() && steps.regression.outcome == 'failure' }}
+        continue-on-error: true
+        # The agent never runs git: this step writes the diff to reports/, where the agent reads it
+        # through its sandbox like any other (untrusted, redacted) artifact. Event values come in via
+        # env, never interpolated into the script.
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PUSH_BEFORE: ${{ github.event.before }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          out=automation/reports/changes.diff
+          full="$RUNNER_TEMP/changes-full.diff"
+          head=$(git rev-parse HEAD)
+          case "$EVENT_NAME" in
+            pull_request) base="$PR_BASE_SHA"; label="pull request base" ;;
+            push) base="$PUSH_BEFORE"; label="previous push" ;;
+            *) base=""; label="" ;;
+          esac
+          if [ -z "$base" ] || ! git cat-file -e "$base^{commit}" 2>/dev/null; then
+            base=$(git merge-base "origin/$DEFAULT_BRANCH" HEAD 2>/dev/null || true)
+            label="merge base with $DEFAULT_BRANCH"
+          fi
+          if [ -z "$base" ] || [ "$base" = "$head" ]; then
+            base=$(git rev-parse HEAD~1 2>/dev/null || true)
+            label="parent commit"
+          fi
+          if [ -z "$base" ]; then
+            echo "no base commit to compare with; skipping change summary"
+            exit 0
+          fi
+          base=$(git merge-base "$base" HEAD)
+          git diff --no-color --no-ext-diff --unified=3 -M "$base" HEAD -- . ':(exclude)*package-lock.json' > "$full"
+          {
+            echo "# base: $label $base"
+            echo "# head: $head"
+            echo "# files:"
+            git diff --no-color --name-status -M "$base" HEAD | sed 's/^/# /'
+            # The agent reads at most 1 MiB of this file; cut here too so the artifact stays small.
+            head -c 1048576 "$full"
+          } > "$out"
+          echo "change summary: $(grep -c '^# [AMDRCT]' "$out" || true) files changed since $label ${base:0:12}"
 
       - name: Build failure-triage agent
         if: ${{ !cancelled() && steps.regression.outcome == 'failure' }}

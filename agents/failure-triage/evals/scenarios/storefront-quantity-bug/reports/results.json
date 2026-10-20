@@ -1,0 +1,457 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "/repo/automation\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--project=regression",
+      "--retries=1",
+      "--grep",
+      "adding a variant to the cart|guest places an order"
+    ],
+    "configFile": "/repo/automation\\playwright.config.ts",
+    "rootDir": "/repo/automation/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "/repo/automation\\tests\\global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "storefrontUrl": "http://localhost:8000",
+      "backendUrl": "http://localhost:9000",
+      "countryCode": "dk",
+      "deliberateFailure": "off",
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/repo/automation/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "storefrontUrl": "http://localhost:8000",
+          "backendUrl": "http://localhost:9000",
+          "countryCode": "dk",
+          "deliberateFailure": "off",
+          "actualWorkers": 2
+        },
+        "id": "regression",
+        "name": "regression",
+        "testDir": "/repo/automation/tests",
+        "testIgnore": [
+          "**/diagnostics/**"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "reports/html",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "reports/junit.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "orders\\guest-checkout.ui.spec.ts",
+      "file": "orders/guest-checkout.ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Guest checkout (UI)",
+          "file": "orders/guest-checkout.ui.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "guest places an order and the backend records it correctly",
+              "ok": false,
+              "tags": [
+                "ui",
+                "order",
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 270000,
+                  "annotations": [
+                    {
+                      "type": "slow",
+                      "location": {
+                        "file": "/repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts",
+                        "line": 21,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 29873,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    6 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    27 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    6 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    27 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n\n    at NavBar.expectCartCount (/repo/automation\\src\\pages\\nav-bar.ts:19:33)\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:35:17\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:31:5",
+                        "location": {
+                          "file": "/repo/automation\\src\\pages\\nav-bar.ts",
+                          "column": 33,
+                          "line": 19
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\nav-bar.ts:19\n\n\u001b[0m \u001b[90m 17 |\u001b[39m\n \u001b[90m 18 |\u001b[39m   \u001b[36masync\u001b[39m expectCartCount(count\u001b[33m:\u001b[39m number)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mcartLink)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m`Cart (${count})`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 20 |\u001b[39m   }\n \u001b[90m 21 |\u001b[39m\n \u001b[90m 22 |\u001b[39m   \u001b[90m/** Opens the side menu and follows one of its links (Home, Store, Account, Cart). */\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\src\\pages\\nav-bar.ts",
+                            "column": 33,
+                            "line": 19
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    6 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    27 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n\n\n   at ..\\src\\pages\\nav-bar.ts:19\n\n  17 |\n  18 |   async expectCartCount(count: number): Promise<void> {\n> 19 |     await expect(this.cartLink).toHaveText(`Cart (${count})`);\n     |                                 ^\n  20 |   }\n  21 |\n  22 |   /** Opens the side menu and follows one of its links (Home, Store, Account, Cart). */\n    at NavBar.expectCartCount (/repo/automation\\src\\pages\\nav-bar.ts:19:33)\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:35:17\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:31:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "add product variant to cart",
+                          "duration": 27775,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    6 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    27 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    6 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    27 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n\n    at NavBar.expectCartCount (/repo/automation\\src\\pages\\nav-bar.ts:19:33)\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:35:17\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:31:5",
+                            "location": {
+                              "file": "/repo/automation\\src\\pages\\nav-bar.ts",
+                              "column": 33,
+                              "line": 19
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\nav-bar.ts:19\n\n\u001b[0m \u001b[90m 17 |\u001b[39m\n \u001b[90m 18 |\u001b[39m   \u001b[36masync\u001b[39m expectCartCount(count\u001b[33m:\u001b[39m number)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mcartLink)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m`Cart (${count})`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 20 |\u001b[39m   }\n \u001b[90m 21 |\u001b[39m\n \u001b[90m 22 |\u001b[39m   \u001b[90m/** Opens the side menu and follows one of its links (Home, Store, Account, Cart). */\u001b[39m\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-19T22:14:20.198Z",
+                      "annotations": [
+                        {
+                          "type": "slow",
+                          "location": {
+                            "file": "/repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts",
+                            "line": 21,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\src\\pages\\nav-bar.ts",
+                        "column": 33,
+                        "line": 19
+                      }
+                    },
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 28398,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    5 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    28 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    5 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    28 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n\n    at NavBar.expectCartCount (/repo/automation\\src\\pages\\nav-bar.ts:19:33)\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:35:17\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:31:5",
+                        "location": {
+                          "file": "/repo/automation\\src\\pages\\nav-bar.ts",
+                          "column": 33,
+                          "line": 19
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\nav-bar.ts:19\n\n\u001b[0m \u001b[90m 17 |\u001b[39m\n \u001b[90m 18 |\u001b[39m   \u001b[36masync\u001b[39m expectCartCount(count\u001b[33m:\u001b[39m number)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mcartLink)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m`Cart (${count})`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 20 |\u001b[39m   }\n \u001b[90m 21 |\u001b[39m\n \u001b[90m 22 |\u001b[39m   \u001b[90m/** Opens the side menu and follows one of its links (Home, Store, Account, Cart). */\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\src\\pages\\nav-bar.ts",
+                            "column": 33,
+                            "line": 19
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    5 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    28 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n\n\n   at ..\\src\\pages\\nav-bar.ts:19\n\n  17 |\n  18 |   async expectCartCount(count: number): Promise<void> {\n> 19 |     await expect(this.cartLink).toHaveText(`Cart (${count})`);\n     |                                 ^\n  20 |   }\n  21 |\n  22 |   /** Opens the side menu and follows one of its links (Home, Store, Account, Cart). */\n    at NavBar.expectCartCount (/repo/automation\\src\\pages\\nav-bar.ts:19:33)\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:35:17\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:31:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "steps": [
+                        {
+                          "title": "add product variant to cart",
+                          "duration": 25812,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    5 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    28 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    5 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    28 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n\n    at NavBar.expectCartCount (/repo/automation\\src\\pages\\nav-bar.ts:19:33)\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:35:17\n    at /repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts:31:5",
+                            "location": {
+                              "file": "/repo/automation\\src\\pages\\nav-bar.ts",
+                              "column": 33,
+                              "line": 19
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\nav-bar.ts:19\n\n\u001b[0m \u001b[90m 17 |\u001b[39m\n \u001b[90m 18 |\u001b[39m   \u001b[36masync\u001b[39m expectCartCount(count\u001b[33m:\u001b[39m number)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mcartLink)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m`Cart (${count})`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 20 |\u001b[39m   }\n \u001b[90m 21 |\u001b[39m\n \u001b[90m 22 |\u001b[39m   \u001b[90m/** Opens the side menu and follows one of its links (Home, Store, Account, Cart). */\u001b[39m\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-19T22:14:52.920Z",
+                      "annotations": [
+                        {
+                          "type": "slow",
+                          "location": {
+                            "file": "/repo/automation\\tests\\orders\\guest-checkout.ui.spec.ts",
+                            "line": 21,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\src\\pages\\nav-bar.ts",
+                        "column": 33,
+                        "line": 19
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1542c9f3c3abdbb17d8b-8f1a04f52c17468f5bf7",
+              "file": "orders/guest-checkout.ui.spec.ts",
+              "line": 9,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "storefront\\product-browsing.spec.ts",
+      "file": "storefront/product-browsing.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Product browsing",
+          "file": "storefront/product-browsing.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "adding a variant to the cart updates the nav count and cart contents",
+              "ok": false,
+              "tags": [
+                "ui"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 30169,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    5 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    28 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    5 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    28 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n\n    at NavBar.expectCartCount (/repo/automation\\src\\pages\\nav-bar.ts:19:33)\n    at /repo/automation\\tests\\storefront\\product-browsing.spec.ts:97:15",
+                        "location": {
+                          "file": "/repo/automation\\src\\pages\\nav-bar.ts",
+                          "column": 33,
+                          "line": 19
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\nav-bar.ts:19\n\n\u001b[0m \u001b[90m 17 |\u001b[39m\n \u001b[90m 18 |\u001b[39m   \u001b[36masync\u001b[39m expectCartCount(count\u001b[33m:\u001b[39m number)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mcartLink)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m`Cart (${count})`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 20 |\u001b[39m   }\n \u001b[90m 21 |\u001b[39m\n \u001b[90m 22 |\u001b[39m   \u001b[90m/** Opens the side menu and follows one of its links (Home, Store, Account, Cart). */\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\src\\pages\\nav-bar.ts",
+                            "column": 33,
+                            "line": 19
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    5 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    28 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n\n\n   at ..\\src\\pages\\nav-bar.ts:19\n\n  17 |\n  18 |   async expectCartCount(count: number): Promise<void> {\n> 19 |     await expect(this.cartLink).toHaveText(`Cart (${count})`);\n     |                                 ^\n  20 |   }\n  21 |\n  22 |   /** Opens the side menu and follows one of its links (Home, Store, Account, Cart). */\n    at NavBar.expectCartCount (/repo/automation\\src\\pages\\nav-bar.ts:19:33)\n    at /repo/automation\\tests\\storefront\\product-browsing.spec.ts:97:15"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-19T22:14:20.200Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\src\\pages\\nav-bar.ts",
+                        "column": 33,
+                        "line": 19
+                      }
+                    },
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 28189,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    5 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    28 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    5 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    28 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n\n    at NavBar.expectCartCount (/repo/automation\\src\\pages\\nav-bar.ts:19:33)\n    at /repo/automation\\tests\\storefront\\product-browsing.spec.ts:97:15",
+                        "location": {
+                          "file": "/repo/automation\\src\\pages\\nav-bar.ts",
+                          "column": 33,
+                          "line": 19
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\pages\\nav-bar.ts:19\n\n\u001b[0m \u001b[90m 17 |\u001b[39m\n \u001b[90m 18 |\u001b[39m   \u001b[36masync\u001b[39m expectCartCount(count\u001b[33m:\u001b[39m number)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mcartLink)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m`Cart (${count})`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 20 |\u001b[39m   }\n \u001b[90m 21 |\u001b[39m\n \u001b[90m 22 |\u001b[39m   \u001b[90m/** Opens the side menu and follows one of its links (Home, Store, Account, Cart). */\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/repo/automation\\src\\pages\\nav-bar.ts",
+                            "column": 33,
+                            "line": 19
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('nav-cart-link')\nExpected: \u001b[32m\"Cart (\u001b[7m1\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"Cart (\u001b[7m2\u001b[27m)\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('nav-cart-link') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('nav-cart-link')\u001b[22m\n\u001b[2m    5 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (0)</a>\u001b[22m\n\u001b[2m      - unexpected value \"Cart (0)\"\u001b[22m\n\u001b[2m    28 × locator resolved to <a href=\"/dk/cart\" data-testid=\"nav-cart-link\" class=\"hover:text-ui-fg-base\">Cart (2)</a>\u001b[22m\n\u001b[2m       - unexpected value \"Cart (2)\"\u001b[22m\n\n\n   at ..\\src\\pages\\nav-bar.ts:19\n\n  17 |\n  18 |   async expectCartCount(count: number): Promise<void> {\n> 19 |     await expect(this.cartLink).toHaveText(`Cart (${count})`);\n     |                                 ^\n  20 |   }\n  21 |\n  22 |   /** Opens the side menu and follows one of its links (Home, Store, Account, Cart). */\n    at NavBar.expectCartCount (/repo/automation\\src\\pages\\nav-bar.ts:19:33)\n    at /repo/automation\\tests\\storefront\\product-browsing.spec.ts:97:15"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-10-19T22:14:53.113Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/repo/automation\\src\\pages\\nav-bar.ts",
+                        "column": 33,
+                        "line": 19
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "7bb66dce9710e6461733-4b76a71b1df9e7bff450",
+              "file": "storefront/product-browsing.spec.ts",
+              "line": 85,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T22:13:57.078Z",
+    "duration": 85938.637,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}
