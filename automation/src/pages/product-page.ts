@@ -9,7 +9,7 @@ export class ProductPage extends BasePage {
   readonly description: Locator = this.container.getByTestId('product-description');
   readonly options: Locator = this.container.getByTestId('product-options');
   readonly price: Locator = this.container.getByTestId('product-price').first();
-  readonly addToCartButton: Locator = this.page.getByTestId('add-product-button');
+  readonly addToCartButton: Locator = this.page.getByTestId('add-bag-button');
 
   async goto(handle: string): Promise<void> {
     await this.page.goto(this.localized(`/products/${handle}`));
