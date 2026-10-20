@@ -6,7 +6,7 @@ A locally hosted agentic QA automation platform (portfolio project).
 |---|---|---|
 | [`aut/`](aut) | Application Under Test: Medusa 2.21.2 backend + admin, Next.js storefront, Postgres, Redis (Docker Compose) | ✅ |
 | [`automation/`](automation) | Playwright + TypeScript regression suite (UI + API), CI in `.github/workflows/regression.yml` | ✅ |
-| [`agents/`](agents) | Agentic QA services. [`failure-triage/`](agents/failure-triage): AI triage of failed CI runs (Claude API), with a manually run [eval suite](agents/failure-triage/README.md#evaluation) | ✅ triage · self-healing planned |
+| [`agents/`](agents) | Agentic QA services. [`failure-triage/`](agents/failure-triage): AI triage of failed CI runs and [self-heal](agents/failure-triage/README.md#self-heal-locator-repair) of stale locators (Claude API), with a manually run [eval suite](agents/failure-triage/README.md#evaluation) | ✅ triage · ✅ self-heal (draft PRs) |
 | [`docs/`](docs) | Setup and version documentation | ✅ |
 
 Automation and agents interact with the AUT only via its UI and HTTP APIs; they never import `aut/` code.

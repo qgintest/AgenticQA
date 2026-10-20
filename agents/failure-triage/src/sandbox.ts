@@ -22,7 +22,7 @@ export class ArtifactSandbox {
 
   constructor(
     roots: string[],
-    private readonly limits: Pick<Limits, 'maxFileBytes' | 'maxTotalReadBytes'>,
+    private readonly limits: Pick<Limits, 'maxFileBytes' | 'maxTotalReadBytes'> & Partial<Pick<Limits, 'maxTraceBytes'>>,
     private readonly testResultsDir?: string,
   ) {
     this.roots = roots.filter((r) => fs.existsSync(r)).map((r) => fs.realpathSync(r));
@@ -77,6 +77,20 @@ export class ArtifactSandbox {
     const size = fs.statSync(file).size;
     const cap = Math.min(maxBytes, this.limits.maxFileBytes);
     if (size > cap) throw new SandboxError(`file too large (${size} bytes > ${cap})`);
+    this.charge(size);
+    return fs.readFileSync(file);
+  }
+
+  /**
+   * Trace archives are routinely larger than other artifacts (DOM snapshots, screencast frames), so
+   * they get their own cap. Only .zip files; decompression is still metered by the zip-entry cap.
+   */
+  readTrace(candidate: string): Buffer {
+    const file = this.resolve(candidate);
+    if (path.extname(file).toLowerCase() !== '.zip') throw new SandboxError('traces must be .zip files');
+    const size = fs.statSync(file).size;
+    const cap = this.limits.maxTraceBytes ?? this.limits.maxFileBytes;
+    if (size > cap) throw new SandboxError(`trace too large (${size} bytes > ${cap})`);
     this.charge(size);
     return fs.readFileSync(file);
   }

@@ -23,7 +23,12 @@ jobs:
   regression:
     name: Playwright regression (Medusa AUT)
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 75
+    outputs:
+      # Consumed by the heal-pr job; only "validated" leads to a pull request.
+      heal_status: ${{ steps.heal_validate.outputs.status }}
+      heal_branch: ${{ github.head_ref || github.ref_name }}
+      heal_head_sha: ${{ github.event.pull_request.head.sha || github.sha }}
     env:
       CI: 'true'
       AQA_DELIBERATE_FAILURE: ${{ inputs.deliberate_failure || 'off' }}
@@ -202,6 +207,45 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
 
+      # ---------- AI self-heal (AI-classified locator defects only; validates, never pushes) ----------
+
+      - name: Self-heal - propose locator repair
+        id: heal_propose
+        if: ${{ !cancelled() && steps.regression.outcome == 'failure' }}
+        # Advisory like triage: cannot change the regression result in either direction.
+        continue-on-error: true
+        timeout-minutes: 8
+        working-directory: agents/failure-triage
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TRIAGE_MODEL: ${{ vars.TRIAGE_MODEL }}
+          # Event values come in via env, never interpolated into the script.
+          HEAL_BRANCH: ${{ github.head_ref || github.ref_name }}
+          HEAD_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
+          HEAL_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: node dist/src/heal/cli.js propose --repo-root ../.. --out ../../automation/reports/heal
+
+      - name: Self-heal - validate repair in an isolated worktree
+        id: heal_validate
+        # Runs before teardown: same AUT containers, build and browser as the failed run.
+        if: ${{ !cancelled() && steps.regression.outcome == 'failure' && steps.heal_propose.outputs.status == 'proposed' }}
+        continue-on-error: true
+        timeout-minutes: 30
+        working-directory: agents/failure-triage
+        env:
+          HEAL_BRANCH: ${{ github.head_ref || github.ref_name }}
+          HEAL_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: node dist/src/heal/cli.js validate --repo-root ../.. --out ../../automation/reports/heal
+
+      - name: Upload self-heal result
+        if: ${{ !cancelled() && steps.regression.outcome == 'failure' && hashFiles('automation/reports/heal/heal-result.json') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: self-heal-${{ github.run_id }}-${{ github.run_attempt }}
+          path: automation/reports/heal/
+          retention-days: 14
+          if-no-files-found: warn
+
       - name: Upload reports (HTML, JSON, JUnit, environment, AUT logs)
         if: always()
         uses: actions/upload-artifact@v4
@@ -224,3 +268,76 @@ jobs:
         if: always()
         working-directory: aut
         run: docker compose down -v --remove-orphans
+
+  # Opens a DRAFT pull request for a validated locator repair. Separate job so the write token never
+  # coexists with the API key, the AUT or the test run. It re-verifies the patch itself, applies it
+  # only to the exact commit that failed, and never merges. The regression job stays failed.
+  heal-pr:
+    name: Self-heal draft pull request
+    needs: regression
+    if: >-
+      ${{ always() && needs.regression.outputs.heal_status == 'validated' &&
+      (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      HEAL_BRANCH: ${{ needs.regression.outputs.heal_branch }}
+      HEAL_HEAD_SHA: ${{ needs.regression.outputs.heal_head_sha }}
+    steps:
+      - name: Checkout failing branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.regression.outputs.heal_branch }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: agents/failure-triage/package-lock.json
+
+      - name: Download self-heal result
+        uses: actions/download-artifact@v4
+        with:
+          name: self-heal-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/heal
+
+      - name: Verify patch independently
+        working-directory: agents/failure-triage
+        run: |
+          npm ci
+          npm run build
+          node dist/src/heal/cli.js verify-patch --patch "$RUNNER_TEMP/heal/repair.patch" --result "$RUNNER_TEMP/heal/heal-result.json"
+
+      - name: Open draft pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          HEAL_DIR="$RUNNER_TEMP/heal"
+          tip=$(git rev-parse HEAD)
+          if [ "$tip" != "$HEAL_HEAD_SHA" ]; then
+            echo "Branch moved since the failed run ($HEAL_HEAD_SHA -> $tip); not opening a repair PR." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          file=$(jq -r '.edit.file' "$HEAL_DIR/heal-result.json")
+          old=$(jq -r '.edit.oldLocator' "$HEAL_DIR/heal-result.json")
+          new=$(jq -r '.edit.newLocator' "$HEAL_DIR/heal-result.json")
+          heal_branch="aqa-heal/${RUN_ID}-${RUN_ATTEMPT}"
+          git switch -c "$heal_branch"
+          git apply --check "$HEAL_DIR/repair.patch"
+          git apply "$HEAL_DIR/repair.patch"
+          git add -- "$file"
+          test "$(git diff --cached --name-only)" = "$file"
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -m "test: repair stale locator in $file (self-heal draft)" -m "$old -> $new"
+          git push origin "$heal_branch"
+          url=$(gh pr create --draft --base "$HEAL_BRANCH" --head "$heal_branch" \
+            --title "Self-heal: repair stale locator in $file" --body-file "$HEAL_DIR/pr-body.md")
+          echo "## 🩹 Self-heal draft pull request" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Opened for human review: $url" >> "$GITHUB_STEP_SUMMARY"

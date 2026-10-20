@@ -12,5 +12,6 @@
     "sourceMap": true,
     "types": ["node"]
   },
-  "include": ["src/**/*.ts", "test/**/*.ts", "evals/**/*.ts"]
+  "include": ["src/**/*.ts", "test/**/*.ts", "evals/**/*.ts"],
+  "exclude": ["evals/heal-source/**", "node_modules", "dist"]
 }

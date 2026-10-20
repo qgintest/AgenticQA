@@ -18,6 +18,8 @@ export interface Limits {
   maxToolResultChars: number;
   /** Largest single file a tool may read. */
   maxFileBytes: number;
+  /** Largest trace.zip a tool may read (DOM snapshots make traces bigger than other artifacts). */
+  maxTraceBytes: number;
   /** Largest uncompressed entry read out of a zip (trace) — zip-bomb guard. */
   maxZipEntryBytes: number;
   /** Total bytes all tools may read in one run. */
@@ -53,6 +55,7 @@ export const DEFAULT_LIMITS: Limits = {
   maxFailures: 10,
   maxToolResultChars: 12_000,
   maxFileBytes: 5 * 1024 * 1024,
+  maxTraceBytes: 30 * 1024 * 1024,
   maxZipEntryBytes: 40 * 1024 * 1024,
   maxTotalReadBytes: 150 * 1024 * 1024,
   maxImageBytes: 3 * 1024 * 1024,
@@ -69,6 +72,7 @@ const CEILINGS: Limits = {
   maxFailures: 25,
   maxToolResultChars: 40_000,
   maxFileBytes: 20 * 1024 * 1024,
+  maxTraceBytes: 100 * 1024 * 1024,
   maxZipEntryBytes: 100 * 1024 * 1024,
   maxTotalReadBytes: 500 * 1024 * 1024,
   maxImageBytes: 3_700_000,

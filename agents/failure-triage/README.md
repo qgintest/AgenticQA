@@ -276,3 +276,112 @@ variable `TRIAGE_MODEL`. Without the secret (including PRs from forks) the job s
 
 End-to-end check: Actions → Regression → Run workflow → `deliberate_failure`:
 `assertion` (expected: application defect) or `locator` (expected: automation defect).
+
+## Self-heal (locator repair)
+
+When triage classifies a failure as an automation defect caused by a missing `getByTestId` locator, the
+self-heal agent proposes a one-line repair, validates it against the same running AUT, and a separate job
+opens a **draft pull request** for human review. It never changes assertions, test data, application
+code or other locators, and it never merges. The failed regression run stays failed.
+
+```
+triage verdict ─► GATE (deterministic) ─► heal agent (read-only tools) ─► CHECKS (deterministic)
+                     │ refuse + reason        │ propose_repair / refuse_repair    │ reject + reason
+                     ▼                        ▼                                   ▼
+               job summary              worktree validation (same AUT) ─► heal-pr job (write token)
+                                        1. originally failing tests          verify patch again,
+                                        2. specs using the page object       apply to exact commit,
+                                                                             open DRAFT PR
+```
+
+### Gate (no model call)
+
+Self-heal is attempted only when **all** hold; otherwise the job summary shows the reason:
+
+- triage ran in AI mode and classified the failure `automation_defect` with confidence ≥ 0.7;
+- the test failed on every attempt (not flaky) with "element(s) not found" / "waiting for …", not a
+  strict-mode violation, and the failing locator is a `getByTestId(…)` (only test-id repairs are supported);
+- no failure in the run is an environment issue, and **no other failure points to an unhealthy app or
+  environment** (a missing element can be a symptom of an outage, e.g. an empty product list);
+- the locator is defined exactly once, in `automation/src/pages/**` or `automation/tests/**`
+  (`automation/tests/diagnostics/**` holds intentionally broken scenarios and is never repaired);
+- a DOM snapshot exists in the trace; the run is not a fork PR and not on an `aqa-heal/*` branch.
+
+### Agent and checks
+
+The model can only choose the **new test-id string**; file, line and the old locator are fixed by the
+gate. Tools (all read-only, results wrapped as untrusted data): `get_repair_context`, `read_source`
+(test sources only), `find_usages`, `check_locator` (deterministic DOM evaluation), plus the triage tools
+for failure details, page snapshot, screenshot, trace, DOM search and change summary. It ends with
+`propose_repair` or `refuse_repair` (`ambiguous_target`, `element_missing`, `application_behaviour`, …).
+
+A proposal is accepted only if every deterministic check passes: plain test-id syntax; it cites its own
+`check_locator` result; the candidate matches **exactly one** element in the locator's scope in every DOM
+snapshot that contains it; the element fits how the code uses it (clicked → interactive, filled → input)
+and the texts the code asserts on it; the element the model describes is the element the locator
+resolves to; the edit changes only the `getByTestId` literal on that one line; confidence ≥ 0.7.
+
+### Validation
+
+In the regression job, before teardown: `git worktree add` of HEAD in `$RUNNER_TEMP`, apply the edit,
+`npm ci` there (no links into the checkout), then run with `--retries=0` against the **same AUT
+containers, build and browser**: (1) the originally failing tests, each of which must run and pass;
+(2) every spec that uses the changed page-object property or its methods. The test process gets no API
+keys or tokens and never the deliberate-failure project. Only then is the status `validated` and
+`repair.patch` + `pr-body.md` written. A validated repair still needs human review: passing tests show the
+locator works, the checks show it targets the intended element, and the PR checklist asks the reviewer to
+confirm the rename was intended (not an application regression).
+
+During local validation this caught a real case: the repaired locator let the tests reach the cart, where
+a stale storefront build still added two items. Validation failed, so no repair was proposed.
+
+### Pull request job (`heal-pr`)
+
+Separate job with `contents: write` and `pull-requests: write` only; no API key, no AUT, no test run.
+It downloads the self-heal artifact, re-runs `verify-patch` (one editable file, one line, test-id literal
+only, identical to the validated edit), checks the failing branch has not moved since the run, commits to
+`aqa-heal/<run>-<attempt>` and opens a **draft** PR against the failing branch with: original and
+proposed locator, reason, target element, diff, every check, validation results, evidence and a review
+checklist. Never auto-merged.
+
+Repository setup (once): Settings → Actions → General → Workflow permissions → enable **Allow GitHub
+Actions to create and approve pull requests** (only *create* is used), and protect `main` (require a pull
+request and review). PRs opened with the workflow token do not trigger other workflows: re-run the
+Regression workflow on the heal branch (or close and reopen the PR) before merging.
+
+### Limits
+
+| Limit | Default | Env (clamped) |
+|---|---|---|
+| Model turns | 10 | `HEAL_MAX_ITERATIONS` (≤ 20) |
+| Input / output tokens | 400,000 / 40,000 | `HEAL_MAX_INPUT_TOKENS`, `HEAL_MAX_OUTPUT_TOKENS` |
+| Wall clock (agent) | 5 min | `HEAL_TIMEOUT_MS` (≤ 15 min) |
+| **Spend per run** | **$2** (from token usage; unknown models priced at the most expensive known rate) | `HEAL_MAX_COST_USD` (≤ $10) |
+| Repairs per run | 1 (the locator behind most failures; others listed as deferred) | — |
+| Validation | 20 min per phase; workflow step 30 min | `HEAL_VALIDATION_TIMEOUT_MS` |
+
+### Evaluation
+
+`evals/heal-cases.json` replays the recorded scenarios with a given triage verdict against frozen test
+sources (`evals/heal-source/broken-locator`). "Mistriaged" cases hand self-heal a **wrong**
+automation-defect verdict on purpose; it must still refuse.
+
+| Case | Expect |
+|---|---|
+| broken shared locator (`add-bag-button` → `add-product-button`) | repair |
+| storefront quantity bug (correct verdict / mistriaged) | no repair |
+| payment assertion (mistriaged) | no repair |
+| AUT down (correct verdict / mistriaged) | no repair |
+| flaky navigation (mistriaged) | no repair |
+| prompt injection in logs (mistriaged) | no repair |
+
+```bash
+npm run eval:heal -- --dry-run          # deterministic baseline, no API calls (also part of npm test)
+npm run eval:heal                       # prints the cost ceiling; add --yes to run against Claude
+npm run heal:dry-run                    # local end-to-end on the last failed run: triage stand-in,
+                                        # gate, baseline heal model, checks, real worktree validation
+```
+
+Metrics: correct repairs, correct refusals, **false repairs** (the eval exits non-zero on any), cases
+stopped before a model call, invalid trials (harness could not evaluate), cost. The manual
+**Triage eval** workflow runs it too.
