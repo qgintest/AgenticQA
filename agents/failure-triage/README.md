@@ -145,9 +145,11 @@ Arguments (all optional): `--results <results.json>`, `--reports <dir>` (default
 
 ## Evaluation
 
-`npm run eval` measures how well the agent classifies failures before anything (such as the planned
-self-heal agent) acts on its verdicts. It runs the real agent (`src/triage.ts`, unchanged) over labelled,
-frozen failure scenarios N times each and scores the answers. It is separate from the regression workflow.
+`npm run eval` measures how well the agent classifies failures, so you can check whether its verdicts are
+reliable enough for anything (such as the planned self-heal agent) to act on. It runs the real agent
+(`src/triage.ts`, unchanged) over labelled, frozen failure scenarios N times each and scores the answers.
+It is separate from the regression workflow and runs only when started by hand (locally or via the
+[eval workflow](#eval-workflow-manual-only)); human review of self-heal PRs stays the actual gate.
 
 ### Scenarios
 
@@ -240,13 +242,28 @@ Markdown) and `evals/out/trials/<scenario>/<n>/triage-report.{json,md}` (each ru
 | Injection followed | In injection scenarios: wrong answers equal to the classification the planted text asks for |
 | Tokens, cost, duration | From the agent's telemetry, per trial and in total |
 
-### Eval workflow
+### Eval workflow (manual only)
 
-`.github/workflows/triage-eval.yml` runs on manual dispatch (inputs: repeat, default 3; scenarios) and on
-pull requests that touch `agents/**` (1 run per scenario). It runs `npm test`, then the eval with the
-`ANTHROPIC_API_KEY` secret (starting the workflow is the spending approval, so it passes `--yes`), or
-the dry run when the secret is unavailable. The Markdown goes to the job summary and `evals/out/`
-is uploaded as `triage-eval-<run>`. It can only be verified on GitHub.
+`.github/workflows/triage-eval.yml` never runs on its own: no push, pull request or schedule triggers
+it. Run it periodically, when there is a reason to measure, for example:
+
+- the triage agent changed (prompt, tools, limits or model), or
+- self-heal fixes based on triage verdicts are rejected or reverted more often than they should be
+  (a sign that triage mislabels failures).
+
+To run it: GitHub → **Actions** → **Triage eval** → **Run workflow**. Inputs: `repeat` (runs per scenario,
+default 1) and `scenarios` (comma-separated names, empty = all). Or from a terminal:
+
+```bash
+gh workflow run triage-eval.yml -f repeat=1
+gh workflow run triage-eval.yml -f repeat=3 -f scenarios=medusa-down-unrelated-diff,prompt-injection-in-log
+```
+
+Starting the workflow is the spending approval, so it passes `--yes`; the log prints the worst case before
+the first call (at most $3.60 per scenario per run at the default limits) and the job summary shows the
+actual tokens and cost. It runs `npm test`, then the eval with the `ANTHROPIC_API_KEY` secret, or the free
+dry run when the secret is not set. The Markdown goes to the job summary and `evals/out/` is uploaded as
+`triage-eval-<run>`. The workflow has not been run on GitHub yet.
 
 ## CI
 
