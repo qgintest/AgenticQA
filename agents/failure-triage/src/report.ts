@@ -55,6 +55,8 @@ export interface AgentTelemetry {
   errors: string[];
   durationMs: number;
   bytesRead: number;
+  /** Estimated spend for loops run with a cost cap (self-heal). */
+  costUsd?: number;
 }
 
 export interface TriageReport {

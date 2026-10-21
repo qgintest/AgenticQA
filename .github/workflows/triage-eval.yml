@@ -37,10 +37,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -82,9 +82,23 @@ jobs:
         run: |
           if [ -f evals/out/summary.md ]; then cat evals/out/summary.md >> "$GITHUB_STEP_SUMMARY"; fi
 
+      # Self-heal accuracy and false repairs on the same recorded scenarios (heal-cases.json).
+      # The eval appends its own section to the job summary and fails on any false repair.
+      - name: Self-heal eval against the Claude API
+        if: ${{ !cancelled() && steps.key.outputs.available == 'true' }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TRIAGE_MODEL: ${{ vars.TRIAGE_MODEL }}
+          REPEAT: ${{ inputs.repeat }}
+        run: node dist/evals/heal-eval.js --yes --repeat "$REPEAT"
+
+      - name: Self-heal eval dry run (no API key available)
+        if: ${{ !cancelled() && steps.key.outputs.available != 'true' }}
+        run: node dist/evals/heal-eval.js --dry-run
+
       - name: Upload eval results
         if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: triage-eval-${{ github.run_id }}-${{ github.run_attempt }}
           path: agents/failure-triage/evals/out/

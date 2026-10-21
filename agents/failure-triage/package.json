@@ -16,7 +16,9 @@
     "test": "npm run build && node --test \"dist/test/**/*.test.js\"",
     "triage": "node dist/src/cli.js",
     "eval": "npm run build && node dist/evals/run.js",
-    "eval:capture": "npm run build && node dist/evals/capture.js"
+    "eval:capture": "npm run build && node dist/evals/capture.js",
+    "eval:heal": "npm run build && node dist/evals/heal-eval.js",
+    "heal:dry-run": "npm run build && node dist/evals/heal-dry-run.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "0.131.0"

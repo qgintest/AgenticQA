@@ -177,6 +177,8 @@ When the regression step fails, the [failure-triage agent](../agents/failure-tri
 artifacts and appends a classified diagnostic report to the job summary (artifact `failure-triage-<run>`).
 It uses the Claude API only if the optional `ANTHROPIC_API_KEY` repository secret is set (paid per token);
 otherwise it falls back to free deterministic heuristics. It never changes the job result.
+For an AI-classified stale `getByTestId` locator, the [self-heal agent](../agents/failure-triage/README.md#self-heal-locator-repair)
+validates a one-line repair against the same running AUT, and a separate job opens a PR for review and starts the Regression workflow on it.
 
 ## Known limitations
 

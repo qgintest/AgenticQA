@@ -23,7 +23,17 @@ jobs:
   regression:
     name: Playwright regression (Medusa AUT)
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 75
+    permissions:
+      contents: read
+      # Only used on aqa-heal/* branches: runs started by the heal-pr job (workflow_dispatch) do not
+      # show on the pull request, so the result is published as a commit status that does.
+      statuses: write
+    outputs:
+      # Consumed by the heal-pr job; only "validated" leads to a pull request.
+      heal_status: ${{ steps.heal_validate.outputs.status }}
+      heal_branch: ${{ github.head_ref || github.ref_name }}
+      heal_head_sha: ${{ github.event.pull_request.head.sha || github.sha }}
     env:
       CI: 'true'
       AQA_DELIBERATE_FAILURE: ${{ inputs.deliberate_failure || 'off' }}
@@ -31,13 +41,26 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           # Full history so the triage step can diff this push or PR against its base.
           fetch-depth: 0
 
+      - name: Report pending status on the self-heal PR
+        if: ${{ startsWith(github.ref_name, 'aqa-heal/') }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: >-
+          gh api -X POST "repos/$REPO/statuses/$SHA"
+          -f state=pending -f context="Playwright regression (Medusa AUT)"
+          -f description="Regression run in progress" -f target_url="$RUN_URL" --silent
+
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -85,7 +108,7 @@ jobs:
         run: npm ci
 
       - name: Cache Playwright browsers
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('automation/package-lock.json') }}
@@ -195,16 +218,55 @@ jobs:
 
       - name: Upload triage report
         if: ${{ !cancelled() && steps.regression.outcome == 'failure' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: failure-triage-${{ github.run_id }}-${{ github.run_attempt }}
           path: automation/reports/triage/
           retention-days: 14
           if-no-files-found: warn
 
+      # ---------- AI self-heal (AI-classified locator defects only; validates, never pushes) ----------
+
+      - name: Self-heal - propose locator repair
+        id: heal_propose
+        if: ${{ !cancelled() && steps.regression.outcome == 'failure' }}
+        # Advisory like triage: cannot change the regression result in either direction.
+        continue-on-error: true
+        timeout-minutes: 8
+        working-directory: agents/failure-triage
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TRIAGE_MODEL: ${{ vars.TRIAGE_MODEL }}
+          # Event values come in via env, never interpolated into the script.
+          HEAL_BRANCH: ${{ github.head_ref || github.ref_name }}
+          HEAD_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
+          HEAL_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: node dist/src/heal/cli.js propose --repo-root ../.. --out ../../automation/reports/heal
+
+      - name: Self-heal - validate repair in an isolated worktree
+        id: heal_validate
+        # Runs before teardown: same AUT containers, build and browser as the failed run.
+        if: ${{ !cancelled() && steps.regression.outcome == 'failure' && steps.heal_propose.outputs.status == 'proposed' }}
+        continue-on-error: true
+        timeout-minutes: 30
+        working-directory: agents/failure-triage
+        env:
+          HEAL_BRANCH: ${{ github.head_ref || github.ref_name }}
+          HEAL_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: node dist/src/heal/cli.js validate --repo-root ../.. --out ../../automation/reports/heal
+
+      - name: Upload self-heal result
+        if: ${{ !cancelled() && steps.regression.outcome == 'failure' && hashFiles('automation/reports/heal/heal-result.json') != '' }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: self-heal-${{ github.run_id }}-${{ github.run_attempt }}
+          path: automation/reports/heal/
+          retention-days: 14
+          if-no-files-found: warn
+
       - name: Upload reports (HTML, JSON, JUnit, environment, AUT logs)
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: playwright-reports-${{ github.run_id }}-${{ github.run_attempt }}
           path: automation/reports/
@@ -213,7 +275,7 @@ jobs:
 
       - name: Upload failure artifacts (traces, screenshots, videos)
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: playwright-test-results-${{ github.run_id }}-${{ github.run_attempt }}
           path: automation/test-results/
@@ -224,3 +286,110 @@ jobs:
         if: always()
         working-directory: aut
         run: docker compose down -v --remove-orphans
+
+      - name: Report final status on the self-heal PR
+        if: ${{ always() && startsWith(github.ref_name, 'aqa-heal/') }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          OUTCOME: ${{ steps.regression.outcome }}
+        run: |
+          case "$OUTCOME" in
+            success) state=success; desc="Regression suite passed on the repaired commit" ;;
+            failure) state=failure; desc="Regression suite failed on the repaired commit" ;;
+            *) state=error; desc="Regression suite did not run (setup failed or the run was cancelled)" ;;
+          esac
+          gh api -X POST "repos/$REPO/statuses/$SHA" \
+            -f state="$state" -f context="Playwright regression (Medusa AUT)" \
+            -f description="$desc" -f target_url="$RUN_URL" --silent
+          echo "Commit status on $SHA: $state"
+
+  # Opens a pull request (ready for review) for a validated locator repair and starts the Regression
+  # workflow on it. Separate job so the write token never
+  # coexists with the API key, the AUT or the test run. It re-verifies the patch itself, applies it
+  # only to the exact commit that failed, and never merges. The regression job stays failed.
+  heal-pr:
+    name: Self-heal pull request
+    needs: regression
+    if: >-
+      ${{ always() && needs.regression.outputs.heal_status == 'validated' &&
+      (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+      # Only to start the Regression workflow on the heal branch: events created with the workflow
+      # token never trigger workflows, except workflow_dispatch.
+      actions: write
+    env:
+      HEAL_BRANCH: ${{ needs.regression.outputs.heal_branch }}
+      HEAL_HEAD_SHA: ${{ needs.regression.outputs.heal_head_sha }}
+    steps:
+      - name: Checkout failing branch
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ needs.regression.outputs.heal_branch }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: agents/failure-triage/package-lock.json
+
+      - name: Download self-heal result
+        uses: actions/download-artifact@v7
+        with:
+          name: self-heal-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/heal
+
+      - name: Verify patch independently
+        working-directory: agents/failure-triage
+        run: |
+          npm ci
+          npm run build
+          node dist/src/heal/cli.js verify-patch --patch "$RUNNER_TEMP/heal/repair.patch" --result "$RUNNER_TEMP/heal/heal-result.json"
+
+      - name: Open pull request and start CI on it
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          REVIEWER: ${{ github.repository_owner }}
+        run: |
+          HEAL_DIR="$RUNNER_TEMP/heal"
+          tip=$(git rev-parse HEAD)
+          if [ "$tip" != "$HEAL_HEAD_SHA" ]; then
+            echo "Branch moved since the failed run ($HEAL_HEAD_SHA -> $tip); not opening a repair PR." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          file=$(jq -r '.edit.file' "$HEAL_DIR/heal-result.json")
+          old=$(jq -r '.edit.oldLocator' "$HEAL_DIR/heal-result.json")
+          new=$(jq -r '.edit.newLocator' "$HEAL_DIR/heal-result.json")
+          heal_branch="aqa-heal/${RUN_ID}-${RUN_ATTEMPT}"
+          git switch -c "$heal_branch"
+          git apply --check "$HEAL_DIR/repair.patch"
+          git apply "$HEAL_DIR/repair.patch"
+          git add -- "$file"
+          test "$(git diff --cached --name-only)" = "$file"
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -m "test: repair stale locator in $file (self-heal)" -m "$old -> $new"
+          git push origin "$heal_branch"
+          # Ready for review (not a draft): branch protection (required review + checks) gates the merge.
+          url=$(gh pr create --base "$HEAL_BRANCH" --head "$heal_branch" \
+            --title "Self-heal: repair stale locator in $file" --body-file "$HEAL_DIR/pr-body.md")
+          # Review request is best effort (fails e.g. when the owner is an organization).
+          if gh pr edit "$url" --add-reviewer "$REVIEWER" >/dev/null 2>&1; then reviewer="review requested from $REVIEWER"; else reviewer="no reviewer requested"; fi
+          # Run the regression suite on the repaired commit; its checks show up on the PR.
+          if gh workflow run regression.yml --ref "$heal_branch"; then ci="Regression workflow started on $heal_branch"; else ci="could not start the Regression workflow; run it manually on $heal_branch"; fi
+          {
+            echo "## 🩹 Self-heal pull request"
+            echo ""
+            echo "Opened for human review: $url ($reviewer)."
+            echo ""
+            echo "CI: $ci."
+          } >> "$GITHUB_STEP_SUMMARY"
