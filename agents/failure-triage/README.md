@@ -281,7 +281,7 @@ End-to-end check: Actions → Regression → Run workflow → `deliberate_failur
 
 When triage classifies a failure as an automation defect caused by a missing `getByTestId` locator, the
 self-heal agent proposes a one-line repair, validates it against the same running AUT, and a separate job
-opens a **draft pull request** for human review. It never changes assertions, test data, application
+opens a **pull request** for human review and starts the Regression workflow on it. It never changes assertions, test data, application
 code or other locators, and it never merges. The failed regression run stays failed.
 
 ```
@@ -291,7 +291,7 @@ triage verdict ─► GATE (deterministic) ─► heal agent (read-only tools) �
                job summary              worktree validation (same AUT) ─► heal-pr job (write token)
                                         1. originally failing tests          verify patch again,
                                         2. specs using the page object       apply to exact commit,
-                                                                             open DRAFT PR
+                                                                             open PR, start CI
 ```
 
 ### Gate (no model call)
@@ -337,17 +337,18 @@ a stale storefront build still added two items. Validation failed, so no repair 
 
 ### Pull request job (`heal-pr`)
 
-Separate job with `contents: write` and `pull-requests: write` only; no API key, no AUT, no test run.
+Separate job with `contents: write`, `pull-requests: write` and `actions: write` only; no API key, no AUT, no test run.
 It downloads the self-heal artifact, re-runs `verify-patch` (one editable file, one line, test-id literal
 only, identical to the validated edit), checks the failing branch has not moved since the run, commits to
-`aqa-heal/<run>-<attempt>` and opens a **draft** PR against the failing branch with: original and
+`aqa-heal/<run>-<attempt>` and opens a PR (ready for review, review requested from the repository owner when possible) against the failing branch with: original and
 proposed locator, reason, target element, diff, every check, validation results, evidence and a review
 checklist. Never auto-merged.
 
 Repository setup (once): Settings → Actions → General → Workflow permissions → enable **Allow GitHub
 Actions to create and approve pull requests** (only *create* is used), and protect `main` (require a pull
-request and review). PRs opened with the workflow token do not trigger other workflows: re-run the
-Regression workflow on the heal branch (or close and reopen the PR) before merging.
+request, a review and the regression check before merging). PRs opened with the workflow token do not
+trigger workflows, so the job starts the Regression workflow on the heal branch itself (`gh workflow run`;
+`workflow_dispatch` is the documented exception). Its checks attach to the repaired commit and show on the PR.
 
 ### Limits
 

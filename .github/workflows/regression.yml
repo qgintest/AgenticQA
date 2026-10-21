@@ -269,11 +269,12 @@ jobs:
         working-directory: aut
         run: docker compose down -v --remove-orphans
 
-  # Opens a DRAFT pull request for a validated locator repair. Separate job so the write token never
+  # Opens a pull request (ready for review) for a validated locator repair and starts the Regression
+  # workflow on it. Separate job so the write token never
   # coexists with the API key, the AUT or the test run. It re-verifies the patch itself, applies it
   # only to the exact commit that failed, and never merges. The regression job stays failed.
   heal-pr:
-    name: Self-heal draft pull request
+    name: Self-heal pull request
     needs: regression
     if: >-
       ${{ always() && needs.regression.outputs.heal_status == 'validated' &&
@@ -283,6 +284,9 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      # Only to start the Regression workflow on the heal branch: events created with the workflow
+      # token never trigger workflows, except workflow_dispatch.
+      actions: write
     env:
       HEAL_BRANCH: ${{ needs.regression.outputs.heal_branch }}
       HEAL_HEAD_SHA: ${{ needs.regression.outputs.heal_head_sha }}
@@ -312,11 +316,12 @@ jobs:
           npm run build
           node dist/src/heal/cli.js verify-patch --patch "$RUNNER_TEMP/heal/repair.patch" --result "$RUNNER_TEMP/heal/heal-result.json"
 
-      - name: Open draft pull request
+      - name: Open pull request and start CI on it
         env:
           GH_TOKEN: ${{ github.token }}
           RUN_ID: ${{ github.run_id }}
           RUN_ATTEMPT: ${{ github.run_attempt }}
+          REVIEWER: ${{ github.repository_owner }}
         run: |
           HEAL_DIR="$RUNNER_TEMP/heal"
           tip=$(git rev-parse HEAD)
@@ -334,10 +339,19 @@ jobs:
           git add -- "$file"
           test "$(git diff --cached --name-only)" = "$file"
           git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
-            commit -m "test: repair stale locator in $file (self-heal draft)" -m "$old -> $new"
+            commit -m "test: repair stale locator in $file (self-heal)" -m "$old -> $new"
           git push origin "$heal_branch"
-          url=$(gh pr create --draft --base "$HEAL_BRANCH" --head "$heal_branch" \
+          # Ready for review (not a draft): branch protection (required review + checks) gates the merge.
+          url=$(gh pr create --base "$HEAL_BRANCH" --head "$heal_branch" \
             --title "Self-heal: repair stale locator in $file" --body-file "$HEAL_DIR/pr-body.md")
-          echo "## 🩹 Self-heal draft pull request" >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "Opened for human review: $url" >> "$GITHUB_STEP_SUMMARY"
+          # Review request is best effort (fails e.g. when the owner is an organization).
+          if gh pr edit "$url" --add-reviewer "$REVIEWER" >/dev/null 2>&1; then reviewer="review requested from $REVIEWER"; else reviewer="no reviewer requested"; fi
+          # Run the regression suite on the repaired commit; its checks show up on the PR.
+          if gh workflow run regression.yml --ref "$heal_branch"; then ci="Regression workflow started on $heal_branch"; else ci="could not start the Regression workflow; run it manually on $heal_branch"; fi
+          {
+            echo "## 🩹 Self-heal pull request"
+            echo ""
+            echo "Opened for human review: $url ($reviewer)."
+            echo ""
+            echo "CI: $ci."
+          } >> "$GITHUB_STEP_SUMMARY"
