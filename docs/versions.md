@@ -16,6 +16,7 @@ Verified against the official Medusa docs on 2026-10-16.
 | TypeScript (automation) | 6.0.3 | `automation/package.json` | typecheck only; Playwright transpiles tests itself |
 | Anthropic SDK (`@anthropic-ai/sdk`) | 0.131.0 | `agents/failure-triage/package.json` (exact) | failure-triage agent; newer releases were <2 weeks old |
 | Claude model (triage) | `claude-opus-5-5` | `agents/failure-triage/src/config.ts` (override: `TRIAGE_MODEL`) | adaptive thinking, effort `high` |
+| GitHub Actions | checkout@v5, setup-node@v5, cache@v5, upload-artifact@v6, download-artifact@v7 | `.github/workflows/*.yml` | lowest majors that run on Node 24 (Node 20 actions are deprecated) |
 | Docker Desktop / Compose | 29.8 / v5.5 | host | |
 
 ## Local modifications to upstream starter

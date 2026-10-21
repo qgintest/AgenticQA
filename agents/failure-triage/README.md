@@ -348,7 +348,10 @@ Repository setup (once): Settings → Actions → General → Workflow permissio
 Actions to create and approve pull requests** (only *create* is used), and protect `main` (require a pull
 request, a review and the regression check before merging). PRs opened with the workflow token do not
 trigger workflows, so the job starts the Regression workflow on the heal branch itself (`gh workflow run`;
-`workflow_dispatch` is the documented exception). Its checks attach to the repaired commit and show on the PR.
+`workflow_dispatch` is the documented exception). Runs started that way do not appear in the PR's checks, so
+on `aqa-heal/*` branches the regression job publishes its result as a **commit status** named
+"Playwright regression (Medusa AUT)" (pending at start, then success / failure / error, linking to the run).
+That status shows on the PR and can be made a required check (the regression job has `statuses: write` for this).
 
 ### Limits
 
