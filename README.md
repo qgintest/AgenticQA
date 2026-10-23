@@ -3,7 +3,7 @@
 [![Regression](https://github.com/qgintest/AgenticQA/actions/workflows/regression.yml/badge.svg?branch=main)](https://github.com/qgintest/AgenticQA/actions/workflows/regression.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-When a Playwright regression run fails in CI, Claude-powered agents **diagnose why** (application
+When a Playwright regression run fails in CI Pipeline, Claude-powered agents **diagnose why** (application
 bug, test bug, environment, or flaky) with cited evidence, and if the cause is a stale test locator,
 **propose a verified one-line fix as a pull request** for a human to review.
 
