@@ -13,6 +13,56 @@ bug, test bug, environment, or flaky) with cited evidence, and if the cause is a
 
 ---
 
+## See it in action
+
+A page-object locator was broken on purpose (`add-product-button` → `add-bag-button`) and pushed. Everything
+below happened automatically in GitHub Actions, except the final review.
+
+**1. Triage diagnoses the failure.** Three failing tests, one root cause: the test looks for a test id
+that isn't on the page, while the real button works. Evidence is cited, and confidence is capped until
+it's corroborated.
+
+![Failure triage summary: three failures classified as one automation defect](docs/images/01-triage-locator.webp)
+
+**2. Self-heal proposes a fix and proves it.** The model only chooses the new test id. Nine deterministic
+checks confirm it's the intended element, then the 3 failing tests and 6 related tests are rerun against
+the same app build.
+
+<details>
+<summary>Show the self-heal summary (checks and validation)</summary>
+
+![Self-heal summary: proposed locator, 9 passing checks, validation results](docs/images/02-self-heal-validated.webp)
+
+</details>
+
+**3. A one-line repair, committed by the bot** on its own branch, and nothing else changes:
+
+![One-line diff: add-bag-button replaced by add-product-button](docs/images/03-repair-commit.png)
+
+**4. A pull request, ready for review.** Review is requested and the PR explains what changed and why.
+→ [PR #4](https://github.com/qgintest/AgenticQA/pull/4)
+
+![Repair pull request with original and proposed locator, reason and target element](docs/images/04-repair-pr.png)
+
+<details>
+<summary>Show the checks and validation results in the PR body</summary>
+
+![PR body: deterministic checks and validation tables](docs/images/05-pr-checks-validation.png)
+
+</details>
+
+**5. CI confirms the fix** on the repaired commit before anyone merges:
+
+![All checks passed on the repair pull request](docs/images/06-pr-ci-green.png)
+
+**6. It knows when not to act.** For a real application bug (one click adds two items to the cart),
+triage reports an **application defect**: it quotes "Cart (2)" vs. "Cart (1)", points at the code change
+that caused it, and flags that the change could have been intentional. Self-heal only acts on automation
+defects, so it leaves this alone, even when triage is deliberately fed the wrong verdict
+([evaluation cases](agents/failure-triage/evals/heal-cases.json)).
+
+![Failure triage summary: two failures classified as application defects](docs/images/07-triage-app-defect.png)
+
 ## What it does
 
 1. **Test:** every push and pull request starts the shop app in Docker and runs 13 Playwright UI + API tests.
