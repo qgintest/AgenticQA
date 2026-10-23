@@ -5,7 +5,7 @@ import { describe, it } from 'node:test';
 import { Redactor } from '../src/redact';
 import type { FailureTriage, TriageReport } from '../src/report';
 import { ZipReader } from '../src/zip';
-import { captureScenario, neutralizePaths, slimTrace, trimLog } from '../evals/capture-lib';
+import { captureScenario, neutralizePaths, shortDirNamer, slimTrace, trimLog } from '../evals/capture-lib';
 import { costOf, priceFor, spendPlan } from '../evals/pricing';
 import { runEval } from '../evals/runner';
 import { expectationFor, loadScenario, loadScenarios, parseExpectation, type ScenarioExpectation } from '../evals/scenario';
@@ -347,19 +347,39 @@ describe('eval capture', () => {
       'reports/aut/medusa.log',
       'reports/environment.json',
       'reports/results.json',
-      'test-results/test-1/error-context.md',
-      'test-results/test-1/test-failed-1.png',
-      'test-results/test-1/trace.zip',
+      'test-results/t1/error-context.md',
+      'test-results/t1/test-failed-1.png',
+      'test-results/t1/trace.zip',
     ]);
     assert.doesNotMatch(fs.readFileSync(path.join(out, 'reports', 'aut', 'medusa.log'), 'utf8'), /hunter22/);
     const copied = fs.readFileSync(path.join(out, 'reports', 'results.json'), 'utf8');
-    assert.match(copied, /"\/artifacts\/test-results\/test-1\/trace.zip"/);
+    assert.match(copied, /"\/artifacts\/test-results\/t1\/trace.zip"/);
     assert.doesNotMatch(copied, /video/);
 
     // An attachment that points outside both roots is refused, not copied.
     results.suites[0].specs[0].tests[0].results[0].attachments = [{ name: 'trace', contentType: 'application/zip', path: path.join(tmpDir(), 'elsewhere', 'trace.zip') }];
     fs.writeFileSync(path.join(fx.reportsDir, 'results.json'), JSON.stringify(results));
     assert.throws(() => captureScenario({ ...opts, outDir: path.join(tmpDir(), 'scenario2') }), /outside the artifact roots/);
+  });
+});
+
+describe('short scenario folder names', () => {
+  it('maps long Playwright folder names to t1, t2… and keeps the retry suffix', () => {
+    const short = shortDirNamer();
+    assert.equal(short('orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression/trace.zip'), 't1/trace.zip');
+    assert.equal(short('orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression-retry1/trace.zip'), 't1-retry1/trace.zip');
+    assert.equal(short('storefront-product-browsin-50394-nav-count-and-cart-contents-regression/error-context.md'), 't2/error-context.md');
+    assert.equal(short('orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression/error-context.md'), 't1/error-context.md', 'stable per folder');
+  });
+
+  it('keeps every committed scenario path short enough for deep Windows clone folders', () => {
+    const repoRoot = path.resolve(SCENARIOS, '..', '..', '..', '..');
+    const longest = (dir: string): number =>
+      fs.readdirSync(dir, { withFileTypes: true }).reduce((m, e) => {
+        const p = path.join(dir, e.name);
+        return Math.max(m, e.isDirectory() ? longest(p) : path.relative(repoRoot, p).length);
+      }, 0);
+    assert.ok(longest(SCENARIOS) <= 130, 'repo-relative paths under evals/scenarios must stay <= 130 characters');
   });
 });
 

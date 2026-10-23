@@ -5,7 +5,8 @@ All commands run in **Git Bash** from `AgenticQA/aut/` unless noted.
 ## Prerequisites
 
 - Docker Desktop (WSL2 backend), running, with ~10 GB free disk
-- Node.js 22.22+ or 24.x and Git (only needed for editing / IDE support on the host)
+- Node.js 22.22+ or 24.x: **required** (the env-file script, the regression tests and the agents run on it)
+- Git, and on Windows **Git Bash** (all commands below are POSIX shell)
 - pnpm 10.11.1 via corepack. If `corepack enable` fails with EPERM (Node in `Program Files`):
   ```bash
   mkdir -p "$APPDATA/npm" && corepack enable pnpm --install-directory "$APPDATA\\npm"
@@ -20,11 +21,12 @@ sh scripts/init-env.sh
 # 2. Optional: host dependencies for IDE type-checking (containers install their own)
 pnpm install --frozen-lockfile
 
-# 3. Build and start Postgres, Redis and the Medusa backend
-docker compose up --build -d postgres redis medusa
+# 3. Build and start Postgres, Redis and the Medusa backend, and wait until all are healthy
+#    (first run: image build + migrations + seed, ~15 min; --wait returns when ready)
+docker compose up --build -d --wait --wait-timeout 1200 postgres redis medusa
 
-# 4. Wait for the backend to become healthy (migrations + seed run on first start)
-docker compose logs -f medusa     # Ctrl+C once "Server is ready on port: 9000"
+# 4. Optional: follow the backend log (if --wait times out, this shows why)
+docker compose logs -f medusa     # Ctrl+C to stop following
 
 # 5. Create the admin user from ADMIN_EMAIL / ADMIN_PASSWORD in aut/.env (generated, gitignored)
 sh scripts/create-admin.sh

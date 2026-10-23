@@ -143,6 +143,23 @@ function forEachResult(data: Record<string, unknown>, fn: (result: Record<string
   for (const s of Array.isArray(data.suites) ? data.suites : []) if (isObj(s)) walk(s);
 }
 
+/**
+ * Playwright names test-results folders after the full test title (often 90+ characters). Inside a
+ * scenario that pushes paths past Windows' 260-character limit when the repo is cloned into a deep
+ * folder, so captured folders get short names: t1, t2, … (a "-retryN" suffix is kept).
+ * Takes and returns a posix path relative to test-results/.
+ */
+export function shortDirNamer(): (rel: string) => string {
+  const ids = new Map<string, string>();
+  return (rel: string) => {
+    const [dir = '', ...rest] = rel.split('/');
+    const m = /^(.*?)(-retry\d+)?$/.exec(dir)!;
+    const base = m[1]!;
+    if (!ids.has(base)) ids.set(base, `t${ids.size + 1}`);
+    return [`${ids.get(base)}${m[2] ?? ''}`, ...rest].join('/');
+  };
+}
+
 export function captureScenario(opts: CaptureOptions): CapturedFile[] {
   const limits = { maxFileBytes: 50 * 1024 * 1024, maxTotalReadBytes: 2 * 1024 * 1024 * 1024 };
   for (const dir of [opts.reportsDir, opts.testResultsDir]) {
@@ -163,6 +180,7 @@ export function captureScenario(opts: CaptureOptions): CapturedFile[] {
   const resultsRaw = sandbox.readText(path.join(opts.reportsDir, 'results.json'));
   const data = JSON.parse(resultsRaw) as Record<string, unknown>;
   const toCopy = new Map<string, string>();
+  const short = shortDirNamer();
   forEachResult(data, (r) => {
     if (r.status === 'passed' || r.status === 'skipped' || !Array.isArray(r.attachments)) {
       if (Array.isArray(r.attachments)) r.attachments = [];
@@ -172,10 +190,11 @@ export function captureScenario(opts: CaptureOptions): CapturedFile[] {
       const p = typeof a.path === 'string' ? a.path : null;
       if (!p || !KEPT_ATTACHMENTS(String(a.name ?? ''), String(a.contentType ?? ''), p)) return [];
       const real = sandbox.resolve(p);
-      const rel = path.relative(testResultsReal, real);
-      if (rel.startsWith('..') || path.isAbsolute(rel)) throw new Error(`attachment outside test-results: ${path.basename(p)}`);
+      const relOriginal = path.relative(testResultsReal, real);
+      if (relOriginal.startsWith('..') || path.isAbsolute(relOriginal)) throw new Error(`attachment outside test-results: ${path.basename(p)}`);
+      const rel = short(relOriginal.split(path.sep).join('/'));
       toCopy.set(rel, real);
-      return [{ ...a, path: `/artifacts/test-results/${rel.split(path.sep).join('/')}` }];
+      return [{ ...a, path: `/artifacts/test-results/${rel}` }];
     });
   });
   const cleaned = mapStrings(data, (s) => (s.startsWith('/artifacts/test-results/') ? s : clean(s))) as Record<string, unknown>;
@@ -202,7 +221,7 @@ export function captureScenario(opts: CaptureOptions): CapturedFile[] {
   }
 
   for (const [rel, real] of [...toCopy.entries()].sort()) {
-    const target = path.join('test-results', rel);
+    const target = path.join('test-results', ...rel.split('/'));
     if (real.endsWith('.zip')) write(target, slimTrace(sandbox.readBytes(real), opts.redactor, 40 * 1024 * 1024));
     else if (real.endsWith('.md')) write(target, clean(sandbox.readText(real)));
     else write(target, sandbox.readBytes(real));

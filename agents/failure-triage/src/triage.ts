@@ -84,7 +84,7 @@ export async function triage(config: TriageConfig, deps: TriageDeps): Promise<Tr
   const apiKey = env.ANTHROPIC_API_KEY?.trim();
   let agentFailures: FailureTriage[] | null = null;
   if (!apiKey) {
-    report.modeReason = 'ANTHROPIC_API_KEY is not set (add it as a repository secret to enable the AI agent)';
+    report.modeReason = 'ANTHROPIC_API_KEY is not set (export it locally, or add it as a repository secret in CI, to enable the AI agent)';
   } else {
     const evidence = new EvidenceStore();
     const client = deps.createClient

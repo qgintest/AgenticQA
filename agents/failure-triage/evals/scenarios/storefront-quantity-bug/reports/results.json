@@ -188,17 +188,17 @@
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression/test-failed-1.png"
+                          "path": "/artifacts/test-results/t1/test-failed-1.png"
                         },
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression/error-context.md"
+                          "path": "/artifacts/test-results/t1/error-context.md"
                         },
                         {
                           "name": "trace",
                           "contentType": "application/zip",
-                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression/trace.zip"
+                          "path": "/artifacts/test-results/t1/trace.zip"
                         }
                       ],
                       "errorLocation": {
@@ -266,17 +266,17 @@
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression-retry1/test-failed-1.png"
+                          "path": "/artifacts/test-results/t1-retry1/test-failed-1.png"
                         },
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression-retry1/error-context.md"
+                          "path": "/artifacts/test-results/t1-retry1/error-context.md"
                         },
                         {
                           "name": "trace",
                           "contentType": "application/zip",
-                          "path": "/artifacts/test-results/orders-guest-checkout.ui-G-2c09f-ackend-records-it-correctly-regression-retry1/trace.zip"
+                          "path": "/artifacts/test-results/t1-retry1/trace.zip"
                         }
                       ],
                       "errorLocation": {
@@ -359,17 +359,17 @@
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression/test-failed-1.png"
+                          "path": "/artifacts/test-results/t2/test-failed-1.png"
                         },
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression/error-context.md"
+                          "path": "/artifacts/test-results/t2/error-context.md"
                         },
                         {
                           "name": "trace",
                           "contentType": "application/zip",
-                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression/trace.zip"
+                          "path": "/artifacts/test-results/t2/trace.zip"
                         }
                       ],
                       "errorLocation": {
@@ -412,17 +412,17 @@
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression-retry1/test-failed-1.png"
+                          "path": "/artifacts/test-results/t2-retry1/test-failed-1.png"
                         },
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression-retry1/error-context.md"
+                          "path": "/artifacts/test-results/t2-retry1/error-context.md"
                         },
                         {
                           "name": "trace",
                           "contentType": "application/zip",
-                          "path": "/artifacts/test-results/storefront-product-browsin-50394-nav-count-and-cart-contents-regression-retry1/trace.zip"
+                          "path": "/artifacts/test-results/t2-retry1/trace.zip"
                         }
                       ],
                       "errorLocation": {

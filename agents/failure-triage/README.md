@@ -120,7 +120,7 @@ results.json ──► parse failures (T1..Tn) ──► API key? ──no──
 ```bash
 cd agents/failure-triage
 npm ci
-npm test                 # build + 97 deterministic tests (scripted fake model, no API calls)
+npm test                 # build + deterministic tests (scripted fake model, no API calls)
 ```
 
 Triage the last local Playwright run (heuristic mode without a key):

@@ -299,17 +299,17 @@
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/artifacts/test-results/storefront-navigation-Stor-676fe-igates-to-the-store-listing-regression/test-failed-1.png"
+                          "path": "/artifacts/test-results/t1/test-failed-1.png"
                         },
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "/artifacts/test-results/storefront-navigation-Stor-676fe-igates-to-the-store-listing-regression/error-context.md"
+                          "path": "/artifacts/test-results/t1/error-context.md"
                         },
                         {
                           "name": "trace",
                           "contentType": "application/zip",
-                          "path": "/artifacts/test-results/storefront-navigation-Stor-676fe-igates-to-the-store-listing-regression/trace.zip"
+                          "path": "/artifacts/test-results/t1/trace.zip"
                         }
                       ],
                       "errorLocation": {
@@ -352,17 +352,17 @@
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/artifacts/test-results/storefront-navigation-Stor-676fe-igates-to-the-store-listing-regression-retry1/test-failed-1.png"
+                          "path": "/artifacts/test-results/t1-retry1/test-failed-1.png"
                         },
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "/artifacts/test-results/storefront-navigation-Stor-676fe-igates-to-the-store-listing-regression-retry1/error-context.md"
+                          "path": "/artifacts/test-results/t1-retry1/error-context.md"
                         },
                         {
                           "name": "trace",
                           "contentType": "application/zip",
-                          "path": "/artifacts/test-results/storefront-navigation-Stor-676fe-igates-to-the-store-listing-regression-retry1/trace.zip"
+                          "path": "/artifacts/test-results/t1-retry1/trace.zip"
                         }
                       ],
                       "errorLocation": {
@@ -503,17 +503,17 @@
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/artifacts/test-results/storefront-navigation-Stor-fabba-handle-returns-the-404-page-regression/test-failed-1.png"
+                          "path": "/artifacts/test-results/t2/test-failed-1.png"
                         },
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "/artifacts/test-results/storefront-navigation-Stor-fabba-handle-returns-the-404-page-regression/error-context.md"
+                          "path": "/artifacts/test-results/t2/error-context.md"
                         },
                         {
                           "name": "trace",
                           "contentType": "application/zip",
-                          "path": "/artifacts/test-results/storefront-navigation-Stor-fabba-handle-returns-the-404-page-regression/trace.zip"
+                          "path": "/artifacts/test-results/t2/trace.zip"
                         }
                       ],
                       "errorLocation": {
@@ -556,17 +556,17 @@
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/artifacts/test-results/storefront-navigation-Stor-fabba-handle-returns-the-404-page-regression-retry1/test-failed-1.png"
+                          "path": "/artifacts/test-results/t2-retry1/test-failed-1.png"
                         },
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "/artifacts/test-results/storefront-navigation-Stor-fabba-handle-returns-the-404-page-regression-retry1/error-context.md"
+                          "path": "/artifacts/test-results/t2-retry1/error-context.md"
                         },
                         {
                           "name": "trace",
                           "contentType": "application/zip",
-                          "path": "/artifacts/test-results/storefront-navigation-Stor-fabba-handle-returns-the-404-page-regression-retry1/trace.zip"
+                          "path": "/artifacts/test-results/t2-retry1/trace.zip"
                         }
                       ],
                       "errorLocation": {

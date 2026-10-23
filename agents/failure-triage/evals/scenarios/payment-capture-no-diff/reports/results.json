@@ -170,12 +170,12 @@
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "/artifacts/test-results/diagnostics-deliberate-fai-df68e-ed-when-the-order-is-placed-deliberate-failure/error-context.md"
+                          "path": "/artifacts/test-results/t1/error-context.md"
                         },
                         {
                           "name": "trace",
                           "contentType": "application/zip",
-                          "path": "/artifacts/test-results/diagnostics-deliberate-fai-df68e-ed-when-the-order-is-placed-deliberate-failure/trace.zip"
+                          "path": "/artifacts/test-results/t1/trace.zip"
                         }
                       ],
                       "errorLocation": {
@@ -218,12 +218,12 @@
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "/artifacts/test-results/diagnostics-deliberate-fai-df68e-ed-when-the-order-is-placed-deliberate-failure-retry1/error-context.md"
+                          "path": "/artifacts/test-results/t1-retry1/error-context.md"
                         },
                         {
                           "name": "trace",
                           "contentType": "application/zip",
-                          "path": "/artifacts/test-results/diagnostics-deliberate-fai-df68e-ed-when-the-order-is-placed-deliberate-failure-retry1/trace.zip"
+                          "path": "/artifacts/test-results/t1-retry1/trace.zip"
                         }
                       ],
                       "errorLocation": {

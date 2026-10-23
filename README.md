@@ -1,12 +1,15 @@
 # AgenticQA
 
+[![Regression](https://github.com/qgintest/AgenticQA/actions/workflows/regression.yml/badge.svg?branch=main)](https://github.com/qgintest/AgenticQA/actions/workflows/regression.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 A locally hosted agentic QA automation platform (portfolio project).
 
 | Directory | Purpose | Status |
 |---|---|---|
 | [`aut/`](aut) | Application Under Test: Medusa 2.21.2 backend + admin, Next.js storefront, Postgres, Redis (Docker Compose) | ✅ |
 | [`automation/`](automation) | Playwright + TypeScript regression suite (UI + API), CI in `.github/workflows/regression.yml` | ✅ |
-| [`agents/`](agents) | Agentic QA services. [`failure-triage/`](agents/failure-triage): AI triage of failed CI runs and [self-heal](agents/failure-triage/README.md#self-heal-locator-repair) of stale locators (Claude API), with a manually run [eval suite](agents/failure-triage/README.md#evaluation) | ✅ triage · ✅ self-heal (draft PRs) |
+| [`agents/`](agents) | Agentic QA services. [`failure-triage/`](agents/failure-triage): AI triage of failed CI runs and [self-heal](agents/failure-triage/README.md#self-heal-locator-repair) of stale locators (Claude API), with a manually run [eval suite](agents/failure-triage/README.md#evaluation) | ✅ triage · ✅ self-heal (PRs for review) |
 | [`docs/`](docs) | Setup and version documentation | ✅ |
 
 Automation and agents interact with the AUT only via its UI and HTTP APIs; they never import `aut/` code.
@@ -16,7 +19,7 @@ Automation and agents interact with the AUT only via its UI and HTTP APIs; they 
 ```bash
 cd aut
 sh scripts/init-env.sh
-docker compose up --build -d postgres redis medusa
+docker compose up --build -d --wait --wait-timeout 1200 postgres redis medusa   # first build ~15 min
 sh scripts/create-admin.sh        # credentials in aut/.env
 sh scripts/get-publishable-key.sh
 docker compose up -d storefront
@@ -29,7 +32,7 @@ docker compose up -d storefront
 ## Regression tests
 
 ```bash
-cd automation
+cd ../automation          # from aut/ (or: cd automation from the repo root)
 npm ci && npx playwright install chromium
 npm test              # full suite; report: npm run report
 ```

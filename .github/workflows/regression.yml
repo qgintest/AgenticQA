@@ -308,8 +308,8 @@ jobs:
           echo "Commit status on $SHA: $state"
 
   # Opens a pull request (ready for review) for a validated locator repair and starts the Regression
-  # workflow on it. Separate job so the write token never
-  # coexists with the API key, the AUT or the test run. It re-verifies the patch itself, applies it
+  # workflow on it. Separate job so the write token never coexists with the API key, the AUT or the
+  # test run. It re-verifies the patch itself, applies it
   # only to the exact commit that failed, and never merges. The regression job stays failed.
   heal-pr:
     name: Self-heal pull request
@@ -384,7 +384,7 @@ jobs:
             --title "Self-heal: repair stale locator in $file" --body-file "$HEAL_DIR/pr-body.md")
           # Review request is best effort (fails e.g. when the owner is an organization).
           if gh pr edit "$url" --add-reviewer "$REVIEWER" >/dev/null 2>&1; then reviewer="review requested from $REVIEWER"; else reviewer="no reviewer requested"; fi
-          # Run the regression suite on the repaired commit; its checks show up on the PR.
+          # Run the regression suite on the repaired commit; it reports back to the PR as a commit status.
           if gh workflow run regression.yml --ref "$heal_branch"; then ci="Regression workflow started on $heal_branch"; else ci="could not start the Regression workflow; run it manually on $heal_branch"; fi
           {
             echo "## 🩹 Self-heal pull request"
