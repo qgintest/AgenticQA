@@ -1,0 +1,13 @@
+diff --git a/automation/src/pages/product-page.ts b/automation/src/pages/product-page.ts
+index f1ea371..5291462 100644
+--- a/automation/src/pages/product-page.ts
++++ b/automation/src/pages/product-page.ts
+@@ -9,7 +9,7 @@ export class ProductPage extends BasePage {
+   readonly description: Locator = this.container.getByTestId('product-description');
+   readonly options: Locator = this.container.getByTestId('product-options');
+   readonly price: Locator = this.container.getByTestId('product-price').first();
+-  readonly addToCartButton: Locator = this.page.getByTestId('add-bag-button');
++  readonly addToCartButton: Locator = this.page.getByTestId('add-product-button');
+ 
+   async goto(handle: string): Promise<void> {
+     await this.page.goto(this.localized(`/products/${handle}`));

@@ -106,6 +106,7 @@ verification, permissions, limits).
 | **Real app bug correctly refused** | A storefront bug (one click adds two items) was classified as an **application defect** with the exact Expected/Received values, and self-heal did not touch it. Locally, validation also refused a repair that would have unmasked a stale buggy build. |
 | **Self-heal evaluation** | 8 recorded cases: 1 repair, 7 must-refuse (5 of them with a deliberately **wrong** triage verdict). Deterministic baseline: **8/8 correct, 0 false repairs**; most negatives are stopped by the gate before any model call. |
 | **Deterministic tests** | 139 agent tests, driven by a scripted fake model (no API calls); each key safeguard was switched off once to confirm the tests catch it. 13 regression tests. |
+| **Real agent outputs** | The triage report, self-heal result, patch and PR body from the PR #4 run, with a guide on what to look for → [docs/examples](docs/examples) |
 | **Cost per failed run** (Claude Opus 5.5, measured in CI) | Triage ~$0.10–0.50 (depends on how much evidence it gathers), self-heal ~$0.12; hard caps on turns, tokens, time and dollars. |
 
 **Limitations (honest scope):**
@@ -214,7 +215,7 @@ Troubleshooting and details: [docs/setup.md](docs/setup.md)
 | [`automation/`](automation) | Playwright suite: page objects, fixtures, UI + API tests ([guide](automation/README.md)) |
 | [`aut/`](aut) | The application under test (Medusa starter + Docker setup) |
 | [`scripts/demo-self-heal.sh`](scripts/demo-self-heal.sh) | Local self-heal demo |
-| [`docs/`](docs) | Setup guide and pinned versions |
+| [`docs/`](docs) | Setup guide, pinned versions, screenshots, [example outputs](docs/examples) |
 
 ## Evaluation
 
@@ -238,3 +239,4 @@ the manual **Triage eval** workflow in GitHub Actions.
 ## License & acknowledgements
 MIT, see [LICENSE](LICENSE). The application under test is built from Medusa's
 [dtc-starter](https://github.com/medusajs/dtc-starter) (MIT); see [NOTICE.md](NOTICE.md).
+Found a security issue? See [SECURITY.md](SECURITY.md).
